@@ -1,0 +1,7 @@
+{
+    "presets": ["env", "react", "mobx"],
+    "plugins": [
+        "transform-decorators-legacy",
+        "transform-class-properties"
+    ]
+}

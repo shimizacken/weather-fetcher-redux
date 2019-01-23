@@ -1,0 +1,21 @@
+@import '../../../styles/_globals.scss';
+
+.searchbox-wrapper {
+
+    width: 100%;
+
+    input[type=text] {
+
+        padding: 10px;
+        font-size: 20px;
+        border-radius: 15px;
+        border: 1px solid $input-border-color;
+        width: 70%;
+    }
+
+    .button-wrapper {
+
+        margin: 15px;
+        display: inline-block;
+    }
+}

@@ -1,0 +1,29 @@
+header {
+
+    display: inline-block;
+    padding: 30px;
+    padding-top: 5px;
+}
+
+.main-header {
+
+    font-style: italic;
+
+    img {
+
+        vertical-align: middle;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    
+    .main-header {
+        
+        font-size: 20px;
+
+        img {
+
+            width: 50px;
+        }
+    }
+}
