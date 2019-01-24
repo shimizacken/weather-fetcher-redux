@@ -19,12 +19,22 @@ export default class SearchHistoryList extends Component {
                                         `${item.history.name} (${item.history.sys.country}), Temp: ${item.history.main.temp}°C`
                                     }
                                 >
-                                    {item.history.name} {item.history.main.temp}{unitSymbols[item.tempType]}
-
+                                    <div>
+                                        <div>
+                                        {item.history.name} {item.history.main.temp}{unitSymbols[item.tempType]}
+                                        </div>
+                                        <div
+                                            className={style.dateTime}
+                                        >
+                                            {item.date.toLocaleString()}
+                                        </div>
+                                    </div>
                                     <div
-                                        className={style.dateTime}
+                                        style={{
+                                            textAlign: 'left'
+                                        }}
                                     >
-                                        {item.date.toLocaleString()}
+                                        X
                                     </div>
                                 </div>
                     })
