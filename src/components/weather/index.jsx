@@ -5,14 +5,15 @@ import { token } from '../../services/openweathermap/token';
 import { buildApiUrl } from '../../services/openweathermap/utils';
 import { SET_WEATHER,
             SET_TEMP_TYPE,
-            ADD_TO_SEARCH_HISTORY } from '../../constants';
+            ADD_TO_SEARCH_HISTORY,
+            API } from '../../constants';
 import WeatherDetails from './details';
 import { Loader } from '../portal/loader';
-import { request } from '../../services/net/fetch';
 import { ErrorMessage } from './errorMessage';
 import { MetricRadioButtons } from './metricRadiobuttons';
 const uniqid = require('uniqid');
 import styles from './styles.scss';
+import { setWeather } from '../../actions';
 
 class WeatherContainer extends Component {
 
@@ -21,7 +22,6 @@ class WeatherContainer extends Component {
         icon: '',
         main: '',
         description: '',
-        displayLoader: false,
         errorMessage: ''
     };
     
@@ -40,46 +40,6 @@ class WeatherContainer extends Component {
         });
     }
 
-    getWeather = () => {
-
-        const url = this.searchByCityName(this.state.cityName);
-
-        request(url)
-            .then(result => {
-
-                if (result.weather && result.weather.length > 0) {
-                    
-                    this.setState({
-                        cityName: ''
-                    });
-
-                    this.props.setWeather(result);
-                    this.updateHistorylist(result);
-                }
-                else {
-
-                    if (result && result.message) {
-
-                        this.setState({
-                            errorMessage: result.message
-                        });
-                    }
-                }
-            })
-            .catch(error => {
-
-                this.setState({
-                    errorMessage: error
-                });
-            })
-            .finally(_ => {
-
-                this.setState({
-                    displayLoader: false
-                });
-            });
-    }
-
     search = (e) => {
 
         e.preventDefault();
@@ -90,13 +50,13 @@ class WeatherContainer extends Component {
         }
         
         this.setState({
-            displayLoader: true,
             errorMessage: ''
         });
 
         this.props.setWeather();
 
-        this.getWeather();
+        const url = this.searchByCityName(this.state.cityName);
+        this.props.fetchWeather(url);
     }
 
     onChange = (e) => {
@@ -131,7 +91,7 @@ class WeatherContainer extends Component {
                         <SearchBoxContainer
                             value={this.state.cityName}
                             onChange={this.onChange}
-                            displayLoader={this.state.displayLoader}
+                            displayLoader={this.props.fetchWeatherFlag}
                         />
                     </form>
                     <MetricRadioButtons
@@ -151,7 +111,7 @@ class WeatherContainer extends Component {
                                 </div> :  null
                         }
                         {
-                            this.state.displayLoader ? <Loader /> : null
+                            this.props.fetchWeatherFlag ? <Loader /> : null
                         }
                         <ErrorMessage
                             errorMessage={this.state.errorMessage}
@@ -166,10 +126,18 @@ class WeatherContainer extends Component {
 const mapStateToProps = state => ({
     weather: state.weather,
     metricType: state.metricType,
-    historyList: state.historyList
+    historyList: state.historyList,
+    fetchWeatherFlag: state.fetchWeatherFlag
 });
 
 const mapDispatchToProps = dispatch => ({
+    fetchWeather: url => dispatch({
+        type: API,
+        payload: {
+            url: url,
+            success: (weather) => setWeather(weather)
+        }
+    }),
     setWeather: weather => dispatch({
         type: SET_WEATHER,
         weather
@@ -181,7 +149,8 @@ const mapDispatchToProps = dispatch => ({
     setHistory: history => dispatch({
         type: ADD_TO_SEARCH_HISTORY,
         history
-    })
+    }),
+    
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(WeatherContainer);

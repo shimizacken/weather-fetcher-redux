@@ -1,5 +1,9 @@
 export const ADD_TO_SEARCH_HISTORY = 'ADD_TO_SEARCH_HISTORY';
 
 export const SET_WEATHER = 'SET_WEATHER';
+export const START_FETCH_WEATHER = 'START_FETCH_WEATHER';
+export const END_FETCH_WEATHER = 'END_FETCH_WEATHER';
 
 export const SET_TEMP_TYPE = 'SET_TEMP_TYPE';
+
+export const API = 'API';

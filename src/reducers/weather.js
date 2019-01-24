@@ -1,4 +1,4 @@
-import { SET_WEATHER } from '../constants';
+import { SET_WEATHER, START_FETCH_WEATHER, END_FETCH_WEATHER } from '../constants';
 
 const initialState = [];
 
@@ -9,6 +9,18 @@ export const weather = (state = initialState, action) => {
             return Object.assign({}, state, {
                 weather: action.weather
             });
+    default:
+        return state
+  }
+};
+
+export const fetchWeatherFlag = (state = false, action) => {
+    
+    switch (action.type) {
+        case START_FETCH_WEATHER:
+            return true;
+        case END_FETCH_WEATHER:
+            return false;
     default:
         return state
   }

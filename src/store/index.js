@@ -1,8 +1,8 @@
 import { createStore, applyMiddleware } from 'redux';
 import reducers from '../reducers';
-import { logMiddeleware } from '../middlewares';
+import { logMiddeleware, fetchWeatherMiddleware } from '../middlewares';
 
-const store = createStore(reducers, applyMiddleware(logMiddeleware));
+const store = createStore(reducers, applyMiddleware(logMiddeleware, fetchWeatherMiddleware));
 
 window.STORE = store;
 
