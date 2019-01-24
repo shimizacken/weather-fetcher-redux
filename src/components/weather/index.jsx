@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import SearchBoxContainer from './searchBox';
 import { token } from '../../services/openweathermap/token';
 import { buildApiUrl } from '../../services/openweathermap/utils';
-import { SET_WEATHER, SET_CURRENT_WEATHER } from '../../constants';
+import { SET_WEATHER,
+            SET_TEMP_TYPE,
+            ADD_TO_SEARCH_HISTORY } from '../../constants';
 import WeatherDetails from './details';
 import { Loader } from '../portal/loader';
 import { request } from '../../services/net/fetch';
@@ -27,21 +29,13 @@ class WeatherContainer extends Component {
 
     updateHistorylist = result => {
 
-        let newArr = [];
-
-        if (this.props.historyList) {
         
-            newArr = this.props.historyList.slice(0);
-        }
-        
-        newArr.push({
+        this.props.setHistory({
             id: uniqid(),
             history: result,
             tempType: this.props.currentTempType,
             date: new Date()
-        })
-
-        this.props.searchHistory.setHistory(newArr);
+        });
     }
 
     getWeather = () => {
@@ -58,7 +52,7 @@ class WeatherContainer extends Component {
                     });
 
                     this.props.setWeather(result);
-                    //this.updateHistorylist(result);
+                    this.updateHistorylist(result);
                 }
                 else {
 
@@ -112,12 +106,11 @@ class WeatherContainer extends Component {
 
     radioChanged = e => {
 
-        this.props.weather.setTempType(e.target.value);
+        this.props.setTempType(e.target.value);
         this.searchByCityName = buildApiUrl(token(), this.props.currentTempType);
     }
 
     render() {
-        console.log('rendered', this.props.weather);
         
         return(
             <div
@@ -173,9 +166,13 @@ const mapDispatchToProps = dispatch => ({
         type: SET_WEATHER,
         weather
     }),
-    setCurrentWeather: currentWeather => dispatch({
-        type: SET_CURRENT_WEATHER,
-        currentWeather
+    setTempType: tempType => dispatch({
+        type: SET_TEMP_TYPE,
+        tempType
+    }),
+    setHistory: history => dispatch({
+        type: ADD_TO_SEARCH_HISTORY,
+        history
     })
 });
 

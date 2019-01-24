@@ -1,6 +1,5 @@
 export const ADD_TO_SEARCH_HISTORY = 'ADD_TO_SEARCH_HISTORY';
 
 export const SET_WEATHER = 'SET_WEATHER';
-export const SET_CURRENT_WEATHER = 'SET_CURRENT_WEATHER';
 
 export const SET_TEMP_TYPE = 'SET_TEMP_TYPE';

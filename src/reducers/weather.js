@@ -1,6 +1,6 @@
-import { SET_WEATHER, SET_CURRENT_WEATHER } from '../constants';
+import { SET_WEATHER } from '../constants';
 
-const initialState = {};
+const initialState = [];
 
 export const weather = (state = initialState, action) => {
     
@@ -9,11 +9,6 @@ export const weather = (state = initialState, action) => {
             return Object.assign({}, state, {
                 weather: action.weather
             });
-        case SET_CURRENT_WEATHER:
-            return Object.assign({}, state, {
-                currentWeather: action.currentWeather
-            });
-
     default:
         return state
   }

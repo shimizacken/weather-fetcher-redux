@@ -2,13 +2,13 @@ import { ADD_TO_SEARCH_HISTORY } from '../constants';
 
 const initialState = [];
 
-const addToHistoryList = (state = initialState, action) => {
+const historyList = (state = initialState, action) => {
   
     switch (action.type) {
         case ADD_TO_SEARCH_HISTORY:
-            return action.tempType
+            return [...state, action.history];
     default:
         return state
   }
 }
-export { addToHistoryList };
+export { historyList };
