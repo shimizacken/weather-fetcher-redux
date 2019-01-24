@@ -4,7 +4,8 @@ import {
     API,
     START_FETCH_WEATHER,
     END_FETCH_WEATHER,
-    ADD_TO_SEARCH_HISTORY
+    ADD_TO_SEARCH_HISTORY,
+    REMOVE_ITEM_FROM_HISTORY
 } from '../constants';
 
 export const setWeather = weather => ({
@@ -38,4 +39,7 @@ export const setHistory = history => ({
     history
 })
 
-
+export const removeItemFromHistoryList = id => ({
+  type: REMOVE_ITEM_FROM_HISTORY,
+  id
+})

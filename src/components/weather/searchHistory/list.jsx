@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { removeItemFromHistoryList } from '../../../actions';
 import PropTypes from 'prop-types';
 import { unitSymbols } from '../../../services/openweathermap/units';
 import style from './style.scss';
+import { dispatch } from 'rxjs/internal/observable/range';
+import { RemoveButton } from './removeButton';
 
-export default class SearchHistoryList extends Component {
+class SearchHistoryList extends Component {
+
+    removeItem = id => this.props.removeItemFromHistoryList(id);
 
     render() {
         
@@ -29,13 +35,11 @@ export default class SearchHistoryList extends Component {
                                             {item.date.toLocaleString()}
                                         </div>
                                     </div>
-                                    <div
-                                        style={{
-                                            textAlign: 'left'
-                                        }}
+                                    <RemoveButton
+                                        id={item.id}
+                                        removeItem={this.removeItem}
                                     >
-                                        X
-                                    </div>
+                                    </RemoveButton>
                                 </div>
                     })
                 }
@@ -43,3 +47,9 @@ export default class SearchHistoryList extends Component {
         );
     }
 }
+
+const mapDispatchToProps = dispatch => ({
+    removeItemFromHistoryList: id => dispatch(removeItemFromHistoryList(id))
+});
+
+export default connect(null, mapDispatchToProps)(SearchHistoryList);
