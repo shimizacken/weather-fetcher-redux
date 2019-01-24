@@ -3,13 +3,12 @@ import { connect } from 'react-redux';
 import SearchBoxContainer from './searchBox';
 import { token } from '../../services/openweathermap/token';
 import { buildApiUrl } from '../../services/openweathermap/utils';
-import { SET_WEATHER } from '../../constants';
+import { SET_WEATHER, SET_CURRENT_WEATHER } from '../../constants';
 import WeatherDetails from './details';
 import { Loader } from '../portal/loader';
 import { request } from '../../services/net/fetch';
 import { ErrorMessage } from './errorMessage';
 import { TempRadioButtons } from './tempRadiobuttons';
-//import { setWeather } from '../../actions';
 const uniqid = require('uniqid');
 import styles from './styles.scss';
 
@@ -24,7 +23,7 @@ class WeatherContainer extends Component {
         errorMessage: ''
     };
     
-    searchByCityName = buildApiUrl(token()/*, this.props.weather.currentTempType*/);
+    searchByCityName = buildApiUrl(token(), this.props.currentTempType);
 
     updateHistorylist = result => {
 
@@ -38,7 +37,7 @@ class WeatherContainer extends Component {
         newArr.push({
             id: uniqid(),
             history: result,
-            tempType: this.props.weather.currentTempType,
+            tempType: this.props.currentTempType,
             date: new Date()
         })
 
@@ -114,10 +113,11 @@ class WeatherContainer extends Component {
     radioChanged = e => {
 
         this.props.weather.setTempType(e.target.value);
-        this.searchByCityName = buildApiUrl(token(), this.props.weather.currentTempType);
+        this.searchByCityName = buildApiUrl(token(), this.props.currentTempType);
     }
 
     render() {
+        console.log('rendered', this.props.weather);
         
         return(
             <div
@@ -140,14 +140,14 @@ class WeatherContainer extends Component {
                         className={styles.resultsWrapper}
                     >
                         {
-                            this.props.weather.currentWeather || 
+                            this.props.weather ? 
                                 <div
                                     className={styles.detailsWrapper}
                                 >
                                     <WeatherDetails
-                                        data={this.props.weather.currentWeather}
+                                        data={this.props.weather}
                                     />
-                                </div>
+                                </div> :  null
                         }
                         {
                             this.state.displayLoader ? <Loader /> : null
@@ -172,6 +172,10 @@ const mapDispatchToProps = dispatch => ({
     setWeather: weather => dispatch({
         type: SET_WEATHER,
         weather
+    }),
+    setCurrentWeather: currentWeather => dispatch({
+        type: SET_CURRENT_WEATHER,
+        currentWeather
     })
 });
 

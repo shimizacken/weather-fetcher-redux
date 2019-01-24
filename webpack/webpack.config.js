@@ -25,6 +25,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.webpack.js', '.web.js', '.json', '.png'],
     modules: ['node_modules']
   },
+  devtool: 'source-map',
   module: {
     rules: [
       {
