@@ -9,6 +9,7 @@ import { Loader } from '../portal/loader';
 import { request } from '../../services/net/fetch';
 import { ErrorMessage } from './errorMessage';
 import { TempRadioButtons } from './tempRadiobuttons';
+//import { setWeather } from '../../actions';
 const uniqid = require('uniqid');
 import styles from './styles.scss';
 
@@ -57,8 +58,8 @@ class WeatherContainer extends Component {
                         cityName: ''
                     });
 
-                    this.props.weather.setWeather(result);
-                    this.updateHistorylist(result);
+                    this.props.setWeather(result);
+                    //this.updateHistorylist(result);
                 }
                 else {
 
@@ -98,7 +99,7 @@ class WeatherContainer extends Component {
             errorMessage: ''
         });
 
-        this.props.weather.setWeather();
+        this.props.setWeather();
 
         this.getWeather();
     }
@@ -168,8 +169,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    setWeather: () => dispatch({
-      type: SET_WEATHER
+    setWeather: weather => dispatch({
+        type: SET_WEATHER,
+        weather
     })
 });
 

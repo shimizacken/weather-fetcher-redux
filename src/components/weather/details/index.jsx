@@ -8,6 +8,11 @@ export default class WeatherDetails extends Component {
         
         const { data } = this.props;
 
+        if (!data) {
+            
+            return null;
+        }
+
         const city = data.weather[0];
 
         return(

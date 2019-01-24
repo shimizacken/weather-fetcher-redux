@@ -1,7 +1,10 @@
-const initialState = {
+import { combineReducers } from 'redux';
+import { weather } from './weather';
+import { currentTempType } from './tempType';
+import { addToHistoryList } from './history';
 
-}
-
-export default (state = initialState, action) => {
-    return state
-}
+export default combineReducers({
+    weather: weather,
+    currentTempType: currentTempType,
+    addToHistoryList: addToHistoryList
+});
