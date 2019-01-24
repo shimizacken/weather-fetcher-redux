@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { inject, observer } from 'mobx-react';
+import { connect } from 'react-redux';
 import SearchBoxContainer from './searchBox';
 import { token } from '../../services/openweathermap/token';
 import { buildApiUrl } from '../../services/openweathermap/utils';
+import { SET_WEATHER } from '../../constants';
 import WeatherDetails from './details';
 import { Loader } from '../portal/loader';
 import { request } from '../../services/net/fetch';
@@ -11,8 +12,7 @@ import { TempRadioButtons } from './tempRadiobuttons';
 const uniqid = require('uniqid');
 import styles from './styles.scss';
 
-@inject('weather', 'favorites', 'searchHistory') @observer
-export default class WeatherContainer extends Component {
+class WeatherContainer extends Component {
 
     state = {
         cityName: '',
@@ -23,15 +23,15 @@ export default class WeatherContainer extends Component {
         errorMessage: ''
     };
     
-    searchByCityName = buildApiUrl(token(), this.props.weather.currentTempType);
+    searchByCityName = buildApiUrl(token()/*, this.props.weather.currentTempType*/);
 
     updateHistorylist = result => {
 
         let newArr = [];
 
-        if (this.props.searchHistory.historyList) {
+        if (this.props.historyList) {
         
-            newArr = this.props.searchHistory.historyList.slice(0);
+            newArr = this.props.historyList.slice(0);
         }
         
         newArr.push({
@@ -139,14 +139,14 @@ export default class WeatherContainer extends Component {
                         className={styles.resultsWrapper}
                     >
                         {
-                            this.props.weather.currentWeather ?  
+                            this.props.weather.currentWeather || 
                                 <div
                                     className={styles.detailsWrapper}
                                 >
                                     <WeatherDetails
                                         data={this.props.weather.currentWeather}
                                     />
-                                </div> : null
+                                </div>
                         }
                         {
                             this.state.displayLoader ? <Loader /> : null
@@ -160,3 +160,17 @@ export default class WeatherContainer extends Component {
         );
     }
 }
+
+const mapStateToProps = state => ({
+    weather: state.weather,
+    currentTempType: state.currentTempType,
+    historyList: state.historyList
+});
+
+const mapDispatchToProps = dispatch => ({
+    setWeather: () => dispatch({
+      type: SET_WEATHER
+    })
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(WeatherContainer);

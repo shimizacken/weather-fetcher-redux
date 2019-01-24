@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { inject, observer } from 'mobx-react';
 import List from './list';
 import style from './style.scss';
 
-@inject('searchHistory') @observer
-export default class SearchHistoryContainer extends Component {
+class SearchHistoryContainer extends Component {
 
     render() {
 
-        if (!this.props.searchHistory.historyList) {
+        if (!this.props.historyList) {
             
             return null;
         }
@@ -19,12 +18,18 @@ export default class SearchHistoryContainer extends Component {
                 className={style.searchHistoryPanel}
             >
                 <h4>
-                    History ({this.props.searchHistory.searchHistoryLength})
+                    History ({this.props.historyList.length})
                 </h4>
                 <List
-                    list={this.props.searchHistory.historyList.reverse()}
+                    list={this.props.historyList.reverse()}
                 />
             </div>
         );
     }
 }
+
+const mapStateToProps = state => ({
+    historyList: state.historyList
+});
+
+export default connect(mapStateToProps)(SearchHistoryContainer);

@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'mobx-react';
-import stores from './stores';
+import { Provider } from 'react-redux';
+import store from './store';
 import MainPortalContainer from './components/portal';
 
 ReactDOM.render(
-    <Provider {...stores}>
+    <Provider store={store}>
         <MainPortalContainer />
     </Provider>,
     document.getElementById('root')
