@@ -10,7 +10,7 @@ import WeatherDetails from './details';
 import { Loader } from '../portal/loader';
 import { request } from '../../services/net/fetch';
 import { ErrorMessage } from './errorMessage';
-import { TempRadioButtons } from './tempRadiobuttons';
+import { MetricRadioButtons } from './metricRadiobuttons';
 const uniqid = require('uniqid');
 import styles from './styles.scss';
 
@@ -25,15 +25,17 @@ class WeatherContainer extends Component {
         errorMessage: ''
     };
     
-    searchByCityName = buildApiUrl(token(), this.props.currentTempType);
+    componentDidMount() {
+
+        this.searchByCityName = buildApiUrl(token(), this.props.metricType);        
+    }
 
     updateHistorylist = result => {
 
-        
         this.props.setHistory({
             id: uniqid(),
             history: result,
-            tempType: this.props.currentTempType,
+            tempType: this.props.metricType,
             date: new Date()
         });
     }
@@ -104,10 +106,14 @@ class WeatherContainer extends Component {
         });
     }
 
+    componentDidUpdate() {
+
+        this.searchByCityName = buildApiUrl(token(), this.props.metricType);
+    }
+
     radioChanged = e => {
 
         this.props.setTempType(e.target.value);
-        this.searchByCityName = buildApiUrl(token(), this.props.currentTempType);
     }
 
     render() {
@@ -128,7 +134,9 @@ class WeatherContainer extends Component {
                             displayLoader={this.state.displayLoader}
                         />
                     </form>
-                    <TempRadioButtons radioChanged={this.radioChanged} />
+                    <MetricRadioButtons
+                        radioChanged={this.radioChanged}
+                    />
                     <div
                         className={styles.resultsWrapper}
                     >
@@ -157,7 +165,7 @@ class WeatherContainer extends Component {
 
 const mapStateToProps = state => ({
     weather: state.weather,
-    currentTempType: state.currentTempType,
+    metricType: state.metricType,
     historyList: state.historyList
 });
 

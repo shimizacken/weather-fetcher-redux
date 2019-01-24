@@ -3,7 +3,7 @@ import { units } from '../services/openweathermap/units';
 
 const initialState = units.celsius;
 
-const currentTempType = (state = initialState, action) => {
+const metricType = (state = initialState, action) => {
   
     switch (action.type) {
         case SET_TEMP_TYPE:
@@ -12,4 +12,4 @@ const currentTempType = (state = initialState, action) => {
         return state
   }
 }
-export { currentTempType };
+export { metricType };

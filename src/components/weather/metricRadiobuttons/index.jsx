@@ -3,7 +3,7 @@ import RadioButton from '../../portal/radioButton';
 import { units } from '../../../services/openweathermap/units';
 import styles from './style.scss';
 
-export const TempRadioButtons = props =>
+export const MetricRadioButtons = props =>
     <div>
         <RadioButton
             text='Celsius'
