@@ -4,6 +4,7 @@ import {
     endFetchWeather,
     setHistory
 } from '../actions';
+import { normalize } from 'normalizr';
 const uniqid = require('uniqid');
 
 export const fetchWeatherMiddleware = ({ dispatch, getState }) => next => action => {
@@ -14,17 +15,22 @@ export const fetchWeatherMiddleware = ({ dispatch, getState }) => next => action
     }
 
     const { url, success } = action.payload;
-
-    console.log('fetchWeatherMiddleware', url);
     
     dispatch(startFetchWeather());
 
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            // if (schema) {
-            //     data = normalize(data, schema);
-            // }
+ 
+        // if (schema) {
+
+        //     data = normalize(data, schema);
+        // }
+        
+        if (data && data.cod !== 200) {
+            throw data.message;
+            return;
+        }
 
         dispatch(success(data));
         dispatch(endFetchWeather());
@@ -36,7 +42,6 @@ export const fetchWeatherMiddleware = ({ dispatch, getState }) => next => action
         }));
     })
     .catch(error => {
-        
         console.error(error);
         dispatch(endFetchWeather());
     })
