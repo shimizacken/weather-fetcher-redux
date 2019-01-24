@@ -11,7 +11,6 @@ import WeatherDetails from './details';
 import { Loader } from '../portal/loader';
 import { ErrorMessage } from './errorMessage';
 import { MetricRadioButtons } from './metricRadiobuttons';
-const uniqid = require('uniqid');
 import styles from './styles.scss';
 import { setWeather } from '../../actions';
 
@@ -27,19 +26,14 @@ class WeatherContainer extends Component {
     
     componentDidMount() {
 
-        this.searchByCityName = buildApiUrl(token(), this.props.metricType);        
+        this.searchByCityNameUrl = buildApiUrl(token(), this.props.metricType);   
     }
 
-    updateHistorylist = result => {
+    componentDidUpdate() {
 
-        this.props.setHistory({
-            id: uniqid(),
-            history: result,
-            tempType: this.props.metricType,
-            date: new Date()
-        });
+        this.searchByCityNameUrl = buildApiUrl(token(), this.props.metricType);
     }
-
+    
     search = (e) => {
 
         e.preventDefault();
@@ -53,9 +47,9 @@ class WeatherContainer extends Component {
             errorMessage: ''
         });
 
-        this.props.setWeather();
+        this.props.setWeather('');
 
-        const url = this.searchByCityName(this.state.cityName);
+        const url = this.searchByCityNameUrl(this.state.cityName);
         this.props.fetchWeather(url);
     }
 
@@ -64,11 +58,6 @@ class WeatherContainer extends Component {
         this.setState({
             cityName: e.target.value
         });
-    }
-
-    componentDidUpdate() {
-
-        this.searchByCityName = buildApiUrl(token(), this.props.metricType);
     }
 
     radioChanged = e => {
@@ -145,12 +134,7 @@ const mapDispatchToProps = dispatch => ({
     setTempType: tempType => dispatch({
         type: SET_TEMP_TYPE,
         tempType
-    }),
-    setHistory: history => dispatch({
-        type: ADD_TO_SEARCH_HISTORY,
-        history
-    }),
-    
+    })    
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(WeatherContainer);

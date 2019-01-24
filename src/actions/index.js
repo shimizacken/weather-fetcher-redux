@@ -3,7 +3,8 @@ import {
     SET_CURRENT_WEATHER,
     API,
     START_FETCH_WEATHER,
-    END_FETCH_WEATHER 
+    END_FETCH_WEATHER,
+    ADD_TO_SEARCH_HISTORY
 } from '../constants';
 
 export const setWeather = weather => ({
@@ -30,5 +31,11 @@ export const startFetchWeather = () => ({
 
 export const endFetchWeather = () => ({
     type: END_FETCH_WEATHER
-  });
+});
+
+export const setHistory = history => ({
+    type: ADD_TO_SEARCH_HISTORY,
+    history
+})
+
 
