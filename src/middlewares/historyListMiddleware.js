@@ -1,4 +1,8 @@
-import { END_ADD_TO_SEARCH_HISTORY, END_REMOVE_ITEM_FROM_HISTORY } from "../constants";
+import { 
+    END_ADD_TO_SEARCH_HISTORY,
+    END_REMOVE_ITEM_FROM_HISTORY,
+    HISTORY_LIST_SAVED_INTO_LOCAL_STORAGE
+} from "../constants";
 
 export const historyListMiddleware = ({ dispatch, getState }) => next => action => {
 
@@ -6,6 +10,10 @@ export const historyListMiddleware = ({ dispatch, getState }) => next => action 
             || action.type === END_REMOVE_ITEM_FROM_HISTORY) {
         
         window.localStorage.setItem('_history_list_', JSON.stringify(getState().historyList));
+
+        dispatch({
+            type: HISTORY_LIST_SAVED_INTO_LOCAL_STORAGE
+        })
     }
 
     return next(action);
