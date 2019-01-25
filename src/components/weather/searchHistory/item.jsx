@@ -44,7 +44,7 @@ export default class Item extends Component {
                 </div>
                 <RemoveButton
                     id={item.id}
-                    removeItem={this.removeItem}
+                    removeItem={this.props.removeItem}
                 >
                 </RemoveButton>
             </div>

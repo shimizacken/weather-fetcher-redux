@@ -22,6 +22,7 @@ class SearchHistoryList extends Component {
                         return <Item
                                     key={item.id}
                                     item={item}
+                                    removeItem={this.removeItem}
                                 />
                     })
                 }
