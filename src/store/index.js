@@ -1,9 +1,10 @@
 import { createStore, applyMiddleware } from 'redux';
 import reducers from '../reducers';
-import { logMiddeleware } from '../middlewares/logMiddeleware';
-import { fetchWeatherMiddleware } from '../middlewares/fetchWeatherMiddleware';
+import { middlewares } from '../middlewares';
 
-const store = createStore(reducers, applyMiddleware(logMiddeleware, fetchWeatherMiddleware));
+const store = createStore(
+    reducers,
+    applyMiddleware(...middlewares));
 
 window.STORE = store;
 
