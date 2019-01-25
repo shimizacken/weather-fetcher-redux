@@ -34,15 +34,18 @@ export const fetchWeatherMiddleware = ({ dispatch, getState }) => next => action
 
         dispatch(success(data));
         dispatch(endFetchWeather());
-        dispatch(setHistory({
+
+        const historyItem = {
             id: uniqid(),
             history: data,
             tempType: getState().metricType,
             date: new Date()
-        }));
+        };
+
+        dispatch(setHistory(historyItem));
     })
     .catch(error => {
         console.error(error);
         dispatch(endFetchWeather());
-    })
+    });
 };
