@@ -1,4 +1,4 @@
-import { API } from '../constants';
+import { API, END_ADD_TO_SEARCH_HISTORY } from '../constants';
 import { 
     startFetchWeather,
     endFetchWeather,
@@ -43,6 +43,9 @@ export const fetchWeatherMiddleware = ({ dispatch, getState }) => next => action
         };
 
         dispatch(setHistory(historyItem));
+        dispatch({
+            type: END_ADD_TO_SEARCH_HISTORY
+        })
     })
     .catch(error => {
         console.error(error);
