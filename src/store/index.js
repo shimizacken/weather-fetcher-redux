@@ -1,15 +1,7 @@
 import { createStore, applyMiddleware } from 'redux';
 import reducers from '../reducers';
 import { middlewares } from '../middlewares';
-
-const getHistoryList = () => {
-
-    const historyList = window.localStorage.getItem('_history_list_');
-
-    if (historyList) {
-        return JSON.parse(historyList);
-    }
-}
+import { getHistoryList } from '../services/ui/historyList';
 
 const initialState = {
     historyList: getHistoryList()
