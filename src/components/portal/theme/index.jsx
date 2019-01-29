@@ -6,7 +6,7 @@ import styles from './styles.scss';
 class Theme extends Component {
 
     render() {
-
+        debugger
         const theme = (this.props.themeType === themeType.dark) 
                             ? styles.rootDarkTheme : styles.rootDefaultTheme;
 
@@ -21,4 +21,8 @@ class Theme extends Component {
     }
 }
 
-export default Theme;
+const mapStateToProps = state => ({
+    themeType: state.themeType
+});
+
+export default connect(mapStateToProps)(Theme);
