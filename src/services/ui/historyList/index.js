@@ -1,4 +1,4 @@
-export const getHistoryList = () => {
+export const getPersistedHistoryList = () => {
 
     const historyList = window.localStorage.getItem('_history_list_');
 
