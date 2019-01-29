@@ -12,3 +12,6 @@ export const END_FETCH_WEATHER = 'END_FETCH_WEATHER';
 export const SET_TEMP_TYPE = 'SET_TEMP_TYPE';
 
 export const API = 'API';
+
+export const DEFAULT_THEME = 'DEFAULT_THEME';
+export const DARK_THEME = 'DARK_THEME';
