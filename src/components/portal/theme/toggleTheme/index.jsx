@@ -6,17 +6,14 @@ import { TOGGLE_THEME } from '../../../../constants';
 
 class ToggleTheme extends Component {
 
-    toggleTheme = e => {
-
-        this.props.toggle(parseInt(e.target.value));
-    }
+    toggleTheme = e => this.props.toggle(parseInt(e.target.value));
 
     render() {
 
         return(
             <div>
                 <RadioButton
-                    text='Day'
+                    text='☀'
                     value={themeTypes.default}
                     name='themeType'
                     //className={styles.radioButton}
@@ -24,7 +21,7 @@ class ToggleTheme extends Component {
                     onChange={this.toggleTheme}
                 />
                 <RadioButton
-                    text='Night'
+                    text='☽'
                     value={themeTypes.dark}
                     name='themeType'
                     //className={styles.radioButton}
