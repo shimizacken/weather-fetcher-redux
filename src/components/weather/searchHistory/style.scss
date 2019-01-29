@@ -2,8 +2,10 @@
 
 .search-history-panel {
   position: fixed;
-  height: 100vh;
+  height: 95vh;
   width: 10vw;
+  overflow: hidden;
+  border-radius: 15px;
 
   top: 0;
   right: 0;
