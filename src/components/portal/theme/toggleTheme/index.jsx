@@ -4,6 +4,7 @@ import RadioButton from '../../../portal/radioButton';
 import themeTypes from '../../../../services/themes';
 import { TOGGLE_THEME, THEME_CHANGED } from '../../../../constants';
 import { getPersistedTheme } from '../../../../services/ui/theme';
+import styles from './styles.scss';
 
 class ToggleTheme extends Component {
 
@@ -18,12 +19,13 @@ class ToggleTheme extends Component {
     render() {
 
         return(
-            <div>
+            <div
+                className={styles.rootToggleTheme}
+            >
                 <RadioButton
                     text='☀'
                     value={themeTypes.default}
                     name='themeType'
-                    //className={styles.radioButton}
                     checked={this.defaultThemeType === themeTypes.default}
                     onChange={this.toggleTheme}
                 />
@@ -32,7 +34,6 @@ class ToggleTheme extends Component {
                     value={themeTypes.dark}
                     name='themeType'
                     checked={this.defaultThemeType === themeTypes.dark}
-                    //className={styles.radioButton}
                     onChange={this.toggleTheme}
                 />
             </div>
