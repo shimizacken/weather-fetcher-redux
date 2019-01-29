@@ -1,14 +1,16 @@
-import { DARK_THEME } from '../constants';
-import { themeType } from '../services/themes';
+import { TOGGLE_THEME } from '../constants';
+import themeTypes from '../services/themes';
 
-const theme = (state = themeType.default, action) => {
+const initial = themeTypes.default;
+
+const themeType = (state = initial, action) => {
 
     switch (action.type) {
-        case DARK_THEME:
-            return themeType.dark;
+        case TOGGLE_THEME:
+            return action.themeType;
         default:
             return state;
   }
 }
 
-export { theme };
+export { themeType };

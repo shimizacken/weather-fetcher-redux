@@ -13,5 +13,4 @@ export const SET_TEMP_TYPE = 'SET_TEMP_TYPE';
 
 export const API = 'API';
 
-export const DEFAULT_THEME = 'DEFAULT_THEME';
-export const DARK_THEME = 'DARK_THEME';
+export const TOGGLE_THEME = 'TOGGLE_THEME';
