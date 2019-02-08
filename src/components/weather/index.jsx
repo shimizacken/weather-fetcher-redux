@@ -115,7 +115,7 @@ class WeatherContainer extends Component {
 const mapStateToProps = state => ({
     weather: state.weather,
     metricType: state.metricType,
-    historyList: state.historyList,
+    searchHistory: state.searchHistory,
     fetchWeatherFlag: state.fetchWeatherFlag
 });
 

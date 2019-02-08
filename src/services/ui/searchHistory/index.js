@@ -1,10 +1,10 @@
 export const getPersistedHistoryList = () => {
 
-    const historyList = window.localStorage.getItem('_history_list_');
+    const searchHistory = window.localStorage.getItem('_history_list_');
 
-    if (historyList) {
+    if (searchHistory) {
         
-        const array = JSON.parse(historyList);
+        const array = JSON.parse(searchHistory);
 
         return array.sort((a, b) => new Date(b.date) - new Date(a.date))
                                                                     .reverse();

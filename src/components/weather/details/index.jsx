@@ -22,7 +22,7 @@ export default class WeatherDetails extends Component {
                     className={styles.cityName}
                 >
                     <h2>
-                        {data.name} <span className={styles.country}>({data.sys.country})</span> weather today
+                        {data.name} <span className={styles.country}>({data.sys.country})</span> weather now
                     </h2>
                 </div>
                 <div

@@ -5,7 +5,7 @@ import {
 
 const initialState = [];
 
-const historyList = (state = initialState, action) => {
+const searchHistory = (state = initialState, action) => {
   
     switch (action.type) {
         case ADD_TO_SEARCH_HISTORY:
@@ -16,4 +16,4 @@ const historyList = (state = initialState, action) => {
         return state
   }
 }
-export { historyList };
+export { searchHistory };

@@ -8,7 +8,7 @@ class SearchHistoryContainer extends Component {
 
     render() {
 
-        if (!this.props.historyList) {
+        if (!this.props.searchHistory) {
             
             return null;
         }
@@ -18,10 +18,10 @@ class SearchHistoryContainer extends Component {
                 className={style.searchHistoryPanel}
             >
                 <h4>
-                    History ({this.props.historyList.length})
+                    History ({this.props.searchHistory.length})
                 </h4>
                 <List
-                    list={this.props.historyList.reverse()}
+                    list={this.props.searchHistory.reverse()}
                 />
             </div>
         );
@@ -29,7 +29,7 @@ class SearchHistoryContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-    historyList: state.historyList
+    searchHistory: state.searchHistory
 });
 
 export default connect(mapStateToProps)(SearchHistoryContainer);
