@@ -1,4 +1,4 @@
-# ⛅️ weather-fetcher ☔️
+# ⛅️ weather-fetcher-redux ☔️
 Simple web app for dispalying the weather based on a city name. The application based `React` and made usage of [`openweathermap.org`](https://www.openweathermap.org/) api
 
 ## Usage
