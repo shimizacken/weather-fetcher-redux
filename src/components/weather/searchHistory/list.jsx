@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { removeItemFromHistoryList } from '../../../actions';
-import PropTypes from 'prop-types';
+import { removeItemFromHistoryList, removeItemFromHistoryListEnded } from '../../../actions';
 import style from './style.scss';
-import { dispatch } from 'rxjs/internal/observable/range';
 import Item from './item';
 
 class SearchHistoryList extends Component {
 
-    removeItem = id => this.props.removeItemFromHistoryList(id);
+    removeItem = id => {
+        this.props.removeItemFromHistoryList(id);
+        this.props.removeItemFromHistoryListEnded();
+    }
 
     render() {
 
@@ -32,7 +33,8 @@ class SearchHistoryList extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-    removeItemFromHistoryList: id => dispatch(removeItemFromHistoryList(id))
+    removeItemFromHistoryList: id => dispatch(removeItemFromHistoryList(id)),
+    removeItemFromHistoryListEnded: id => dispatch(removeItemFromHistoryListEnded())
 });
 
 export default connect(null, mapDispatchToProps)(SearchHistoryList);
