@@ -9,12 +9,15 @@ const initialState = {
     themeType: getPersistedTheme()
 };
 
+const composeEnhancers = process.env.NODE_ENV === 'development'
+  ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+  : compose;
+
 const store = createStore(
     reducers,
     initialState,
-    applyMiddleware(...middlewares)
+    composeEnhancers(applyMiddleware(...middlewares))
 );
 
-window.STORE = store;
 
 export default store;
