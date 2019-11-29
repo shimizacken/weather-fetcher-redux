@@ -5,9 +5,9 @@ import { searchHistory } from './history';
 import { themeType } from './theme';
 
 export default combineReducers({
-    weather,
-    metricType,
-    searchHistory,
-    fetchWeatherFlag,
-    themeType
+  weather,
+  metricType,
+  searchHistory,
+  fetchWeatherFlag,
+  themeType
 });

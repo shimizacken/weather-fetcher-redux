@@ -12,11 +12,7 @@ const htmlPlugin = new HtmlWebPackPlugin({
 });
 
 module.exports = {
-  entry: [
-    'babel-polyfill',
-    'whatwg-fetch',
-    './src/app.js'
-  ],
+  entry: ['babel-polyfill', 'whatwg-fetch', './src/app.js'],
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: 'main.js'
@@ -36,35 +32,32 @@ module.exports = {
         }
       },
       {
-          test: /\.(jpg|png|svg|ico)$/,
-          use: 'file-loader?name=./images/[hash].[ext]'
+        test: /\.(jpg|png|svg|ico)$/,
+        use: 'file-loader?name=./images/[hash].[ext]'
       },
       {
         test: /\.scss$/,
         use: extractSASS.extract({
-            fallback: ['style-loader'], // translates CSS into CommonJS
-            use: [
-                {
-                    loader: 'css-loader',
-                    options: {
-                        modules: true,
-                        localIdentName: '[local]--[hash:base64:5]',
-                        sourceMap: true,
-                        minimize: true,
-                        camelCase: true
-                    }
-                },
-                'sass-loader'
-            ] // compiles sass to CSS
+          fallback: ['style-loader'], // translates CSS into CommonJS
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+                localIdentName: '[local]--[hash:base64:5]',
+                sourceMap: true,
+                minimize: true,
+                camelCase: true
+              }
+            },
+            'sass-loader'
+          ] // compiles sass to CSS
         })
       }
     ]
   },
-  plugins: [
-    extractSASS,
-    htmlPlugin
-  ],
+  plugins: [extractSASS, htmlPlugin],
   devServer: {
-    port: 9200,
+    port: 9200
   }
 };

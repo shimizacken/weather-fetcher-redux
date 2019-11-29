@@ -5,8 +5,8 @@ import store from './store';
 import MainPortalContainer from './components/portal';
 
 ReactDOM.render(
-    <Provider store={store}>
-        <MainPortalContainer />
-    </Provider>,
-    document.getElementById('root')
+  <Provider store={store}>
+    <MainPortalContainer />
+  </Provider>,
+  document.getElementById('root')
 );

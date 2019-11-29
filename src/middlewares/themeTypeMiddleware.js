@@ -1,11 +1,9 @@
 import { THEME_CHANGED } from '../constants';
 
-export const themeTypeMiddleware = ({ dispatch, getState }) => next => action => {
+export const themeTypeMiddleware = ({ getState }) => next => action => {
+  if (action.type === THEME_CHANGED) {
+    window.localStorage.setItem('_theme_type_', getState().themeType);
+  }
 
-    if (action.type === THEME_CHANGED) {
-    
-        window.localStorage.setItem('_theme_type_', getState().themeType);
-    }
-
-    return next(action);
+  return next(action);
 };
