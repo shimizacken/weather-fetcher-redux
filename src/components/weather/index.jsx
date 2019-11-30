@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import SearchBoxContainer from './searchBox';
+import SearchBoxContainer from '../common';
 import { token } from '../../services/openweathermap/token';
 import { buildApiUrl } from '../../services/openweathermap/utils';
 import { SET_WEATHER,

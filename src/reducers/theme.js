@@ -1,9 +1,9 @@
 import { TOGGLE_THEME } from '../constants';
-import themeTypes from '../services/themes';
+import { ThemeTypes } from '../services/themes';
 
-const initial = themeTypes.default;
+const initialState = ThemeTypes.default;
 
-const themeType = (state = initial, action) => {
+export const themeType = (state = initialState, action) => {
   switch (action.type) {
     case TOGGLE_THEME:
       return action.themeType;
@@ -11,5 +11,3 @@ const themeType = (state = initial, action) => {
       return state;
   }
 };
-
-export { themeType };

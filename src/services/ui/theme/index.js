@@ -1,4 +1,4 @@
-import themeTypes from '../../themes';
+import { ThemeTypes } from '../../themes';
 
 export const getPersistedTheme = () => {
   const themeType = window.localStorage.getItem('_theme_type_');
@@ -7,5 +7,5 @@ export const getPersistedTheme = () => {
     return parseInt(themeType);
   }
 
-  return themeTypes.default;
+  return ThemeTypes.default;
 };

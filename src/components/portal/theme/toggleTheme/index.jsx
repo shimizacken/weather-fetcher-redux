@@ -1,57 +1,63 @@
-import React, { Component } from 'React';
+import React from 'React';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import RadioButton from '../../../portal/radioButton';
-import themeTypes from '../../../../services/themes';
+import { ThemeTypes } from '../../../../services/themes';
 import { TOGGLE_THEME, THEME_CHANGED } from '../../../../constants';
 import { getPersistedTheme } from '../../../../services/ui/theme';
 import styles from './styles.scss';
 
-class ToggleTheme extends Component {
+const ToggleTheme = ({ toggle, themeChanged }) => {
+  const defaultThemeType = getPersistedTheme();
 
-    defaultThemeType = getPersistedTheme();
+  const toggleTheme = e => {
+    toggle(parseInt(e.target.value));
+    themeChanged();
+  };
 
-    toggleTheme = e => {
-        
-        this.props.toggle(parseInt(e.target.value));
-        this.props.themeChanged();
-    }
-
-    render() {
-
-        return(
-            <div
-                className={styles.rootToggleTheme}
-            >
-                <RadioButton
-                    text='☀'
-                    value={themeTypes.default}
-                    name='themeType'
-                    checked={this.defaultThemeType === themeTypes.default}
-                    onChange={this.toggleTheme}
-                />
-                <RadioButton
-                    text='☽'
-                    value={themeTypes.dark}
-                    name='themeType'
-                    checked={this.defaultThemeType === themeTypes.dark}
-                    onChange={this.toggleTheme}
-                />
-            </div>
-        );
-
-    }
-}
+  return (
+    <div className={styles.rootToggleTheme}>
+      <RadioButton
+        text="☀"
+        value={ThemeTypes.default}
+        name="themeType"
+        checked={defaultThemeType === ThemeTypes.default}
+        onChange={toggleTheme}
+      />
+      <RadioButton
+        text="☽"
+        value={ThemeTypes.dark}
+        name="themeType"
+        checked={defaultThemeType === ThemeTypes.dark}
+        onChange={toggleTheme}
+      />
+    </div>
+  );
+};
 
 const mapStateToProps = state => ({
-    themeType: state.themeType
+  themeType: state.themeType
 });
 
 const mapDispatchToProps = dispatch => ({
-    toggle: themeType => dispatch({
-        type: TOGGLE_THEME,
-        themeType: themeType
+  toggle: themeType =>
+    dispatch({
+      type: TOGGLE_THEME,
+      themeType: themeType
     }),
-    themeChanged: () => dispatch({ type: THEME_CHANGED })
+  themeChanged: () => dispatch({ type: THEME_CHANGED })
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ToggleTheme);
+const connected = connect(mapStateToProps, mapDispatchToProps)(ToggleTheme);
+
+export { connected as ToggleTheme };
+
+ToggleTheme.propTypes = {
+  toggle: PropTypes.func,
+  themeChanged: PropTypes.func
+};
+
+ToggleTheme.defaultProps = {
+  toggle: undefined,
+  themeChanged: undefined
+};
