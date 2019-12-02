@@ -1,6 +1,4 @@
-const themeTypes = {
-    default: 0,
-    dark: 1
+export const ThemeTypes = {
+  light: 'light',
+  dark: 'dark'
 };
-
-export default themeTypes;

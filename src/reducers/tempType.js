@@ -4,12 +4,11 @@ import { units } from '../services/openweathermap/units';
 const initialState = units.celsius;
 
 const metricType = (state = initialState, action) => {
-  
-    switch (action.type) {
-        case SET_TEMP_TYPE:
-            return action.tempType
+  switch (action.type) {
+    case SET_TEMP_TYPE:
+      return action.tempType;
     default:
-        return state
+      return state;
   }
-}
+};
 export { metricType };

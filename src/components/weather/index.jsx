@@ -1,140 +1,96 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import SearchBoxContainer from './searchBox';
+import { SearchBox } from '../common';
 import { token } from '../../services/openweathermap/token';
 import { buildApiUrl } from '../../services/openweathermap/utils';
-import { SET_WEATHER,
-            SET_TEMP_TYPE,
-            ADD_TO_SEARCH_HISTORY,
-            API } from '../../constants';
-import WeatherDetails from './details';
+import { SET_WEATHER, SET_TEMP_TYPE, ADD_TO_SEARCH_HISTORY, API } from '../../constants';
+import { WeatherDetails } from './details';
 import { Loader } from '../portal/loader';
 import { ErrorMessage } from './errorMessage';
-import { MetricRadioButtons } from './metricRadiobuttons';
-import styles from './styles.scss';
+import { MetricRadioButtons } from './metricRadioButtons';
 import { setWeather } from '../../actions';
+import styles from './styles.scss';
 
-class WeatherContainer extends Component {
+const WeatherContainer = ({ fetchWeather, setWeather, setTempType, fetchWeatherFlag, weather, metricType }) => {
+  const [cityName, setCityName] = useState('');
+  const [icon, setIcon] = useState('');
+  const [main, setMain] = useState('');
+  const [description, setDescription] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
-    state = {
-        cityName: '',
-        icon: '',
-        main: '',
-        description: '',
-        errorMessage: ''
-    };
-    
-    componentDidMount() {
+  const searchByCityNameUrl = buildApiUrl(token(), metricType);
 
-        this.searchByCityNameUrl = buildApiUrl(token(), this.props.metricType);   
+  const search = e => {
+    e.preventDefault();
+
+    if (cityName === '') {
+      return;
     }
 
-    componentDidUpdate() {
+    setErrorMessage('');
+    setWeather('');
 
-        this.searchByCityNameUrl = buildApiUrl(token(), this.props.metricType);
-    }
-    
-    search = (e) => {
+    const url = searchByCityNameUrl(cityName);
+    fetchWeather(url);
+  };
 
-        e.preventDefault();
+  const onChange = e => {
+    setCityName(e.target.value);
+  };
 
-        if (this.state.cityName === '') {
-            
-            return;
-        }
-        
-        this.setState({
-            errorMessage: ''
-        });
+  const radioChanged = e => {
+    setTempType(e.target.value);
+  };
 
-        this.props.setWeather('');
-
-        const url = this.searchByCityNameUrl(this.state.cityName);
-        this.props.fetchWeather(url);
-    }
-
-    onChange = (e) => {
-
-        this.setState({
-            cityName: e.target.value
-        });
-    }
-
-    radioChanged = e => {
-
-        this.props.setTempType(e.target.value);
-    }
-
-    render() {
-        
-        return(
-            <div
-                className={styles.mainWeatherWrapper}
-            >
-                <div
-                    className={styles.innerWrapper}
-                >
-                    <form
-                        onSubmit={this.search}
-                    >
-                        <SearchBoxContainer
-                            value={this.state.cityName}
-                            onChange={this.onChange}
-                            displayLoader={this.props.fetchWeatherFlag}
-                        />
-                    </form>
-                    <MetricRadioButtons
-                        radioChanged={this.radioChanged}
-                    />
-                    <div
-                        className={styles.resultsWrapper}
-                    >
-                        {
-                            this.props.weather ? 
-                                <div
-                                    className={styles.detailsWrapper}
-                                >
-                                    <WeatherDetails
-                                        data={this.props.weather}
-                                    />
-                                </div> :  null
-                        }
-                        {
-                            this.props.fetchWeatherFlag ? <Loader /> : null
-                        }
-                        <ErrorMessage
-                            errorMessage={this.state.errorMessage}
-                        />
-                    </div>          
-                </div>
+  return (
+    <div className={styles.mainWeatherWrapper}>
+      <div className={styles.innerWrapper}>
+        <form onSubmit={search}>
+          <SearchBox value={cityName} onChange={onChange} displayLoader={fetchWeatherFlag} />
+        </form>
+        <MetricRadioButtons radioChanged={radioChanged} />
+        <div className={styles.resultsWrapper}>
+          {weather && (
+            <div className={styles.detailsWrapper}>
+              <WeatherDetails weatherData={weather} />
             </div>
-        );
-    }
-}
+          )}
+          {fetchWeatherFlag && <Loader />}
+          <ErrorMessage errorMessage={errorMessage} />
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const mapStateToProps = state => ({
-    weather: state.weather,
-    metricType: state.metricType,
-    searchHistory: state.searchHistory,
-    fetchWeatherFlag: state.fetchWeatherFlag
+  weather: state.weather,
+  metricType: state.metricType,
+  searchHistory: state.searchHistory,
+  fetchWeatherFlag: state.fetchWeatherFlag
 });
 
 const mapDispatchToProps = dispatch => ({
-    fetchWeather: url => dispatch({
-        type: API,
-        payload: {
-            url: url,
-            success: (weather) => setWeather(weather)
-        }
+  fetchWeather: url =>
+    dispatch({
+      type: API,
+      payload: {
+        url: url,
+        success: weather => setWeather(weather)
+      }
     }),
-    setWeather: weather => dispatch({
-        type: SET_WEATHER,
-        weather
+  setWeather: weather =>
+    dispatch({
+      type: SET_WEATHER,
+      weather
     }),
-    setTempType: tempType => dispatch({
-        type: SET_TEMP_TYPE,
-        tempType
-    })    
+  setTempType: tempType =>
+    dispatch({
+      type: SET_TEMP_TYPE,
+      tempType
+    })
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(WeatherContainer);
+const connected = connect(mapStateToProps, mapDispatchToProps)(WeatherContainer);
+
+export { connected as WeatherContainer };

@@ -1,28 +1,31 @@
-import React, { Component } from 'React';
+import React from 'React';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import themeTypes from '../../../services/themes';
+import { ThemeTypes } from '../../../services/themes';
 import styles from './styles.scss';
 
-class Theme extends Component {
+const Theme = ({ themeType, children }) => {
+  const theme = themeType === ThemeTypes.dark ? styles.rootDarkTheme : styles.rootDefaultTheme;
 
-    render() {
+  document.getElementsByTagName('body')[0].setAttribute('class', theme);
 
-        const theme = (this.props.themeType === themeTypes.dark) 
-                            ? styles.rootDarkTheme : styles.rootDefaultTheme;
-
-        document.getElementsByTagName('body')[0].setAttribute('class', theme);
-
-        return(
-            <div>
-                {this.props.children}
-            </div>
-        );
-
-    }
-}
+  return <div>{children}</div>;
+};
 
 const mapStateToProps = state => ({
-    themeType: state.themeType
+  themeType: state.themeType
 });
 
-export default connect(mapStateToProps)(Theme);
+const connected = connect(mapStateToProps)(Theme);
+
+export { connected as Theme };
+
+Theme.propTypes = {
+  themeType: PropTypes.oneOf(Object.values(ThemeTypes)),
+  children: PropTypes.node
+};
+
+Theme.defaultProps = {
+  themeType: ThemeTypes.light,
+  children: undefined
+};
