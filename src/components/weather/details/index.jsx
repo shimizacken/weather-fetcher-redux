@@ -7,7 +7,6 @@ export const WeatherDetails = ({ weatherData }) => {
   if (!weatherData || !weatherData.weather) {
     return null;
   }
-
   const data = weatherData.weather;
   const city = data.weather[0];
 

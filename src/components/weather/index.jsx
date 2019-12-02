@@ -28,7 +28,6 @@ const WeatherContainer = ({ fetchWeather, setWeather, setTempType, fetchWeatherF
     }
 
     setErrorMessage('');
-
     setWeather('');
 
     const url = searchByCityNameUrl(cityName);
@@ -51,11 +50,11 @@ const WeatherContainer = ({ fetchWeather, setWeather, setTempType, fetchWeatherF
         </form>
         <MetricRadioButtons radioChanged={radioChanged} />
         <div className={styles.resultsWrapper}>
-          {weather ? (
+          {weather && (
             <div className={styles.detailsWrapper}>
-              <WeatherDetails data={weather} />
+              <WeatherDetails weatherData={weather} />
             </div>
-          ) : null}
+          )}
           {fetchWeatherFlag && <Loader />}
           <ErrorMessage errorMessage={errorMessage} />
         </div>
