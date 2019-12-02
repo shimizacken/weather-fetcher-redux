@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import SearchBoxContainer from '../common';
+import { SearchBox } from '../common';
 import { token } from '../../services/openweathermap/token';
 import { buildApiUrl } from '../../services/openweathermap/utils';
 import { SET_WEATHER,
             SET_TEMP_TYPE,
             ADD_TO_SEARCH_HISTORY,
             API } from '../../constants';
-import WeatherDetails from './details';
+import { WeatherDetails } from './details';
 import { Loader } from '../portal/loader';
 import { ErrorMessage } from './errorMessage';
 import { MetricRadioButtons } from './metricRadioButtons';
-import styles from './styles.scss';
 import { setWeather } from '../../actions';
+import styles from './styles.scss';
 
 class WeatherContainer extends Component {
 
@@ -77,7 +77,7 @@ class WeatherContainer extends Component {
                     <form
                         onSubmit={this.search}
                     >
-                        <SearchBoxContainer
+                        <SearchBox
                             value={this.state.cityName}
                             onChange={this.onChange}
                             displayLoader={this.props.fetchWeatherFlag}
@@ -100,7 +100,7 @@ class WeatherContainer extends Component {
                                 </div> :  null
                         }
                         {
-                            this.props.fetchWeatherFlag ? <Loader /> : null
+                            this.props.fetchWeatherFlag && <Loader />
                         }
                         <ErrorMessage
                             errorMessage={this.state.errorMessage}
@@ -134,7 +134,9 @@ const mapDispatchToProps = dispatch => ({
     setTempType: tempType => dispatch({
         type: SET_TEMP_TYPE,
         tempType
-    })    
+    })
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(WeatherContainer);
+const connected = connect(mapStateToProps, mapDispatchToProps)(WeatherContainer);
+
+export { connected as WeatherContainer };
