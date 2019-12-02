@@ -10,8 +10,8 @@ export const MainPortalContainer = () => (
   <Theme>
     <div className={classNames(styles.root)}>
       <Header />
-      <SearchHistoryContainer />
-      <WeatherContainer />
+      {/* <SearchHistoryContainer />
+      <WeatherContainer /> */}
     </div>
   </Theme>
 );

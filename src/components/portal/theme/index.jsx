@@ -26,6 +26,6 @@ Theme.propTypes = {
 };
 
 Theme.defaultProps = {
-  themeType: ThemeTypes.default,
+  themeType: ThemeTypes.light,
   children: undefined
 };

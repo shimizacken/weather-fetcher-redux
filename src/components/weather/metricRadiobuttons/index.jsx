@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import RadioButton from '../../portal/radioButton';
+import { RadioButton } from '../../common';
 import { units } from '../../../services/openweathermap/units';
 import styles from './style.scss';
 

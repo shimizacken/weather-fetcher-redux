@@ -1,7 +1,7 @@
 import React from 'React';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import RadioButton from '../../../portal/radioButton';
+import { RadioButton } from '../../../common/';
 import { ThemeTypes } from '../../../../services/themes';
 import { TOGGLE_THEME, THEME_CHANGED } from '../../../../constants';
 import { getPersistedTheme } from '../../../../services/ui/theme';
@@ -11,17 +11,17 @@ const ToggleTheme = ({ toggle, themeChanged }) => {
   const defaultThemeType = getPersistedTheme();
 
   const toggleTheme = e => {
-    toggle(parseInt(e.target.value));
-    themeChanged();
+    toggle(e.target.value);
+    themeChanged(e.target.value);
   };
 
   return (
     <div className={styles.rootToggleTheme}>
       <RadioButton
         text="☀"
-        value={ThemeTypes.default}
+        value={ThemeTypes.light}
         name="themeType"
-        checked={defaultThemeType === ThemeTypes.default}
+        checked={defaultThemeType === ThemeTypes.light}
         onChange={toggleTheme}
       />
       <RadioButton
@@ -43,9 +43,9 @@ const mapDispatchToProps = dispatch => ({
   toggle: themeType =>
     dispatch({
       type: TOGGLE_THEME,
-      themeType: themeType
+      themeType
     }),
-  themeChanged: () => dispatch({ type: THEME_CHANGED })
+  themeChanged: themeType => dispatch({ type: THEME_CHANGED, themeType })
 });
 
 const connected = connect(mapStateToProps, mapDispatchToProps)(ToggleTheme);

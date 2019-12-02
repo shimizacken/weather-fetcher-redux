@@ -1,4 +1,4 @@
 export const ThemeTypes = {
-  default: 0,
-  dark: 1
+  light: 'light',
+  dark: 'dark'
 };

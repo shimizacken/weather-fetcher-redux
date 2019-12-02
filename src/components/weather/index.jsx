@@ -10,7 +10,7 @@ import { SET_WEATHER,
 import WeatherDetails from './details';
 import { Loader } from '../portal/loader';
 import { ErrorMessage } from './errorMessage';
-import { MetricRadioButtons } from './metricRadiobuttons';
+import { MetricRadioButtons } from './metricRadioButtons';
 import styles from './styles.scss';
 import { setWeather } from '../../actions';
 
