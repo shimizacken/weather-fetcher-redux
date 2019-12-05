@@ -1,4 +1,4 @@
-import { TOGGLE_THEME } from '../constants';
+import { TOGGLE_THEME } from './constants';
 
 export const themeTypeMiddleware = () => next => action => {
   if (action.type === TOGGLE_THEME) {

@@ -1,18 +1,20 @@
 import React from 'React';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { RadioButton } from '../../../../components/common';
 import { ThemeTypes } from '../../../../services/themes';
-import { TOGGLE_THEME, THEME_CHANGED } from '../../../../constants';
 import { getPersistedTheme } from '../../../../services/ui/theme';
+import { THEME_CHANGED } from '../../state/constants';
+import { toggleTheme, themeChanged } from '../../state/actions';
 import styles from './styles.scss';
 
 const ToggleTheme = ({ toggle, themeChanged }) => {
+  const dispatch = useDispatch();
   const defaultThemeType = getPersistedTheme();
 
   const toggleTheme = e => {
-    toggle(e.target.value);
-    themeChanged(e.target.value);
+    dispatch(toggleTheme(e.target.value));
+    dispatch(themeChanged(e.target.value));
   };
 
   return (
@@ -39,16 +41,7 @@ const mapStateToProps = state => ({
   themeType: state.themeType
 });
 
-const mapDispatchToProps = dispatch => ({
-  toggle: themeType =>
-    dispatch({
-      type: TOGGLE_THEME,
-      themeType
-    }),
-  themeChanged: themeType => dispatch({ type: THEME_CHANGED, themeType })
-});
-
-const connected = connect(mapStateToProps, mapDispatchToProps)(ToggleTheme);
+const connected = connect(mapStateToProps)(ToggleTheme);
 
 export { connected as ToggleTheme };
 

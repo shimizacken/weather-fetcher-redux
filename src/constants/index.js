@@ -12,6 +12,3 @@ export const END_FETCH_WEATHER = 'END_FETCH_WEATHER';
 
 export const SET_TEMP_TYPE = 'SET_TEMP_TYPE';
 export const API = 'API';
-
-export const TOGGLE_THEME = 'TOGGLE_THEME';
-export const THEME_CHANGED = 'THEME_CHANGED';

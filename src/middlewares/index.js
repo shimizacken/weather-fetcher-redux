@@ -1,6 +1,6 @@
 import { fetchWeatherMiddleware } from './fetchWeatherMiddleware';
 import { historyListMiddleware } from './historyListMiddleware';
-import { themeTypeMiddleware } from './themeTypeMiddleware';
+import { themeTypeMiddleware } from '../features/theme/state/themeTypeMiddleware';
 
 const middlewares = [fetchWeatherMiddleware, historyListMiddleware, themeTypeMiddleware];
 
