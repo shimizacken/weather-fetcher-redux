@@ -8,10 +8,10 @@ import { THEME_CHANGED } from '../../state/constants';
 import { toggleTheme, themeChanged } from '../../state/actions';
 import styles from './styles.scss';
 
-const ToggleTheme = () => {
+export const ToggleTheme = () => {
   const dispatch = useDispatch();
   const defaultThemeType = getPersistedTheme();
-
+  
   const toggle = e => {
     dispatch(toggleTheme(e.target.value));
     dispatch(themeChanged(e.target.value));
@@ -35,22 +35,4 @@ const ToggleTheme = () => {
       />
     </div>
   );
-};
-
-const mapStateToProps = state => ({
-  themeType: state.themeType
-});
-
-const connected = connect(mapStateToProps)(ToggleTheme);
-
-export { connected as ToggleTheme };
-
-ToggleTheme.propTypes = {
-  toggle: PropTypes.func,
-  themeChanged: PropTypes.func
-};
-
-ToggleTheme.defaultProps = {
-  toggle: undefined,
-  themeChanged: undefined
 };
