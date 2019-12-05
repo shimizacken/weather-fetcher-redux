@@ -8,11 +8,11 @@ import { THEME_CHANGED } from '../../state/constants';
 import { toggleTheme, themeChanged } from '../../state/actions';
 import styles from './styles.scss';
 
-const ToggleTheme = ({ toggle, themeChanged }) => {
+const ToggleTheme = () => {
   const dispatch = useDispatch();
   const defaultThemeType = getPersistedTheme();
 
-  const toggleTheme = e => {
+  const toggle = e => {
     dispatch(toggleTheme(e.target.value));
     dispatch(themeChanged(e.target.value));
   };
@@ -24,14 +24,14 @@ const ToggleTheme = ({ toggle, themeChanged }) => {
         value={ThemeTypes.light}
         name="themeType"
         checked={defaultThemeType === ThemeTypes.light}
-        onChange={toggleTheme}
+        onChange={toggle}
       />
       <RadioButton
         text="☽"
         value={ThemeTypes.dark}
         name="themeType"
         checked={defaultThemeType === ThemeTypes.dark}
-        onChange={toggleTheme}
+        onChange={toggle}
       />
     </div>
   );
