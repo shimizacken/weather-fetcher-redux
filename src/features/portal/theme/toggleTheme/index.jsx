@@ -1,7 +1,7 @@
 import React from 'React';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { RadioButton } from '../../../common/';
+import { RadioButton } from '../../../../components/common';
 import { ThemeTypes } from '../../../../services/themes';
 import { TOGGLE_THEME, THEME_CHANGED } from '../../../../constants';
 import { getPersistedTheme } from '../../../../services/ui/theme';

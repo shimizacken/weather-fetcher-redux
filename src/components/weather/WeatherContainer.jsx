@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { SearchBox } from '../common';
 import { token } from '../../services/openweathermap/token';
 import { buildApiUrl } from '../../services/openweathermap/utils';
 import { SET_WEATHER, SET_TEMP_TYPE, ADD_TO_SEARCH_HISTORY, API } from '../../constants';
-import { WeatherDetails } from './details';
-import { Loader } from '../portal/loader';
+import { WeatherDetails } from './details/WeatherDetails';
+import { Loader } from '../../components/common';
 import { ErrorMessage } from './errorMessage';
 import { MetricRadioButtons } from './metricRadioButtons';
 import { setWeather } from '../../actions';
@@ -13,9 +13,6 @@ import styles from './styles.scss';
 
 const WeatherContainer = ({ fetchWeather, setWeather, setTempType, fetchWeatherFlag, weather, metricType }) => {
   const [cityName, setCityName] = useState('');
-  const [icon, setIcon] = useState('');
-  const [main, setMain] = useState('');
-  const [description, setDescription] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
   const searchByCityNameUrl = buildApiUrl(token(), metricType);

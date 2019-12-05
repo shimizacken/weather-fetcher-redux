@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { store } from './state';
 import { Provider } from 'react-redux';
-import { MainPortalContainer } from './components/portal';
+import { RootContainer } from './features/root';
 
 ReactDOM.render(
   <Provider store={store}>
-    <MainPortalContainer />
+    <RootContainer />
   </Provider>,
   document.getElementById('root')
 );
