@@ -1,6 +1,6 @@
 import { SET_WEATHER, START_FETCH_WEATHER, END_FETCH_WEATHER } from '../constants';
 
-const initialState = [];
+const initialState = {};
 
 export const weather = (state = initialState, action) => {
   switch (action.type) {

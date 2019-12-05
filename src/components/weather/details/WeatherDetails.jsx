@@ -32,15 +32,11 @@ export const WeatherDetails = ({ weatherData }) => {
   );
 };
 
-const weatherData = {
-  weather: {
+WeatherDetails.propTypes = {
+  weatherData: PropTypes.shape({
     name: PropTypes.string,
     sys: PropTypes.string
-  }
-};
-
-WeatherDetails.propTypes = {
-  weatherData: PropTypes.shape(weatherData)
+  })
 };
 
 WeatherDetails.defaultProps = {};

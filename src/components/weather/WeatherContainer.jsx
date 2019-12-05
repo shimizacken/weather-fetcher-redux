@@ -11,7 +11,15 @@ import { MetricRadioButtons } from './metricRadioButtons';
 import { setWeather } from '../../actions';
 import styles from './styles.scss';
 
-const WeatherContainer = ({ fetchWeather, setWeather, setTempType, fetchWeatherFlag, weather, metricType }) => {
+const WeatherContainer = ({ 
+  fetchWeather,
+   setWeather,
+    setTempType,
+     fetchWeatherFlag,
+      weather,
+       metricType
+      }) => {
+        
   const [cityName, setCityName] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
