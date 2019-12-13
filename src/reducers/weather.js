@@ -14,12 +14,13 @@ export const weather = (state = initialState, action) => {
 };
 
 export const fetchWeatherFlag = (state = false, action) => {
-  switch (action.type) {
-    case START_FETCH_WEATHER:
+  if(action.type === START_FETCH_WEATHER) {
       return true;
-    case END_FETCH_WEATHER:
-      return false;
-    default:
-      return state;
   }
+
+  if(action.type === END_FETCH_WEATHER) {
+    return false;
+  }
+  
+  return state;
 };

@@ -1,27 +1,30 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { SearchBox } from '../../components/common';
 import { token } from '../../services/openweathermap/token';
 import { buildApiUrl } from '../../services/openweathermap/utils';
-import { SET_WEATHER, SET_TEMP_TYPE, ADD_TO_SEARCH_HISTORY, API } from '../../constants';
 import { WeatherDetails } from './details/WeatherDetails';
 import { Loader } from '../../components/common';
 import { ErrorMessage } from './errorMessage';
 import { MetricRadioButtons } from './metricRadioButtons';
-import { setWeather } from '../../actions';
+import { setWeather, fetchWeather } from '../weather';
+import { setTempType } from '../../actions';
+import { 
+  selectMetricType,
+  selectFetchWeatherFlag,
+  selectWeather
+} from './state/weather-selectors';
 import styles from './styles.scss';
 
-const WeatherContainer = ({ 
-  fetchWeather,
-   setWeather,
-    setTempType,
-     fetchWeatherFlag,
-      weather,
-       metricType
-      }) => {
-        
+export const WeatherContainer = () => {
+  
+  const dispatch = useDispatch();
   const [cityName, setCityName] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+
+  const weather = useSelector(selectWeather);
+  const fetchWeatherFlag = useSelector(selectFetchWeatherFlag);
+  const metricType = useSelector(selectMetricType);
 
   const searchByCityNameUrl = buildApiUrl(token(), metricType);
 
@@ -33,10 +36,11 @@ const WeatherContainer = ({
     }
 
     setErrorMessage('');
-    setWeather('');
+    dispatch(setWeather({}));
 
     const url = searchByCityNameUrl(cityName);
-    fetchWeather(url);
+    
+    dispatch(fetchWeather(url));
   };
 
   const onChange = e => {
@@ -44,7 +48,7 @@ const WeatherContainer = ({
   };
 
   const radioChanged = e => {
-    setTempType(e.target.value);
+    dispatch(setTempType(e.target.value));
   };
 
   return (
@@ -67,35 +71,3 @@ const WeatherContainer = ({
     </div>
   );
 };
-
-const mapStateToProps = state => ({
-  weather: state.weather,
-  metricType: state.metricType,
-  searchHistory: state.searchHistory,
-  fetchWeatherFlag: state.fetchWeatherFlag
-});
-
-const mapDispatchToProps = dispatch => ({
-  fetchWeather: url =>
-    dispatch({
-      type: API,
-      payload: {
-        url: url,
-        success: weather => setWeather(weather)
-      }
-    }),
-  setWeather: weather =>
-    dispatch({
-      type: SET_WEATHER,
-      weather
-    }),
-  setTempType: tempType =>
-    dispatch({
-      type: SET_TEMP_TYPE,
-      tempType
-    })
-});
-
-const connected = connect(mapStateToProps, mapDispatchToProps)(WeatherContainer);
-
-export { connected as WeatherContainer };
