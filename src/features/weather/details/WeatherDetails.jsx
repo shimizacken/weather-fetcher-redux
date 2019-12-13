@@ -4,17 +4,17 @@ import { buildIconUrl } from '../../../services/openweathermap/utils';
 import styles from './styles.scss';
 
 export const WeatherDetails = ({ weatherData }) => {
-  if (!weatherData || !weatherData.weather) {
+  if (!weatherData?.weather) {
     return null;
   }
-  const data = weatherData.weather;
-  const city = data.weather[0];
+  const data = weatherData;
+  const city = data.weather?.[0];
 
   return (
     <div className={styles.detailsWrapper}>
       <div className={styles.cityName}>
         <h2>
-          {data.name} <span className={styles.country}>({data.sys.country})</span> weather now
+          {data.name} <span className={styles.country}>({data?.sys?.country})</span> weather now
         </h2>
       </div>
       <div className={styles.iconWrapper}>

@@ -5,8 +5,8 @@ const initialState = {};
 export const weather = (state = initialState, action) => {
   if(action.type === SET_WEATHER) {
     return {
-      ...state,
-      weather: action.weather
+      state,
+      ...action.weather
     };
   }
   
