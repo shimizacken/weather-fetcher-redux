@@ -5,10 +5,10 @@ import {
     END_FETCH_WEATHER,
     FETCH_WEATHER_PENDING,
     FETCH_WEATHER_ERROR,
-    FETCH_WEATHER_SUCCESS
+    FETCH_WEATHER_SUCCESS,
+    SET_FETCH_WEATHER_FLAG
   } from './constants';
 import { setHistory } from '../../../actions';
-import { END_ADD_TO_SEARCH_HISTORY } from '../../../constants';
   
 export const setWeather = weather => ({
     type: SET_WEATHER,
@@ -19,26 +19,24 @@ export const fetchWeatherPending = {
   type: FETCH_WEATHER_PENDING
 };
 
-export const fetchWeatherSuccess = () => ({
-  type: FETCH_WEATHER_SUCCESS
+export const fetchWeatherSuccess = weather => ({
+  type: FETCH_WEATHER_SUCCESS,
+  weather
 });
 
 export const fetchWeatherError = {
   type: FETCH_WEATHER_ERROR
 };
 
-  export const setCurrentWeather = currentWeather => ({
-    type: SET_CURRENT_WEATHER,
-    currentWeather
-  });
-
-  export const endFetchWeather = () => ({
-    type: END_FETCH_WEATHER
+  export const setWeatherFetchFlag = isPending => ({
+    type: SET_FETCH_WEATHER_FLAG,
+    isPending
   });
 
   export const fetchWeather = (url) => (dispatch, getState) => {
 
     dispatch(fetchWeatherPending);
+    dispatch(setWeatherFetchFlag(true));
 
     return fetch(url)
       .then(response => response.json())
@@ -49,7 +47,6 @@ export const fetchWeatherError = {
         }
         
         dispatch(setWeather(data));
-        dispatch(endFetchWeather());
 
         const historyItem = {
           id: uuid.v4(),
@@ -59,12 +56,10 @@ export const fetchWeatherError = {
         };
 
         dispatch(setHistory(historyItem));
-        dispatch({
-          type: END_ADD_TO_SEARCH_HISTORY
-        });
       })
       .catch(error => {
         console.error(error);
+        dispatch(fetchWeatherError);
       })
-      .finally(() => dispatch(endFetchWeather()));
+      .finally(() => dispatch(setWeatherFetchFlag(false)));
 };
