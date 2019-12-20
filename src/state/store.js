@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import reducers from '../reducers';
+import { reducers } from 'app/reducers';
 import { middlewares } from '../middlewares';
 import { getPersistedHistoryList } from '../services/ui/searchHistory';
 import { getPersistedTheme } from '../services/ui/theme';

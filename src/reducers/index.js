@@ -4,7 +4,7 @@ import { metricType } from './tempType';
 import { searchHistory } from './history';
 import { themeType } from '../features/theme/state';
 
-export default combineReducers({
+export const reducers = combineReducers({
   searchResult,
   metricType,
   searchHistory,
