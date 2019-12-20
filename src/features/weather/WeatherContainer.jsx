@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { SearchBox } from '../../components/common';
 import { token } from '../../services/openweathermap/token';
 import { buildApiUrl } from '../../services/openweathermap/utils';
-import { WeatherDetails } from './details/WeatherDetails';
+import { WeatherDetailsContainer } from './details/WeatherDetailsContainer';
 import { Loader } from '../../components/common';
 import { ErrorMessage } from './errorMessage';
 import { MetricRadioButtons } from './metricRadioButtons';
@@ -61,7 +61,7 @@ export const WeatherContainer = () => {
         <div className={styles.resultsWrapper}>
           {weather && (
             <div className={styles.detailsWrapper}>
-              <WeatherDetails weatherData={weather} />
+              <WeatherDetailsContainer weatherData={weather} />
             </div>
           )}
           {fetchWeatherFlag && <Loader />}

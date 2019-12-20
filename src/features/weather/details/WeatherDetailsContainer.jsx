@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { buildIconUrl } from '../../../services/openweathermap/utils';
 import styles from './styles.scss';
 
-export const WeatherDetails = ({ weatherData }) => {
+export const WeatherDetailsContainer = ({ weatherData }) => {
+  console.log(weatherData);
+  
   if (!weatherData?.weather) {
     return null;
   }
@@ -32,11 +34,11 @@ export const WeatherDetails = ({ weatherData }) => {
   );
 };
 
-WeatherDetails.propTypes = {
+WeatherDetailsContainer.propTypes = {
   weatherData: PropTypes.shape({
     name: PropTypes.string,
     sys: PropTypes.string
   })
 };
 
-WeatherDetails.defaultProps = {};
+WeatherDetailsContainer.defaultProps = {};
