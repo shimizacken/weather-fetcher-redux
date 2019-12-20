@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import isEmpty from 'lodash/isEmpty';
+import { Details } from './Details';
 import { selectSearchResult } from '../state/weather-selectors';
 import { buildIconUrl } from '../../../services/openWeatherMap/utils';
 import styles from './styles.scss';
@@ -26,14 +27,15 @@ export const WeatherDetailsContainer = () => {
       <div className={styles.iconWrapper}>
         <img src={buildIconUrl(city?.icon)} title={city?.main} />
       </div>
-      <div>
-        <h1>{city?.main}</h1> / {city?.description}
-      </div>
-      <div>Temp: {main.temp}°</div>
-      <div>Pressure: {main.pressure}</div>
-      <div>Humidity: {main.humidity}%</div>
-      <div>Wind: {wind.speed}</div>
-      <div>Clouds: {clouds.all}</div>
+      <Details
+        cityName={city?.main}
+        description={city?.description}
+        temperature={main.temp}
+        pressure={main.pressure}
+        humidity={main.humidity}
+        speed={wind.speed}
+        cloudsAll={clouds.all}
+      />
     </div>
   );
 };
