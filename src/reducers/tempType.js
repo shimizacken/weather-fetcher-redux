@@ -1,14 +1,12 @@
-import { SET_TEMP_TYPE } from '../constants';
+import { SET_TEMPERATURE_UNIT } from '../constants';
 import { units } from '../services/openWeatherMap/units';
 
 const initialState = units.celsius;
 
-const metricType = (state = initialState, action) => {
-  switch (action.type) {
-    case SET_TEMP_TYPE:
+export const metricType = (state = initialState, action) => {
+    if(action.type === SET_TEMPERATURE_UNIT){
       return action.tempType;
-    default:
-      return state;
-  }
+    }
+
+  return state;
 };
-export { metricType };
