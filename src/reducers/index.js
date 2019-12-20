@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
-import { weather, fetchWeatherFlag } from './weather';
+import { searchResult, fetchWeatherFlag } from '../features/weather';
 import { metricType } from './tempType';
 import { searchHistory } from './history';
-import { themeType } from './theme';
+import { themeType } from '../features/theme/state';
 
 export default combineReducers({
-  weather,
+  searchResult,
   metricType,
   searchHistory,
   fetchWeatherFlag,

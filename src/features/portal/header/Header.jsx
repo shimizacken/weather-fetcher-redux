@@ -1,5 +1,5 @@
 import React from 'react';
-import { ToggleTheme } from '../theme/toggleTheme';
+import { ToggleTheme } from '../../theme';
 import sun from '../../../assets/png/sun';
 import styles from './styles.scss';
 

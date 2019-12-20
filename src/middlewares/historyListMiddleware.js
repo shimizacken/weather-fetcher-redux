@@ -5,6 +5,8 @@ import {
 } from '../constants';
 
 export const historyListMiddleware = ({ dispatch, getState }) => next => action => {
+  // historyListMiddleware
+
   if (action.type === END_ADD_TO_SEARCH_HISTORY || action.type === END_REMOVE_ITEM_FROM_HISTORY) {
     window.localStorage.setItem('_history_list_', JSON.stringify(getState().searchHistory));
 
@@ -13,5 +15,6 @@ export const historyListMiddleware = ({ dispatch, getState }) => next => action 
     });
   }
 
+  console.log('historyListMiddleware, next: ', next);
   return next(action);
 };

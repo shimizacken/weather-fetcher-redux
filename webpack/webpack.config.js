@@ -12,7 +12,7 @@ const htmlPlugin = new HtmlWebPackPlugin({
 });
 
 module.exports = {
-  entry: ['babel-polyfill', 'whatwg-fetch', './src/app.js'],
+  entry: ['whatwg-fetch', './src/app.js'],
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: 'main.js'

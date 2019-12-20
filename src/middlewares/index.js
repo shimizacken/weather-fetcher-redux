@@ -1,8 +1,6 @@
-import { logMiddeleware } from './logMiddeleware';
-import { fetchWeatherMiddleware } from './fetchWeatherMiddleware';
+import thunk from 'redux-thunk';
 import { historyListMiddleware } from './historyListMiddleware';
-import { themeTypeMiddleware } from './themeTypeMiddleware';
+import { themeTypeMiddleware } from '../features/theme/state/themeTypeMiddleware';
+import { logMiddleware } from './logMiddleware';
 
-const middlewares = [logMiddeleware, fetchWeatherMiddleware, historyListMiddleware, themeTypeMiddleware];
-
-export { middlewares };
+export const middlewares = [logMiddleware, historyListMiddleware, themeTypeMiddleware, thunk];
