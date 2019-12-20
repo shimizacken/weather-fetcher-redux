@@ -5,6 +5,10 @@ const extractSASS = new ExtractTextPlugin('portal.css');
 
 const LOGO_PATH = path.resolve(__dirname, '../src/assets/png/sun.png');
 
+const alias = {
+  app: path.resolve(__dirname, '../src')
+};
+
 const htmlPlugin = new HtmlWebPackPlugin({
   template: './src/index.html',
   filename: './index.html',
@@ -19,7 +23,8 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx', '.webpack.js', '.web.js', '.json', '.png'],
-    modules: ['node_modules']
+    modules: ['node_modules'],
+    alias
   },
   devtool: 'source-map',
   module: {
