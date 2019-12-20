@@ -15,6 +15,5 @@ export const historyListMiddleware = ({ dispatch, getState }) => next => action 
     });
   }
 
-  console.log('historyListMiddleware, next: ', next);
   return next(action);
 };
