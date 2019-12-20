@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { SearchBox } from '../../components/common';
-import { token } from '../../services/openweathermap/token';
-import { buildApiUrl } from '../../services/openweathermap/utils';
+import { token } from '../../services/openWeatherMap/token';
+import { buildApiUrl } from '../../services/openWeatherMap/utils';
 import { WeatherDetailsContainer } from './details/WeatherDetailsContainer';
 import { Loader } from '../../components/common';
 import { ErrorMessage } from './errorMessage';

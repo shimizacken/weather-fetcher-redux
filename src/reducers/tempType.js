@@ -1,5 +1,5 @@
 import { SET_TEMP_TYPE } from '../constants';
-import { units } from '../services/openweathermap/units';
+import { units } from '../services/openWeatherMap/units';
 
 const initialState = units.celsius;
 

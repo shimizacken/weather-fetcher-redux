@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { buildIconUrl } from '../../../services/openweathermap/utils';
+import { buildIconUrl } from '../../../services/openWeatherMap/utils';
 import styles from './styles.scss';
 
 export const WeatherDetailsContainer = ({ weatherData }) => {
