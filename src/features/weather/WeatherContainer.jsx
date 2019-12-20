@@ -9,11 +9,7 @@ import { ErrorMessage } from './errorMessage';
 import { MetricRadioButtons } from './metricRadioButtons';
 import { setWeather, fetchWeather } from '../weather';
 import { setTempType } from '../../actions';
-import { 
-  selectMetricType,
-  selectFetchWeatherFlag,
-  selectWeather
-} from './state/weather-selectors';
+import { selectMetricType, selectFetchWeatherFlag } from './state/weather-selectors';
 import styles from './styles.scss';
 
 export const WeatherContainer = () => {
@@ -22,7 +18,6 @@ export const WeatherContainer = () => {
   const [cityName, setCityName] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const weather = useSelector(selectWeather);
   const fetchWeatherFlag = useSelector(selectFetchWeatherFlag);
   const metricType = useSelector(selectMetricType);
 
@@ -59,11 +54,9 @@ export const WeatherContainer = () => {
         </form>
         <MetricRadioButtons radioChanged={radioChanged} />
         <div className={styles.resultsWrapper}>
-          {weather && (
-            <div className={styles.detailsWrapper}>
-              <WeatherDetailsContainer weatherData={weather} />
-            </div>
-          )}
+          <div className={styles.detailsWrapper}>
+            <WeatherDetailsContainer />
+          </div>
           {fetchWeatherFlag && <Loader />}
           <ErrorMessage errorMessage={errorMessage} />
         </div>

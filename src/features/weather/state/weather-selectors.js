@@ -1,7 +1,7 @@
-export const selectWeather = state => state.weather;
+export const selectSearchResult = state => state?.searchResult;
 
-export const selectMetricType = state => state.metricType;
+export const selectMetricType = state => state?.metricType;
 
-export const selectSearchHistory = state => state.searchHistory;
+export const selectSearchHistory = state => state?.searchHistory;
 
-export const selectFetchWeatherFlag = state => state.fetchWeatherFlag;
+export const selectFetchWeatherFlag = state => state?.fetchWeatherFlag;

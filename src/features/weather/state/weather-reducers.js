@@ -2,11 +2,11 @@ import { SET_WEATHER, SET_FETCH_WEATHER_FLAG } from './constants';
 
 const initialState = {};
 
-export const weather = (state = initialState, action) => {
+export const searchResult = (state = initialState, action) => {
   if(action.type === SET_WEATHER) {
     return {
-      state,
-      ...action.weather
+      ...state,
+      weather: action.weather
     };
   }
   
