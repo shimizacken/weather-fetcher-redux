@@ -1,11 +1,11 @@
-export const ADD_TO_SEARCH_HISTORY = 'ADD_TO_SEARCH_HISTORY';
-export const START_ADD_TO_SEARCH_HISTORY = 'START_ADD_TO_SEARCH_HISTORY';
-export const END_ADD_TO_SEARCH_HISTORY = 'END_ADD_TO_SEARCH_HISTORY';
-export const REMOVE_ITEM_FROM_HISTORY = 'REMOVE_ITEM_FROM_HISTORY';
-export const END_REMOVE_ITEM_FROM_HISTORY = 'END_REMOVE_ITEM_FROM_HISTORY';
+export const SET_SEARCH_HISTORY = 'search-history/set';
+export const START_ADD_TO_SEARCH_HISTORY = 'search-history/add-item/start';
+export const END_ADD_TO_SEARCH_HISTORY = 'search-history/add-item/end';
+export const REMOVE_ITEM_FROM_HISTORY = 'search-history/remove-item';
+export const END_REMOVE_ITEM_FROM_HISTORY = 'search-history/remove-item/end';
 
-export const HISTORY_LIST_SAVED_INTO_LOCAL_STORAGE = 'HISTORY_LIST_SAVED_INTO_LOCAL_STORAGE';
-export const START_FETCH_WEATHER = 'START_FETCH_WEATHER';
+export const HISTORY_LIST_SAVED_INTO_LOCAL_STORAGE = 'history-list/set/local-storage';
+export const FETCH_WEATHER_PENDING = 'weather/fetch/pending';
 
 export const SET_TEMPERATURE_UNIT = 'temperature-unit/set';
 export const API = 'API';
