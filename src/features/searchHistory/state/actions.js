@@ -1,8 +1,8 @@
-import {
+import { 
   SET_SEARCH_HISTORY,
   REMOVE_ITEM_FROM_HISTORY,
   END_REMOVE_ITEM_FROM_HISTORY
-} from '../constants';
+} from './constants';
 
 export const setHistory = history => ({
   type: SET_SEARCH_HISTORY,

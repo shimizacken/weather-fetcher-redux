@@ -1,4 +1,4 @@
-import { ADD_TO_SEARCH_HISTORY, REMOVE_ITEM_FROM_HISTORY } from '../constants';
+import { ADD_TO_SEARCH_HISTORY, REMOVE_ITEM_FROM_HISTORY } from './constants';
 
 const initialState = [];
 
