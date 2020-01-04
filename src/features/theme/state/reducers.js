@@ -11,7 +11,7 @@ const themeType = (state = ThemeTypes.light, action) => {
 };
 
 export const themeTypeEnhancer = (state, action) => {
-  const persistedThemeType = getPersistedTheme(window.localStorage);
+  const persistedThemeType = getPersistedTheme(window?.localStorage);
 
   if (persistedThemeType && Object.values(ThemeTypes).includes(persistedThemeType)) {
     return persistedThemeType;
