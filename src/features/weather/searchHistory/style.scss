@@ -1,4 +1,4 @@
-@import "../../../styles/_globals.scss";
+@import '../../../styles/_globals.scss';
 
 .search-history-panel {
   position: fixed;
@@ -39,6 +39,7 @@
   &:hover {
     border: 1px solid $input-border-color;
     cursor: pointer;
+    padding: 9px;
   }
 }
 
