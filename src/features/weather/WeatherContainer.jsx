@@ -23,6 +23,11 @@ export const WeatherContainer = () => {
 
   const searchByCityNameUrl = buildApiUrl(token(), metricType);
 
+  const resetDetails = () => {
+    setErrorMessage('');
+    dispatch(setWeather({}));
+  }
+
   const search = e => {
     e.preventDefault();
 
@@ -30,8 +35,7 @@ export const WeatherContainer = () => {
       return;
     }
 
-    setErrorMessage('');
-    dispatch(setWeather({}));
+    resetDetails();
 
     const url = searchByCityNameUrl(cityName);
     
@@ -43,6 +47,7 @@ export const WeatherContainer = () => {
   };
 
   const radioChanged = e => {
+    resetDetails();
     dispatch(setTempUnit(e.target.value));
   };
 
