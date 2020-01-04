@@ -32,7 +32,7 @@ export default class Item extends Component {
           <div>{item.history.name}</div>
           <div className={style.dateTime}>{item.date.toLocaleString()}</div>
         </div>
-        <RemoveButton id={item.id} removeItem={this.props.removeItem}></RemoveButton>
+        <RemoveButton id={item.id} removeItem={this.props.removeItem} />
       </div>
     );
   }

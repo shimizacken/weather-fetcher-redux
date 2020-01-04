@@ -8,7 +8,7 @@ import { Loader } from '../../components/common';
 import { ErrorMessage } from './errorMessage';
 import { MetricRadioButtons } from './metricRadioButtons';
 import { setWeather, fetchWeather } from '../weather';
-import { setTempType } from '../../actions';
+import { setTempUnit } from '../../actions';
 import { selectMetricType, selectFetchWeatherFlag } from './state/weather-selectors';
 import styles from './styles.scss';
 
@@ -23,6 +23,11 @@ export const WeatherContainer = () => {
 
   const searchByCityNameUrl = buildApiUrl(token(), metricType);
 
+  const resetDetails = () => {
+    setErrorMessage('');
+    dispatch(setWeather({}));
+  }
+
   const search = e => {
     e.preventDefault();
 
@@ -30,8 +35,7 @@ export const WeatherContainer = () => {
       return;
     }
 
-    setErrorMessage('');
-    dispatch(setWeather({}));
+    resetDetails();
 
     const url = searchByCityNameUrl(cityName);
     
@@ -43,7 +47,8 @@ export const WeatherContainer = () => {
   };
 
   const radioChanged = e => {
-    dispatch(setTempType(e.target.value));
+    resetDetails();
+    dispatch(setTempUnit(e.target.value));
   };
 
   return (

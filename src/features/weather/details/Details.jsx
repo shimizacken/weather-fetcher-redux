@@ -3,7 +3,7 @@ import React from 'react';
 export const Details = React.memo(({
   cityName,
   description,
-  temp: temperature,
+  temperature,
   pressure,
   humidity,
   speed,

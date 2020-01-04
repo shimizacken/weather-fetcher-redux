@@ -1,10 +1,8 @@
 import React from 'React';
-import PropTypes from 'prop-types';
-import { connect, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { RadioButton } from '../../../../components/common';
-import { ThemeTypes } from '../../../../services/themes';
-import { getPersistedTheme } from '../../../../services/ui/theme';
-import { THEME_CHANGED } from '../../state/constants';
+import { ThemeTypes } from '../../bll/themeTypes';
+import { getPersistedTheme } from '../../bll/getPersistedTheme';
 import { toggleTheme, themeChanged } from '../../state/actions';
 import styles from './styles.scss';
 
