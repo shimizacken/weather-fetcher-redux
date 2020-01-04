@@ -8,7 +8,7 @@ import { Loader } from '../../components/common';
 import { ErrorMessage } from './errorMessage';
 import { MetricRadioButtons } from './metricRadioButtons';
 import { setWeather, fetchWeather } from '../weather';
-import { setTempType } from '../../actions';
+import { setTempUnit } from '../../actions';
 import { selectMetricType, selectFetchWeatherFlag } from './state/weather-selectors';
 import styles from './styles.scss';
 
@@ -43,7 +43,7 @@ export const WeatherContainer = () => {
   };
 
   const radioChanged = e => {
-    dispatch(setTempType(e.target.value));
+    dispatch(setTempUnit(e.target.value));
   };
 
   return (
