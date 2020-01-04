@@ -7,5 +7,4 @@ export const END_REMOVE_ITEM_FROM_HISTORY = 'search-history/remove-item/end';
 export const HISTORY_LIST_SAVED_INTO_LOCAL_STORAGE = 'history-list/set/local-storage';
 export const FETCH_WEATHER_PENDING = 'weather/fetch/pending';
 
-export const SET_TEMPERATURE_UNIT = 'temperature-unit/set';
 export const API = 'API';
