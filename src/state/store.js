@@ -2,7 +2,7 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import { reducers } from 'app/reducers';
 import { middlewares } from '../middlewares';
 import { getPersistedHistoryList } from '../services/ui/searchHistory';
-import { getPersistedTheme } from '../services/ui/theme';
+import { getPersistedTheme } from 'app/features/theme/bll/getPersistedTheme';
 
 const initialState = {
   searchHistory: getPersistedHistoryList(),

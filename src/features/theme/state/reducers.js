@@ -1,5 +1,5 @@
 import { TOGGLE_THEME } from './constants';
-import { ThemeTypes } from '../../../services/themes';
+import { ThemeTypes } from '../bll/themeTypes';
 
 export const themeType = (state = ThemeTypes.light, action) => {
   if (action.type === TOGGLE_THEME) {

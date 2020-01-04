@@ -1,7 +1,7 @@
 import React from 'React';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import { ThemeTypes } from '../../../services/themes';
+import { ThemeTypes } from '../bll/themeTypes';
 import styles from './styles.scss';
 
 export const Theme = ({ children }) => {
