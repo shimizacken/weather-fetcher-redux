@@ -40,12 +40,17 @@
     border: 1px solid $input-border-color;
     cursor: pointer;
     padding: 9px;
+
+    .remove-button {
+      visibility: visible;
+    }
   }
 }
 
 .remove-button {
   cursor: pointer;
   text-align: right;
+  visibility: hidden;
 }
 
 .history-item-icon {
