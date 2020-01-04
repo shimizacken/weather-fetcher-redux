@@ -2,6 +2,10 @@
 
 .search-history-panel {
   position: fixed;
+
+  display: flex;
+  flex-direction: column;
+
   height: 95vh;
   width: 10vw;
   overflow: hidden;
@@ -12,6 +16,10 @@
 
   padding: 15px;
   border: 1px solid $input-border-color;
+
+  .header {
+    text-align: center;
+  }
 
   .list-item-inner-wrapper {
     height: 90vh;

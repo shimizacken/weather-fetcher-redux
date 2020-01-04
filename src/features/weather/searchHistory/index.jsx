@@ -13,7 +13,9 @@ export const SearchHistoryContainer = () => {
 
   return (
     <div className={style.searchHistoryPanel}>
-      <h4>History ({searchHistory.length})</h4>
+      <div className={style.header}>
+        <h4>History ({searchHistory.length})</h4>
+      </div>
       <List list={searchHistory.reverse()} />
     </div>
   );
