@@ -1,6 +1,6 @@
 import { createStore, compose, applyMiddleware } from 'redux';
 import { reducers } from './shared/reducers';
-import { middlewares } from '../middlewares';
+import { middlewares } from './shared/shared-middlewares';
 import { getPersistedHistoryList } from '../services/ui/searchHistory';
 import { getPersistedTheme } from 'app/features/theme/bll/getPersistedTheme';
 
