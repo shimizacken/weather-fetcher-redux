@@ -9,7 +9,7 @@ import styles from './styles.scss';
 export const ToggleTheme = () => {
   const dispatch = useDispatch();
   const defaultThemeType = getPersistedTheme();
-  
+
   const toggle = e => {
     dispatch(toggleTheme(e.target.value));
     dispatch(themeChanged(e.target.value));
