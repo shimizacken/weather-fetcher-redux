@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { RemoveButton } from './removeButton';
-import { unitSymbols } from '../../../services/openweathermap/units';
-import { buildIconUrl } from '../../../services/openweathermap/utils';
+import { unitSymbols } from '../../services/openweathermap/units';
+import { buildIconUrl } from '../../services/openweathermap/utils';
 import style from './style.scss';
 
 export default class Item extends Component {

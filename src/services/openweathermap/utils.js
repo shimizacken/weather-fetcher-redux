@@ -1,5 +1,3 @@
-// import { units } from './units';
-
 export const buildApiUrl = (token, unit) => {
   unit = unit ? `&units=${unit}` : '';
 
