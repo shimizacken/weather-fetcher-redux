@@ -18,9 +18,3 @@ import {
   export const removeItemFromHistoryListEnded = () => ({
     type: END_REMOVE_ITEM_FROM_HISTORY
   });
-  
-  export const setTempUnit = tempType => ({
-    type: SET_TEMPERATURE_UNIT,
-    tempType
-  })
-  

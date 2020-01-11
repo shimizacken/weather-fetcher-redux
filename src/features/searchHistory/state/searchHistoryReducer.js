@@ -1,9 +1,9 @@
-import { ADD_TO_SEARCH_HISTORY, REMOVE_ITEM_FROM_HISTORY } from '../../../constants';
+import { SET_SEARCH_HISTORY, REMOVE_ITEM_FROM_HISTORY } from './constants';
 
 const initialState = [];
 
 export const searchHistory = (state = initialState, action) => {
-  if(action.type === ADD_TO_SEARCH_HISTORY) {
+  if(action.type === SET_SEARCH_HISTORY) {
       return [...state, action.history];
   }
   

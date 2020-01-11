@@ -1,17 +1,20 @@
-import uuid from 'uuid';
 import {
     SET_WEATHER,
+    SET_WEATHER_END,
     FETCH_WEATHER_PENDING,
     FETCH_WEATHER_ERROR,
     FETCH_WEATHER_SUCCESS,
     SET_FETCH_WEATHER_FLAG
   } from './constants';
-import { setHistory } from 'app/features/searchHistory';
   
 export const setWeather = weather => ({
     type: SET_WEATHER,
     weather
   });
+
+export const setWeatherEnd = {
+  type: SET_WEATHER_END
+};
 
 export const fetchWeatherPending = {
   type: FETCH_WEATHER_PENDING
@@ -45,15 +48,7 @@ export const fetchWeatherError = {
         }
         
         dispatch(setWeather(data));
-
-        const historyItem = {
-          id: uuid.v4(),
-          history: data,
-          tempType: getState().metricType,
-          date: new Date()
-        };
-
-        dispatch(setHistory(historyItem));
+        dispatch(setWeatherEnd);
       })
       .catch(error => {
         console.error(error);
