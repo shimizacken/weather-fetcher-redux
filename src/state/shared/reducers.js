@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import { searchResult, fetchWeatherFlag } from 'app/features/weather';
 import { themeType } from 'app/features/theme/state';
-import { metricType } from '../../reducers/tempType';
-import { searchHistory } from '../../reducers/history';
+import { metricType } from 'app/features/metricType';
+import { searchHistory } from 'app/features/searchHistory';
 
 export const reducers = combineReducers({
   searchResult,
