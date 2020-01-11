@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import List from './list';
+import { SearchHistoryList } from './SearchHistoryList';
 import style from './style.scss';
 
 export const SearchHistoryContainer = () => {
@@ -16,7 +16,7 @@ export const SearchHistoryContainer = () => {
       <div className={style.header}>
         <h4>History ({searchHistory.length})</h4>
       </div>
-      <List list={searchHistory.reverse()} />
+      <SearchHistoryList items={searchHistory.reverse()} />
     </div>
   );
 };
