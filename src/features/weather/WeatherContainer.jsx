@@ -13,7 +13,6 @@ import { selectMetricType, selectFetchWeatherFlag } from './state/weather-select
 import styles from './styles.scss';
 
 export const WeatherContainer = () => {
-  
   const dispatch = useDispatch();
   const [cityName, setCityName] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -26,7 +25,7 @@ export const WeatherContainer = () => {
   const resetDetails = () => {
     setErrorMessage('');
     dispatch(setWeather({}));
-  }
+  };
 
   const search = e => {
     e.preventDefault();
@@ -38,7 +37,7 @@ export const WeatherContainer = () => {
     resetDetails();
 
     const url = searchByCityNameUrl(cityName);
-    
+
     dispatch(fetchWeather(url));
   };
 

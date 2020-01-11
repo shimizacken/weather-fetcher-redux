@@ -8,7 +8,7 @@ import styles from './ToggleTheme.scss';
 export const ToggleTheme = () => {
   const dispatch = useDispatch();
   const defaultThemeType = useSelector(state => state.themeType);
-  
+
   const toggle = e => {
     dispatch(toggleTheme(e.target.value));
     dispatch(themeChanged(e.target.value));
