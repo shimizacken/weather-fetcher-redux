@@ -1,8 +1,14 @@
 import { 
   SET_SEARCH_HISTORY,
+  ADD_TO_SEARCH_HISTORY,
   REMOVE_ITEM_FROM_HISTORY,
   END_REMOVE_ITEM_FROM_HISTORY
 } from './constants';
+
+export const addHistory = history => ({
+  type: ADD_TO_SEARCH_HISTORY,
+  history
+});
 
 export const setHistory = history => ({
   type: SET_SEARCH_HISTORY,
