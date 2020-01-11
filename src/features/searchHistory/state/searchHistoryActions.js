@@ -3,7 +3,7 @@ import {
     REMOVE_ITEM_FROM_HISTORY,
     END_REMOVE_ITEM_FROM_HISTORY,
     SET_TEMPERATURE_UNIT
-  } from '../constants';
+  } from './constants';
   
   export const setHistory = history => ({
     type: SET_SEARCH_HISTORY,

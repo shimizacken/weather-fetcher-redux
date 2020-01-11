@@ -2,7 +2,7 @@ import React from 'react';
 import { Theme } from '../theme';
 import { Header } from '../portal';
 import { WeatherContainer } from '../weather';
-import { SearchHistoryContainer } from 'app/features/weather/searchHistory';
+import { SearchHistoryContainer } from 'app/features/searchHistory';
 import styles from './styles.scss';
 
 export const RootContainer = () => (

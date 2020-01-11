@@ -1,14 +1,12 @@
 import uuid from 'uuid';
 import {
     SET_WEATHER,
-    SET_CURRENT_WEATHER,
-    END_FETCH_WEATHER,
     FETCH_WEATHER_PENDING,
     FETCH_WEATHER_ERROR,
     FETCH_WEATHER_SUCCESS,
     SET_FETCH_WEATHER_FLAG
   } from './constants';
-import { setHistory } from '../../../actions';
+import { setHistory } from 'app/features/searchHistory';
   
 export const setWeather = weather => ({
     type: SET_WEATHER,

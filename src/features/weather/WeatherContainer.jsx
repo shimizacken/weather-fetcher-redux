@@ -8,7 +8,7 @@ import { Loader } from '../../components/common';
 import { ErrorMessage } from './errorMessage';
 import { MetricRadioButtons } from './metricRadioButtons';
 import { setWeather, fetchWeather } from '../weather';
-import { setTempUnit } from '../../actions';
+import { setTempUnit } from 'app/features/metricType';
 import { selectMetricType, selectFetchWeatherFlag } from './state/weather-selectors';
 import styles from './styles.scss';
 

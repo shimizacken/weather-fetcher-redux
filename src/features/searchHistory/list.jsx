@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { removeItemFromHistoryList, removeItemFromHistoryListEnded } from '../../../actions';
+import { 
+    removeItemFromHistoryList,
+    removeItemFromHistoryListEnded
+} from './state/searchHistoryActions';
 import style from './style.scss';
 import Item from './item';
 
