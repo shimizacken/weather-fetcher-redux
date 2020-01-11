@@ -15,7 +15,9 @@ export const SearchHistoryList = ({ items }) => {
 
   return (
     <div className={style.listItemInnerWrapper}>
-      {items?.map(item => <HistoryItem key={item.id} item={item} removeItem={removeItem} />)}
+      {items?.map(item => (
+        <HistoryItem key={item.id} item={item} removeItem={removeItem} />
+      ))}
     </div>
   );
 };
