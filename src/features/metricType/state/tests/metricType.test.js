@@ -3,10 +3,10 @@ import { metricType } from '../metricTypeReducer';
 
 describe('metricType test suite', () => {
   describe('default', () => {
-    it('should return ', () => {
+    it('should return metric type when not match action is passed', () => {
       const action = randomAction();
 
-      expected(metricType(undefined, action)).toMatchSnapshot();
+      expect(metricType(undefined, action)).toMatchSnapshot();
     });
   });
 });

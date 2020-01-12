@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`metricType test suite default should return metric type when not match action is passed 1`] = `"metric"`;
