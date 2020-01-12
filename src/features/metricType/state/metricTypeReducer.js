@@ -1,5 +1,5 @@
-import { SET_TEMPERATURE_UNIT } from './constants';
 import { TemperatureUnits } from 'app/services/openWeatherMap/units';
+import { SET_TEMPERATURE_UNIT } from './constants';
 
 const initialState = TemperatureUnits.celsius;
 

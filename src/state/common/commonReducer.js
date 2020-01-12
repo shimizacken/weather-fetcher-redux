@@ -1,4 +1,4 @@
-const commonReducer = (state, actions, action) => {
+export const commonReducer = (state, actions, action) => {
   if (actions.includes(action.type)) {
     const { ...actionPayload } = action;
 
@@ -10,5 +10,3 @@ const commonReducer = (state, actions, action) => {
 
   return state;
 };
-
-export { commonReducer };
