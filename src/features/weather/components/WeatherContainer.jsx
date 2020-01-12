@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { SearchBox } from '../../components/common';
-import { token } from '../../services/openWeatherMap/token';
-import { buildApiUrl } from '../../services/openWeatherMap/utils';
-import { WeatherDetailsContainer } from './details/WeatherDetailsContainer';
-import { Loader } from '../../components/common';
-import { ErrorMessage } from './errorMessage/ErrorMessage';
-import { MetricRadioButtons } from '../metricType';
-import { setWeather, fetchWeather } from '../weather';
-import { setTempUnit } from 'app/features/metricType';
-import { selectMetricType, selectFetchWeatherFlag } from './state/weatherSelectors';
+import { MetricRadioButtons, setTempUnit } from 'app/features/metricType';
+import { Loader, SearchBox } from 'app/components/common';
+import { token } from 'app/services/openWeatherMap/token';
+import { buildApiUrl } from 'app/services/openWeatherMap/utils';
+import { WeatherDetailsContainer } from '../details/WeatherDetailsContainer';
+import { ErrorMessage } from '../errorMessage/ErrorMessage';
+import { setWeather, fetchWeather } from '..';
+import { selectMetricType, selectFetchWeatherFlag } from '../state/weatherSelectors';
 import styles from './WeatherContainer.scss';
 
 export const WeatherContainer = () => {
