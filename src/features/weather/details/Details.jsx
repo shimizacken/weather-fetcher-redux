@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const Details = React.memo(({ cityName, description, temperature, pressure, humidity, speed, cloudsAll }) => (
   <div>
@@ -12,3 +13,13 @@ export const Details = React.memo(({ cityName, description, temperature, pressur
     <div>Clouds: {cloudsAll}</div>
   </div>
 ));
+
+Details.propTypes = {
+  cityName: PropTypes.string,
+  description: PropTypes.string,
+  temperature: PropTypes.number,
+  pressure: PropTypes.number,
+  humidity: PropTypes.number,
+  speed: PropTypes.number,
+  cloudsAll: PropTypes.number
+};

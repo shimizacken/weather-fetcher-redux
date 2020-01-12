@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setTempUnit } from 'app/features/metricType';
 import { SearchBox } from '../../components/common';
 import { token } from '../../services/openWeatherMap/token';
 import { buildApiUrl } from '../../services/openWeatherMap/utils';
@@ -9,10 +8,12 @@ import { Loader } from '../../components/common';
 import { ErrorMessage } from './errorMessage';
 import { MetricRadioButtons } from './metricRadioButtons';
 import { setWeather, fetchWeather } from '../weather';
+import { setTempUnit } from 'app/features/metricType';
 import { selectMetricType, selectFetchWeatherFlag } from './state/weather-selectors';
 import styles from './styles.scss';
 
 export const WeatherContainer = () => {
+  
   const dispatch = useDispatch();
   const [cityName, setCityName] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -25,7 +26,7 @@ export const WeatherContainer = () => {
   const resetDetails = () => {
     setErrorMessage('');
     dispatch(setWeather({}));
-  };
+  }
 
   const search = e => {
     e.preventDefault();
@@ -37,7 +38,7 @@ export const WeatherContainer = () => {
     resetDetails();
 
     const url = searchByCityNameUrl(cityName);
-
+    
     dispatch(fetchWeather(url));
   };
 
