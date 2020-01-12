@@ -15,7 +15,6 @@ module.exports = {
     'string-format': '<rootDir>/__mocks__/string-format-mock.js',
     '^app(.*)$': '<rootDir>/src/$1'
   },
-  rootDir: '.',
   roots: ['<rootDir>/src'],
   testEnvironment: 'jsdom',
   transform: {
