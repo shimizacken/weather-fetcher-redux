@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import isEmpty from 'lodash/isEmpty';
 import { Details } from './Details';
-import { selectSearchResult } from '../state/weather-selectors';
+import { selectSearchResult } from '../state/weatherSelectors';
 import { buildIconUrl } from '../../../services/openWeatherMap/utils';
 import styles from './styles.scss';
 
