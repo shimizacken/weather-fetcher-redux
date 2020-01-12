@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import isEmpty from 'lodash/isEmpty';
 import { Details } from './Details';
-import { selectSearchResult } from '../state/weatherSelectors';
-import { buildIconUrl } from '../../../services/openWeatherMap/utils';
-import styles from './styles.scss';
+import { selectSearchResult } from '../../state/weatherSelectors';
+import { buildIconUrl } from '../../../../services/openWeatherMap/utils';
+import styles from './WeatherDetailsContainer.scss';
 
 export const WeatherDetailsContainer = () => {
   const { weather } = useSelector(selectSearchResult);
