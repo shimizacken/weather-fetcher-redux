@@ -1,7 +1,7 @@
 import { createStore, compose, applyMiddleware } from 'redux';
 import { reducers } from './shared/reducers';
 import { middlewares } from './shared/sharedMiddlewares';
-import { getPersistedHistoryList } from './bll/getPersistedHistoryList';
+import { getPersistedHistoryList } from 'app/services/localStorage/getPersistedHistoryList';
 
 const initialState = {
   searchHistory: getPersistedHistoryList()
