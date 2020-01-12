@@ -9,7 +9,8 @@
     "analyze": "source-map-explorer build/static/js/main.*",
     "lint": "eslint --fix . && echo 'Lint complete.'",
     "test": "jest",
-    "jest-watch": "npm test -- --watch"
+    "jest-watch": "npm test -- --watch",
+    "cypress:open": "cypress open"
   },
   "repository": "git+https://github.com/shimizacken/weather-fetcher.git",
   "keywords": [],
@@ -33,6 +34,7 @@
     "babel-jest": "^24.9.0",
     "babel-loader": "^7.1.5",
     "css-loader": "^0.28.11",
+    "cypress": "^3.8.2",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-prettier": "^3.1.2",
