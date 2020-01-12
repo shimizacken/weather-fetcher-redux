@@ -1,7 +1,7 @@
 import React from 'react';
-import { Theme } from '../theme';
-import { Header } from '../portal';
-import { WeatherContainer } from '../weather';
+import { Theme } from 'app/features/theme';
+import { Header } from 'app/features/portal';
+import { WeatherContainer } from 'app/features/searchWeather';
 import { SearchHistoryContainer } from 'app/features/searchHistory';
 import styles from './styles.scss';
 
