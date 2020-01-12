@@ -1,8 +1,19 @@
 import React from 'react';
-import styles from './styles.scss';
+import PropTypes from 'prop-types';
+import styles from './Button.scss';
 
-export const Button = ({ disabled }) => (
+export const Button = React.memo(({ text, disabled }) => (
   <button className={styles.searchButton} type="submit" disabled={disabled}>
-    Search
+    {text}
   </button>
-);
+));
+
+Button.protoTypes = {
+  text: PropTypes.string,
+  disabled: PropTypes.bool
+};
+
+Button.defaultProps = {
+  text: undefined,
+  disabled: false
+};

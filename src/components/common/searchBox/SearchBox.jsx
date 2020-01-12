@@ -8,7 +8,7 @@ export const SearchBox = ({ value, onChange, displayLoader }) => {
     <div className={styles.searchboxWrapper}>
       <input type="text" value={value} onChange={onChange} placeholder="Type city name and hit the enter..." />
       <div className={styles.buttonWrapper}>
-        <Button disabled={displayLoader} />
+        <Button text="Search" disabled={displayLoader} />
       </div>
     </div>
   );
