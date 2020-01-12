@@ -8,7 +8,7 @@ export const MetricRadioButtons = ({ radioChanged }) => (
   <div>
     <RadioButton
       text="Celsius"
-      value={TemperatureUnits.CELSIUS}
+      value={TemperatureUnits.celsius}
       name="temperatureType"
       className={styles.radioButton}
       checked
@@ -16,14 +16,14 @@ export const MetricRadioButtons = ({ radioChanged }) => (
     />
     <RadioButton
       text="Fahrenheit"
-      value={TemperatureUnits.FAHRENHEIT}
+      value={TemperatureUnits.fahrenheit}
       name="temperatureType"
       className={styles.radioButton}
       onChange={radioChanged}
     />
     <RadioButton
       text="Kelvin"
-      value={TemperatureUnits.KELVIN}
+      value={TemperatureUnits.kelvin}
       name="temperatureType"
       className={styles.radioButton}
       onChange={radioChanged}

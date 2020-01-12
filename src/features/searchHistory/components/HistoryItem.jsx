@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { RemoveButton } from './RemoveButton';
-import { unitSymbols } from 'app/services/openweathermap/units';
+import { UnitSymbols } from 'app/services/openweathermap/units';
 import { buildIconUrl } from 'app/services/openweathermap/utils';
 import style from './style.scss';
 
@@ -14,12 +14,12 @@ export const HistoryItem = ({ item, removeItem }) => (
       <div>
         <img
           className={style.historyItemIcon}
-          src={buildIconUrl(item.history.weather[0].icon)}
-          title={item.history.weather[0].main}
+          src={buildIconUrl(item?.history?.weather[0]?.icon)}
+          title={item?.history?.weather[0]?.main}
         />
         <b>
           {item.history.main.temp}
-          {unitSymbols[item.tempType]}
+          {UnitSymbols?.[item.tempType]}
         </b>
       </div>
       <div>{item.history.name}</div>

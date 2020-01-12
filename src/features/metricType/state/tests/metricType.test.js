@@ -17,7 +17,7 @@ describe('metricType test suite', () => {
       const state = {
         metricType: undefined
       };
-      const action = setTempUnit(TemperatureUnits.CELSIUS);
+      const action = setTempUnit(TemperatureUnits.celsius);
 
       expect(metricType(state, action)).toMatchSnapshot();
     });
@@ -26,7 +26,7 @@ describe('metricType test suite', () => {
       const state = {
         metricType: undefined
       };
-      const action = setTempUnit(TemperatureUnits.FAHRENHEIT);
+      const action = setTempUnit(TemperatureUnits.fahrenheit);
 
       expect(metricType(state, action)).toMatchSnapshot();
     });
@@ -35,7 +35,7 @@ describe('metricType test suite', () => {
       const state = {
         metricType: undefined
       };
-      const action = setTempUnit(TemperatureUnits.KELVIN);
+      const action = setTempUnit(TemperatureUnits.kelvin);
 
       expect(metricType(state, action)).toMatchSnapshot();
     });
