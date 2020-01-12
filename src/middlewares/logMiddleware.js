@@ -4,5 +4,4 @@ export const logMiddleware = ({ getState }) => next => action => {
 
   next(action);
   console.log('Redux Logger - after', action.type, getState());
-
 };
