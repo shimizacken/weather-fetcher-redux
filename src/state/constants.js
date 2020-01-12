@@ -1,3 +1,7 @@
+import uuid from 'uuid';
+
+export const RANDOM_ACTION_TYPE = `@@rand/action/${uuid.v4()}`;
+
 export const pending = 'pending';
 export const success = 'success';
 export const error = 'error';
