@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import styles from './style.scss';
+import styles from './RadioButton.scss';
 
 export const RadioButton = ({ text, name, checked, className, style, onChange, value }) => (
   <label className={classNames(styles.container, className)} style={style}>
