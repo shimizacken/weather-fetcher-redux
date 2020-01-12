@@ -1,7 +1,7 @@
 import { SET_TEMPERATURE_UNIT } from './constants';
-import { units } from 'app/services/openWeatherMap/units';
+import { TemperatureUnits } from 'app/services/openWeatherMap/units';
 
-const initialState = units.celsius;
+const initialState = TemperatureUnits.CELSIUS;
 
 export const metricType = (state = initialState, action) => {
   if (action.type === SET_TEMPERATURE_UNIT) {

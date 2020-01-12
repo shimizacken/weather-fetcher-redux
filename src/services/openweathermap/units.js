@@ -1,13 +1,11 @@
-const units = {
-  kelvin: '',
-  celsius: 'metric',
-  fahrenheit: 'imperial'
+export const TemperatureUnits = {
+  KELVIN: '',
+  CELSIUS: 'metric',
+  FAHRENHEIT: 'imperial'
 };
 
-const unitSymbols = {
+export const unitSymbols = {
   kelvin: 'K',
   celsius: '°C',
   fahrenheit: '°F'
 };
-
-export { units, unitSymbols };

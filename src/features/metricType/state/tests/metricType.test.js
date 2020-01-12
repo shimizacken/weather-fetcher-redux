@@ -1,5 +1,5 @@
 import { randomAction } from 'app/state/common/randomAction';
-import { units } from 'app/services/openWeatherMap/units';
+import { TemperatureUnits } from 'app/services/openWeatherMap/units';
 import { metricType } from '../metricTypeReducer';
 import { setTempUnit } from '../metricTypeActions';
 
@@ -17,7 +17,7 @@ describe('metricType test suite', () => {
       const state = {
         metricType: undefined
       };
-      const action = setTempUnit(units.celsius);
+      const action = setTempUnit(TemperatureUnits.CELSIUS);
 
       expect(metricType(state, action)).toMatchSnapshot();
     });
@@ -26,7 +26,7 @@ describe('metricType test suite', () => {
       const state = {
         metricType: undefined
       };
-      const action = setTempUnit(units.fahrenheit);
+      const action = setTempUnit(TemperatureUnits.FAHRENHEIT);
 
       expect(metricType(state, action)).toMatchSnapshot();
     });
@@ -35,7 +35,7 @@ describe('metricType test suite', () => {
       const state = {
         metricType: undefined
       };
-      const action = setTempUnit(units.kelvin);
+      const action = setTempUnit(TemperatureUnits.KELVIN);
 
       expect(metricType(state, action)).toMatchSnapshot();
     });
