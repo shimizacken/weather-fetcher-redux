@@ -1,4 +1,4 @@
-import { store } from '../store';
+import { store } from '../state/store';
 
 const createFakedMiddleware = (middleware, state = {}) => {
   store.injectState(state);
