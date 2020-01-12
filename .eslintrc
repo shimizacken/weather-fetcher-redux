@@ -25,6 +25,22 @@
     }
   },
   "rules": {
+    "react/sort-comp": [
+      "error",
+      {
+        "order": [
+          "static-methods",
+          "instance-variables",
+          "lifecycle",
+          "/^get.+$/",
+          "/^on.+$/",
+          "/^handle.+$/",
+          "everything-else",
+          "/^render.+$/",
+          "render"
+        ]
+      }
+    ],
     "react/prop-types": 0,
     "react/display-name": 0,
     "linebreak-style": ["error", "unix"],
