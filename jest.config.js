@@ -12,7 +12,8 @@ module.exports = {
   moduleNameMapper: {
     '\\.svg$': '<rootDir>/__mocks__/svg-react-loader-mock.jsx',
     '\\.scss$': '<rootDir>/__mocks__/scss-loader-mock.js',
-    'string-format': '<rootDir>/__mocks__/string-format-mock.js'
+    'string-format': '<rootDir>/__mocks__/string-format-mock.js',
+    '^app(.*)$': '<rootDir>/src/$1'
   },
   rootDir: './',
   roots: ['<rootDir>/src'],
