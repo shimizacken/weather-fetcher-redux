@@ -1,4 +1,4 @@
-import { pendingType, successType, errorType } from 'app/state/shared/constants';
+import { pendingType, successType, errorType } from 'app/state/constants';
 
 export const FETCH_WEATHER = 'weather/fetch';
 export const SET_WEATHER = 'weather/set';

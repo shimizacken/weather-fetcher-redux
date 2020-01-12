@@ -1,7 +1,7 @@
 import React from 'react';
-import { ToggleTheme } from '../../theme';
-import sun from '../../../assets/png/sun';
-import styles from './styles.scss';
+import sun from 'app/assets/png/sun';
+import { ToggleTheme } from 'app/features/theme';
+import styles from './Header.scss';
 
 export const Header = () => (
   <header>

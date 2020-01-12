@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { removeItemFromHistoryList, removeItemFromHistoryListEnded } from './state/searchHistoryActions';
+import { removeItemFromHistoryList, removeItemFromHistoryListEnded } from '../state/searchHistoryActions';
 import { HistoryItem } from './HistoryItem';
 import style from './style.scss';
 

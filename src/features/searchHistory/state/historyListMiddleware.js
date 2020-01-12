@@ -1,6 +1,6 @@
 import uuid from 'uuid';
 import { END_REMOVE_ITEM_FROM_HISTORY } from './constants';
-import { SET_WEATHER_END } from 'app/features/weather';
+import { SET_WEATHER_END } from 'app/features/searchWeather';
 import { setHistory } from './searchHistoryActions';
 
 export const historyListMiddleware = ({ dispatch, getState }) => next => action => {
