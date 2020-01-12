@@ -2,7 +2,7 @@ import React from 'React';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { ThemeTypes } from '../bll/themeTypes';
-import styles from './styles.scss';
+import styles from './Theme.scss';
 
 export const Theme = ({ children }) => {
   const themeType = useSelector(state => state.themeType);
