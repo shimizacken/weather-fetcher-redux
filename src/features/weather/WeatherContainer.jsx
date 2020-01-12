@@ -5,12 +5,12 @@ import { token } from '../../services/openWeatherMap/token';
 import { buildApiUrl } from '../../services/openWeatherMap/utils';
 import { WeatherDetailsContainer } from './details/WeatherDetailsContainer';
 import { Loader } from '../../components/common';
-import { ErrorMessage } from './errorMessage';
-import { MetricRadioButtons } from './metricRadioButtons';
+import { ErrorMessage } from './errorMessage/ErrorMessage';
+import { MetricRadioButtons } from '../metricType';
 import { setWeather, fetchWeather } from '../weather';
 import { setTempUnit } from 'app/features/metricType';
 import { selectMetricType, selectFetchWeatherFlag } from './state/weatherSelectors';
-import styles from './styles.scss';
+import styles from './WeatherContainer.scss';
 
 export const WeatherContainer = () => {
   const dispatch = useDispatch();
