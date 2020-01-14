@@ -55,7 +55,7 @@ export const WeatherContainer = () => {
           <SearchBox value={cityName} onChange={onChange} displayLoader={fetchWeatherFlag} />
         </form>
         <MetricRadioButtons radioChanged={radioChanged} />
-        <div className={styles.resultsWrapper}>
+        <div className={styles.resultsWrapper} data-cy="search-results">
           <div className={styles.detailsWrapper}>
             <WeatherDetailsContainer />
           </div>

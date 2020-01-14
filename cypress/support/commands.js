@@ -23,3 +23,9 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('searchWeather', cityName => {
+  cy.visit('http://localhost:9200/');
+  cy.get('input[type=text]').type(cityName);
+  cy.get('button').click();
+});
