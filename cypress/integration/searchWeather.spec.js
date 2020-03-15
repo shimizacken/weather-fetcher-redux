@@ -10,11 +10,12 @@ describe('search weather test suite', () => {
     cy.contains('weather fetcher');
   });
 
-  it('type in search box', () => {
+  it.only('type in search box', () => {
     cy.server();
     cy.route({
       method: 'GET',
-      url: 'https://api.openweathermap.org/data/2.5/weather?q=*',
+      url:
+        'https://api.openweathermap.org/data/2.5/weather?q=drammen&appid=69002fcf63566f2396643824536f3d9b&units=metric',
       status: 200,
       response: searchWeatherResponse()
     });
