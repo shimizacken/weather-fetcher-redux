@@ -50,6 +50,7 @@ export const fetchWeather = url => dispatch => {
     })
     .catch(error => {
       console.error(error);
+
       dispatch(fetchWeatherError);
     })
     .finally(() => dispatch(setWeatherFetchFlag(false)));
