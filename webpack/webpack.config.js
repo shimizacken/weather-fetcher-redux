@@ -5,7 +5,7 @@ const extractSASS = new ExtractTextPlugin('portal.css');
 
 const LOGO_PATH = path.resolve(__dirname, '../src/assets/png/sun.png');
 
-const alias = {
+export const alias = {
   app: path.resolve(__dirname, '../src')
 };
 
