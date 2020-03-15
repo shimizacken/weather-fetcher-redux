@@ -22,6 +22,7 @@ export const ToggleTheme = () => {
         name="themeType"
         checked={defaultThemeType === ThemeTypes.light}
         onChange={toggle}
+        dataCy="light-theme-radio-button"
       />
       <RadioButton
         text="☽"
@@ -29,6 +30,7 @@ export const ToggleTheme = () => {
         name="themeType"
         checked={defaultThemeType === ThemeTypes.dark}
         onChange={toggle}
+        dataCy="dark-theme-radio-button"
       />
     </div>
   );

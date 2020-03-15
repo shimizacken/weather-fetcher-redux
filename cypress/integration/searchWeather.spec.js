@@ -3,14 +3,10 @@ import { searchWeatherResponse } from '../fixtures/searchResults';
 
 describe('search weather test suite', () => {
   beforeEach(() => {
-    cy.visitHomePage('http://localhost:9200/');
+    cy.visitHomePage();
   });
 
-  it('should open the home page', () => {
-    cy.contains('weather fetcher');
-  });
-
-  it.only('type in search box', () => {
+  it('type in search box', () => {
     cy.server();
     cy.route({
       method: 'GET',
