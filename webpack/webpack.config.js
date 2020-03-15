@@ -22,13 +22,17 @@ module.exports = {
     filename: 'main.js'
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.webpack.js', '.web.js', '.json', '.png'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.webpack.js', '.web.js', '.json', '.png'],
     modules: ['node_modules'],
     alias
   },
   devtool: 'source-map',
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader'
+      },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
