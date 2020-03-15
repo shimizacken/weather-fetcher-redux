@@ -2,4 +2,3 @@ node_modules
 .next
 __mocks__
 *.test.js
-*.spec.js

@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './RadioButton.scss';
 
-export const RadioButton = ({ text, name, checked, className, style, onChange, value }) => (
+export const RadioButton = ({ text, name, checked, className, style, onChange, value, dataCy }) => (
   <label className={classNames(styles.container, className)} style={style}>
     {text}
-    <input type="radio" defaultChecked={checked} name={name} onChange={onChange} value={value} />
+    <input type="radio" defaultChecked={checked} name={name} onChange={onChange} value={value} data-cy={dataCy} />
     <span className={styles.checkmark}></span>
   </label>
 );
@@ -18,7 +18,8 @@ RadioButton.propTypes = {
   className: PropTypes.string,
   style: PropTypes.any,
   onChange: PropTypes.func,
-  value: PropTypes.string
+  value: PropTypes.string,
+  dataCy: PropTypes.string
 };
 
 RadioButton.defaultProps = {
@@ -28,5 +29,6 @@ RadioButton.defaultProps = {
   className: undefined,
   style: undefined,
   onChange: undefined,
-  value: undefined
+  value: undefined,
+  dataCy: undefined
 };
