@@ -41,7 +41,7 @@ export const fetchWeather = url => dispatch => {
   return fetch(url)
     .then(response => response.json())
     .then(data => {
-      if (data && data.cod !== 200) {
+      if (data && data.code !== 200) {
         throw data.message;
       }
 
