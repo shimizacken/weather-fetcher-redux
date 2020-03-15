@@ -1,32 +1,31 @@
-// import uuid from 'uuid';
-// import * as api from '../../src/services/net/fetch';
-
+import { searchWeatherResponse } from "../fixtures/searchResults";
 
 describe('Open default page', () => {
     
-    // beforeEach(() => {
-    //     cy.visit('http://localhost:9200/');
-    // });
+    beforeEach(() => {
+        cy.visitHomePage('http://localhost:9200/');
+    });
     
-    it.skip('should open the home page', () => {
+    it('should open the home page', () => {
         cy.contains('weather fetcher');
     });
     
-    it.only('type in search box', () => {
-        
-        cy.visit('http://localhost:9200/');
-        // cy.get('input[type=text]').type('Drammen');
+    it('type in search box', () => {
+        cy.server();
+        cy.route({
+            method: 'GET',
+            url: 'https://api.openweathermap.org/data/2.5/weather?q=*',
+            status: 200,
+            response: searchWeatherResponse()
+        });
 
-        // cy.get('button')
-        // .click().then($btn => {
-        //     cy.get($btn).should("be.disabled");
-        //     cy.get("[data-cy=loader-image]");
+        cy.get('[data-cy=search-results]').should('be.not.visible');
+        cy.get('[data-cy=search-weather-button-input]').should('be.enabled');
+        cy.get('[data-cy=search-weather-button]').should('be.enabled');
 
-        // })        
-        // .get('[data-cy=search-results]');
-    });
+        cy.get('[data-cy=search-weather-button-input]').type('Drammen');
+        cy.get('[data-cy=search-weather-button]').click();
 
-    it.skip('click on the search button', () => {
-        cy.searchWeather('Bergen');
+        cy.get('[data-cy=search-results]').should('be.visible');
     });
 });

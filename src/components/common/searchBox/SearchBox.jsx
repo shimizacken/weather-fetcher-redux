@@ -7,9 +7,15 @@ import styles from './SearchBox.scss';
 export const SearchBox = ({ value, onChange, displayLoader }) => {
   return (
     <div className={styles.searchBoxWrapper}>
-      <input type="text" value={value} onChange={onChange} placeholder="Type city name and hit the enter..." />
+      <input
+        type="text"
+        value={value}
+        onChange={onChange}
+        placeholder="Type city name and hit the enter..."
+        data-cy="search-weather-button-input"
+      />
       <div className={styles.buttonWrapper}>
-        <Button text="Search" disabled={displayLoader} buttonType={ButtonTypes.SUBMIT} />
+        <Button text="Search" disabled={displayLoader} buttonType={ButtonTypes.SUBMIT} dataCy="search-weather-button" />
       </div>
     </div>
   );
