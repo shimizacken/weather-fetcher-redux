@@ -1,9 +1,18 @@
 {
+  "include": ["src"],
+  "exclude": ["target", "node_modules"],
   "compilerOptions": {
-    "outDir": "./dist/",
-    "sourceMap": true,
-    "noImplicitAny": true,
     "target": "es5",
+    "esModuleInterop": true,
+    "typeRoots": ["./app/types", "./node_modules/@types"],
+    "baseUrl": "src/main/js",
+    "paths": {
+      "app/*": ["./app/*"]
+    },
+
+    "sourceMap": true,
+    "allowJs": false,
+    "checkJs": false,
     "jsx": "react"
   }
 }
