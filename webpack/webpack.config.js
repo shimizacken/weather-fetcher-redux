@@ -1,4 +1,5 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const extractSASS = new ExtractTextPlugin('portal.css');
@@ -49,8 +50,9 @@ module.exports = {
       {
         test: /\.scss$/,
         use: extractSASS.extract({
-          fallback: ['style-loader'], // translates CSS into CommonJS
+          fallback: [MiniCssExtractPlugin.loader], // translates CSS into CommonJS
           use: [
+            'css-modules-typescript-loader',
             {
               loader: 'css-loader',
               options: {
@@ -67,7 +69,14 @@ module.exports = {
       }
     ]
   },
-  plugins: [extractSASS, htmlPlugin],
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css'
+    }),
+    extractSASS,
+    htmlPlugin
+  ],
   devServer: {
     port: 9200
   }
