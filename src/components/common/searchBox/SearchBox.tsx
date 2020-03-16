@@ -4,7 +4,13 @@ import { Button } from '..';
 import { ButtonTypes } from '../button/buttonTypes';
 import styles from './SearchBox.scss';
 
-export const SearchBox = ({ value, onChange, displayLoader }) => {
+interface SearchBoxProps {
+  value: string;
+  onChange: () => void;
+  displayLoader: boolean;
+}
+
+export const SearchBox: React.FC<SearchBoxProps> = ({ value, onChange, displayLoader }) => {
   return (
     <div className={styles.searchBoxWrapper}>
       <input
@@ -21,8 +27,3 @@ export const SearchBox = ({ value, onChange, displayLoader }) => {
   );
 };
 
-SearchBox.propTypes = {
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  displayLoader: PropTypes.bool.isRequired
-};
