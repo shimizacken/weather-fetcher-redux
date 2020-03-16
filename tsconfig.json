@@ -4,12 +4,12 @@
   "compilerOptions": {
     "target": "es5",
     "esModuleInterop": true,
-    "typeRoots": ["./app/types", "./node_modules/@types"],
-    "baseUrl": "src/main/js",
+    "typeRoots": ["./node_modules/@types"],
+    "baseUrl": "./",
     "paths": {
-      "app/*": ["./app/*"]
+      "app": ["./src"]
     },
-
+    "rootDirs": ["src"],
     "sourceMap": true,
     "allowJs": false,
     "checkJs": false,
