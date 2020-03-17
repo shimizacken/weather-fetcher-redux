@@ -2,21 +2,21 @@ import uuid from 'uuid';
 
 export const RANDOM_ACTION_TYPE: string = `@@rand/action/${uuid.v4()}`;
 
-export const pending: string = 'pending';
-export const success: string = 'success';
-export const error: string = 'error';
+export const PENDING: string = 'pending';
+export const SUCCESS: string = 'success';
+export const ERROR: string = 'error';
 
 /**
  * Append '_pending' suffix to given action type.
  */
-export const pendingType: string = (actionType: string) => `${actionType}_${pending}`;
+export const pendingType = (actionType: string): string => `${actionType}_${PENDING}`;
 
 /**
  * Append '_success' suffix to given action type.
  */
-export const successType: string = (actionType: string) => `${actionType}_${success}`;
+export const successType = (actionType: string): string => `${actionType}_${SUCCESS}`;
 
 /**
  * Append '_error' suffix to given action type.
  */
-export const errorType: string = (actionType: string) => `${actionType}_${error}`;
+export const errorType = (actionType: string): string => `${actionType}_${ERROR}`;
