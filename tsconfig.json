@@ -5,11 +5,10 @@
     "target": "es5",
     "esModuleInterop": true,
     "typeRoots": ["./node_modules/@types"],
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
-      "app": ["./src"]
+      "app/*": ["*"]
     },
-    "rootDirs": ["src"],
     "sourceMap": true,
     "allowJs": false,
     "checkJs": false,
