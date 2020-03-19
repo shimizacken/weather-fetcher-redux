@@ -1,16 +1,13 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const alias = require('./aliases');
+
 const extractSASS = new ExtractTextPlugin('portal.css');
 
 const LOGO_PATH = path.resolve(__dirname, '../src/assets/png/sun.png');
-
-const alias = {
-  app: path.resolve(__dirname, '../src')
-};
-
-module.exports = alias;
 
 const htmlPlugin = new HtmlWebPackPlugin({
   template: './src/index.html',
