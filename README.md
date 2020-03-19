@@ -29,6 +29,7 @@ src
 
 ### Road map
 - Rewrite into `TypeScript` [on progress](https://github.com/shimizacken/weather-fetcher-redux/tree/type-script)
+- Add [`Storybook`](https://storybook.js.org)
 - Add more screens and a router
 
 ### How to run?
