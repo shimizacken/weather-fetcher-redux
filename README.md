@@ -27,7 +27,7 @@ src
 - E2E tests with [`Cypress.io`](https://www.cypress.io/)
 
 ### Road map
-- Rewrite into `TypeScript` [on progress]()
+- Rewrite into `TypeScript` [on progress](https://github.com/shimizacken/weather-fetcher-redux/tree/type-script)
 - Add more screens and a router
 
 ## Usage
