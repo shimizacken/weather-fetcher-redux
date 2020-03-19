@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { MetricRadioButtons, setTempUnit } from 'app/features/metricType';
-import { Loader, SearchBox } from 'app/components/common';
+import { Loader, SearchBox } from 'components/common';
 import { token } from 'app/services/openWeatherMap/token';
 import { buildApiUrl } from 'app/services/openWeatherMap/utils';
 import { WeatherDetailsContainer } from './details/WeatherDetailsContainer';
@@ -10,7 +10,7 @@ import { setWeather, fetchWeather } from '..';
 import { selectMetricType, selectFetchWeatherFlag } from '../state/weatherSelectors';
 import styles from './WeatherContainer.scss';
 
-export const WeatherContainer = () => {
+export const WeatherContainer: React.FC = () => {
   const dispatch = useDispatch();
   const [cityName, setCityName] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -25,7 +25,7 @@ export const WeatherContainer = () => {
     dispatch(setWeather({}));
   };
 
-  const search = e => {
+  const search = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
 
     if (cityName === '') {
@@ -39,11 +39,11 @@ export const WeatherContainer = () => {
     dispatch(fetchWeather(url));
   };
 
-  const onChange = e => {
+  const onChange = (e: { target: { value: React.SetStateAction<string>; }; }) => {
     setCityName(e.target.value);
   };
 
-  const radioChanged = e => {
+  const radioChanged = (e: { target: { value: any; }; }) => {
     resetDetails();
     dispatch(setTempUnit(e.target.value));
   };
@@ -56,7 +56,7 @@ export const WeatherContainer = () => {
         </form>
         <MetricRadioButtons radioChanged={radioChanged} />
         <div className={styles.resultsWrapper} data-cy="search-results">
-          <div className={styles.detailsWrapper}>
+          <div>
             <WeatherDetailsContainer />
           </div>
           {fetchWeatherFlag && <Loader />}

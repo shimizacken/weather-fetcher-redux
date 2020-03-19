@@ -1,13 +1,12 @@
 {
-  "include": ["src"],
-  "exclude": ["target", "node_modules"],
   "compilerOptions": {
     "target": "es5",
     "esModuleInterop": true,
     "typeRoots": ["./node_modules/@types"],
     "baseUrl": ".",
     "paths": {
-      "app/*": ["*"]
+      "app/*": ["*"],
+      "components/*": ["./components"]
     },
     "sourceMap": true,
     "allowJs": false,
