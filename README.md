@@ -11,6 +11,7 @@ This project started as part of interview exam. Later it was expanded and now it
 - `Redux`
 - `SCSS` modules
 - `eslint`
+- `webpack`
 #### Feature Folder Structure
 ```
 src
@@ -30,11 +31,11 @@ src
 - Rewrite into `TypeScript` [on progress](https://github.com/shimizacken/weather-fetcher-redux/tree/type-script)
 - Add more screens and a router
 
-## Usage
-### Method 1 (recommended)
-Download the artifact from the [`bin`](https://github.com/shimizacken/weather-fetcher/blob/master/bin/weather-fetcher.zip) folder, extract it, and open the `index.html` file in the browser. It does not requires a web server
+### How to run?
+#### Method 1 (recommended)
+Download the artifact from the [`bin`](https://github.com/shimizacken/weather-fetcher/blob/master/bin/weather-fetcher-2.0.0.zip) folder, extract it, and open the `index.html` file in the browser. It does not requires a web server
 
-### Method 2  
+#### Method 2  
 Clone the repo
 ```bash
 git clone https://github.com/shimizacken/weather-fetcher-redux.git
@@ -47,6 +48,7 @@ and then run:
 ```bash
 npm start
 ```
+### Screenshots
 #### Default
 ![Default view](src/assets/screenshots/p1.png "Default view")
 
