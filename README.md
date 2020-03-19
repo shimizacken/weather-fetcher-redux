@@ -28,7 +28,7 @@ src
 - E2E tests with [`Cypress.io`](https://www.cypress.io/)
 
 ### Road map
-- Rewrite into `TypeScript` [on progress](https://github.com/shimizacken/weather-fetcher-redux/tree/type-script)
+- Rewrite into `TypeScript` ([on progress](https://github.com/shimizacken/weather-fetcher-redux/tree/type-script))
 - Add [`Storybook`](https://storybook.js.org)
 - Add more screens and a router
 
@@ -51,10 +51,4 @@ npm start
 ```
 ### Screenshots
 #### Default
-![Default view](src/assets/screenshots/p1.png "Default view")
-
-#### Mobile
-![Small screens](src/assets/screenshots/p2.png "Small screen")
-
-#### Dark mode
-![Small screens](src/assets/screenshots/p3.png "Small screen")
+![Default view](src/assets/screenshots/wf.gif "Default view")
