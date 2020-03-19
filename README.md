@@ -10,8 +10,8 @@ This project started as part of interview exam. Later it was expanded and now it
     - Hooks
 - `Redux`
 - `SCSS` modules
-#### Architecture
-- Feature folder
+- `eslint`
+#### Feature Folder Structure
 ```
 src
 └──features
@@ -27,7 +27,7 @@ src
 - E2E tests with [`Cypress.io`](https://www.cypress.io/)
 
 ### Road map
-- Rewrite into `TypeScript` [WIP]()
+- Rewrite into `TypeScript` [on progress]()
 - Add more screens and a router
 
 ## Usage
