@@ -49,6 +49,5 @@ and then run:
 ```bash
 npm start
 ```
-### Screenshots
-#### Default
+
 ![Default view](src/assets/screenshots/wf.gif "Default view")
