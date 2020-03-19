@@ -33,7 +33,7 @@ src
 
 ### How to run?
 #### Method 1 (recommended)
-Download the artifact from the [`bin`](https://github.com/shimizacken/weather-fetcher/blob/master/bin/weather-fetcher-latest.zip) folder, extract it, and open the `index.html` file in the browser. It does not requires a web server
+Download the artifact from the [`bin`](https://github.com/shimizacken/weather-fetcher-redux/blob/master/bin/weather-fetcher-latest.zip) folder, extract it, and open the `index.html` file in the browser. It does not requires a web server
 
 #### Method 2  
 Clone the repo
