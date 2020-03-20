@@ -17,11 +17,11 @@ This project started as part of interview exam. Later it was expanded and now it
 ```
 src
 └──features
-    └── searchWeather
-        ├── bll
-        ├── components
-        ├── state
-        └── index.js
+  └── searchWeather
+    ├── bll
+    ├── components
+    ├── state
+    └── index.js
 ```
 
 #### Test
