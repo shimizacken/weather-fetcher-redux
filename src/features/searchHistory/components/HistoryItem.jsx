@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { RemoveButton } from './RemoveButton';
 import { UnitSymbols } from 'app/services/openweathermap/units';
 import { buildIconUrl } from 'app/services/openweathermap/utils';
+import { RemoveButton } from './RemoveButton';
 import style from './SearchHistory.scss';
 
 export const HistoryItem = ({ item, removeItem }) => (
