@@ -3,11 +3,12 @@ import { action } from '@storybook/addon-actions';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import { Button } from '../Button';
 import { ButtonTypes } from '../buttonTypes';
+import { content } from '../../../../../stories/decorators/content';
 
 export default {
   title: 'Inputs/Button',
   component: Button,
-  decorators: [withKnobs]
+  decorators: [withKnobs, content]
 };
 
 export const Text = () => (

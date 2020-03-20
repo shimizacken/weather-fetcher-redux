@@ -2,11 +2,12 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 import { RadioButton } from '../RadioButton';
+import { content } from '../../../../../stories/decorators/content';
 
 export default {
   title: 'Inputs/Radio',
   component: RadioButton,
-  decorators: [withKnobs]
+  decorators: [withKnobs, content]
 };
 
 export const Text = () => (
