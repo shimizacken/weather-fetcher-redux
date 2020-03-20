@@ -88,4 +88,4 @@ and then run:
 npm start
 ```
 
-![Default view](src/assets/screenshots/wf.gif "Default view")
+![Default view](src/assets/screenshots/wf-2.gif "Default view")
