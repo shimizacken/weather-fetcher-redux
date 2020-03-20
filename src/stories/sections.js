@@ -1,5 +1,6 @@
 export const Parent = {
-  inputs: 'Inputs'
+  inputs: 'Inputs',
+  features: 'Features'
 };
 
 export const Child = {
