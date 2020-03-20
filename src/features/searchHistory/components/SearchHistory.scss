@@ -6,24 +6,28 @@
   display: flex;
   flex-direction: column;
 
+  overflow-y: scroll;
+
   height: 95vh;
-  width: 10vw;
-  overflow: hidden;
+  width: 114px;
   border-radius: 15px;
 
   top: 5px;
   right: 5px;
 
   padding: 15px;
-  border: 1px solid $input-border-color;
 
   .header {
     text-align: center;
+    margin-left: 2px;
   }
 
   .list-item-inner-wrapper {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    overflow: visible;
     height: 90vh;
-    overflow: auto;
   }
 }
 
@@ -37,6 +41,7 @@
   box-sizing: content-box;
   padding: 10px;
   width: 8vw;
+  transition: transform 0.5s;
 
   .date-time {
     color: #aaaaaa;
@@ -46,7 +51,9 @@
 
   &:hover {
     border: 1px solid $input-border-color;
-    padding: 9px;
+    border-radius: 10px;
+    background-color: inherit;
+    transform: translateX(-25px);
 
     .remove-button {
       visibility: visible;
