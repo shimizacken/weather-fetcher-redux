@@ -4,12 +4,22 @@ Simple web app for displaying the weather based on a city name. It's a `React` b
 This project started as part of interview exam. Later it was expanded and now it's main purpose is educational.
 
 ## What’s Included?
-- `React`
-- `Redux`
-- `SCSS`
-- `eslint`
-- `webpack`
-- [`Storybook`](https://storybook.js.org)
+- [React](http://reactjs.org)
+- [Redux](https://redux.js.org)
+- [SCSS](https://sass-lang.com)
+- [eslint](https://eslint.org)
+- [webpack](https://webpack.js.org)
+- [Storybook](https://storybook.js.org)
+
+### Test
+- Unit tests with [`Jest`](https://jestjs.io/)
+- E2E tests with [`Cypress.io`](https://www.cypress.io/)
+
+## Road map
+- Rewrite into `TypeScript` ([on progress](https://github.com/shimizacken/weather-fetcher-redux/tree/type-script))
+- Add more screens and a router
+- Add translations
+
 ### Feature Folder Structure
 ```
 ├── src
@@ -22,15 +32,6 @@ This project started as part of interview exam. Later it was expanded and now it
 │   └── ...                     
 └── ...
 ```
-
-### Test
-- Unit tests with [`Jest`](https://jestjs.io/)
-- E2E tests with [`Cypress.io`](https://www.cypress.io/)
-
-## Road map
-- Rewrite into `TypeScript` ([on progress](https://github.com/shimizacken/weather-fetcher-redux/tree/type-script))
-- Add more screens and a router
-- Add translations
 
 ## File naming conventions
 
