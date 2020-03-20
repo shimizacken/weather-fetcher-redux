@@ -89,3 +89,7 @@ npm start
 ```
 
 ![Default view](src/assets/screenshots/wf-2.gif "Default view")
+
+### License
+
+[MIT License](LICENSE)
