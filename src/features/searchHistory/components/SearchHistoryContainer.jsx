@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { SearchHistoryList } from './SearchHistoryList';
-import style from './style.scss';
+import style from './SearchHistory.scss';
 
 export const SearchHistoryContainer = () => {
   const searchHistory = useSelector(state => state.searchHistory);
