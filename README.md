@@ -30,6 +30,7 @@ This project started as part of interview exam. Later it was expanded and now it
 ## Road map
 - Rewrite into `TypeScript` ([on progress](https://github.com/shimizacken/weather-fetcher-redux/tree/type-script))
 - Add more screens and a router
+- Add translations
 
 ## Building and Running the application
 For run the unit-tests of the application, run:
