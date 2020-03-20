@@ -52,7 +52,7 @@ export const WeatherContainer = () => {
     <div className={styles.mainWeatherWrapper}>
       <div className={styles.innerWrapper}>
         <form onSubmit={search}>
-          <SearchBox value={cityName} onChange={onChange} displayLoader={fetchWeatherFlag} />
+          <SearchBox value={cityName} onChange={onChange} disabled={fetchWeatherFlag} />
         </form>
         <MetricRadioButtons radioChanged={radioChanged} />
         <div className={styles.resultsWrapper} data-cy="search-results">

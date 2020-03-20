@@ -1,4 +1,4 @@
-@import '~app/styles/_globals.scss';
+@import '~app/styles/_colors.scss';
 
 .root-default-theme {
   color: $default-main-font-color;
@@ -20,18 +20,18 @@ button.dark-theme {
 
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: $placehoder-color;
+  color: $placeholder-color;
   opacity: 1; /* Firefox */
 }
 
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: $placehoder-color;
+  color: $placeholder-color;
 }
 
 ::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: $placehoder-color;
+  color: $placeholder-color;
 }
 
 .main-wrapper {

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './style.scss';
+import styles from './SearchHistory.scss';
 
 export const RemoveButton = ({ removeItem, id }) => {
   const remove = () => removeItem(id);
