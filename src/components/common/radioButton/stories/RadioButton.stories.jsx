@@ -3,15 +3,16 @@ import { action } from '@storybook/addon-actions';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 import { RadioButton } from '../RadioButton';
 import { content } from 'app/stories/decorators/content';
+import { getSection, Parent, Child } from 'app/stories/sections';
 import styles from './RadioStories.scss';
 
 export default {
-  title: 'Inputs/Radio',
+  title: getSection(Parent.inputs, Child.radioButton),
   component: RadioButton,
   decorators: [withKnobs, content]
 };
 
-export const Text = () => (
+export const Default = () => (
   <div>
     <RadioButton
       text="Red"
