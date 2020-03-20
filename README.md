@@ -3,17 +3,14 @@ Simple web app for displaying the weather based on a city name. It's a `React` b
 
 This project started as part of interview exam. Later it was expanded and now it's main purpose is educational.
 
-### What's in it?
-#### What’s Included?
-- React
-    - Functional components
-    - Hooks
+## What’s Included?
+- `React`
 - `Redux`
-- `SCSS` modules
+- `SCSS`
 - `eslint`
 - `webpack`
 - [`Storybook`](https://storybook.js.org)
-#### Feature Folder Structure
+### Feature Folder Structure
 ```
 ├── src
 │   ├──features
@@ -26,19 +23,42 @@ This project started as part of interview exam. Later it was expanded and now it
 └── ...
 ```
 
-#### Test
+### Test
 - Unit tests with [`Jest`](https://jestjs.io/)
 - E2E tests with [`Cypress.io`](https://www.cypress.io/)
 
-### Road map
+## Road map
 - Rewrite into `TypeScript` ([on progress](https://github.com/shimizacken/weather-fetcher-redux/tree/type-script))
 - Add more screens and a router
 
-### How to run?
-#### Method 1 (recommended)
+## Building and Running the application
+For run the unit-tests of the application, run:
+and then:
+```bash
+npm test
+```
+or for running `jest` in watch mode
+```bash
+npm run jest-watch
+```
+For running `storybook`
+```bash
+npm run storybook
+```
+For running `cypress.io` in development mode
+```bash
+npm run cypress:open
+```
+or in CI mode
+```bash
+npm run cypress:ci
+```
+
+## How to run?
+### Method 1 (recommended)
 Download the artifact from the [`bin`](https://github.com/shimizacken/weather-fetcher-redux/blob/master/bin/weather-fetcher-latest.zip) folder, extract it, and open the `index.html` file in the browser. It does not requires a web server
 
-#### Method 2  
+### Method 2  
 Clone the repo
 ```bash
 git clone https://github.com/shimizacken/weather-fetcher-redux.git
