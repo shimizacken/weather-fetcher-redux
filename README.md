@@ -32,6 +32,20 @@ This project started as part of interview exam. Later it was expanded and now it
 - Add more screens and a router
 - Add translations
 
+## File naming conventions
+
+|type|filename|suffix|examples|
+|----|---|---|---|
+|component|PascalCase|*.jsx|MyComponent.jsx
+|component folder|camelCase| - |myComponent
+|vanilla JS|camelCase|*.js|userStoreValidator.js
+|component test file|camelCase and dot|*.js|myButton.test.js
+|json|camelCase|*.json|packageSettings.json
+|component's scss|PascalCase|*.scss|MyControls.scss
+|partial scss|low dash prefix and camelCase|*.scss|_variables.scss
+|image|dash-separated|*.png|logo-icon.png
+|svg|dash-separated|*.svg|logo-icon.svg
+
 ## Building and Running the application
 For run the unit-tests of the application, run:
 and then:
