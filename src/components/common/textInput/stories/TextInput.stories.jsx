@@ -12,5 +12,10 @@ export default {
 };
 
 export const Text = () => (
-  <TextInput value={text('value', 'Oslo')} disabled={boolean('disabled', false)} onChange={action('changed')} />
+  <TextInput
+    value={text('value', 'Some text')}
+    placeholder={text('placeholder', 'Enter text...')}
+    disabled={boolean('disabled', false)}
+    onChange={action('changed')}
+  />
 );

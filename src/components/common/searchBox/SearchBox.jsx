@@ -1,19 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from '..';
-import { ButtonTypes } from '../button/buttonTypes';
+import { TextInput } from 'app/components/common/textInput/TextInput';
+import { Button, ButtonTypes } from 'app/components/common/button';
 import styles from './SearchBox.scss';
 
 export const SearchBox = ({ value, onChange, disabled }) => {
   return (
     <div className={styles.searchBoxWrapper}>
-      <input
-        type="text"
+      <TextInput
         value={value}
         onChange={onChange}
         placeholder="Type city name and hit the enter..."
         disabled={disabled}
-        data-cy="search-weather-button-input"
+        dataCy="search-weather-button-input"
       />
       <div className={styles.buttonWrapper}>
         <Button text="Search" disabled={disabled} buttonType={ButtonTypes.SUBMIT} dataCy="search-weather-button" />
@@ -25,5 +24,5 @@ export const SearchBox = ({ value, onChange, disabled }) => {
 SearchBox.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  displayLoader: PropTypes.bool.isRequired
+  disabled: PropTypes.bool.isRequired
 };
