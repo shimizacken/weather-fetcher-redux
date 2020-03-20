@@ -5,6 +5,7 @@ import isEmpty from 'lodash/isEmpty';
 import { buildIconUrl } from 'app/services/openWeatherMap/utils';
 import { Details } from './Details';
 import { selectSearchResult } from '../../state/weatherSelectors';
+import { Title } from './Title';
 import styles from './WeatherDetailsContainer.scss';
 
 export const WeatherDetailsContainer = () => {
@@ -20,9 +21,7 @@ export const WeatherDetailsContainer = () => {
   return (
     <div className={styles.detailsWrapper}>
       <div className={styles.cityName}>
-        <h2>
-          {weather.name} <span className={styles.country}>({weather.sys?.country})</span> weather now
-        </h2>
+        <Title name={weather.name} country={weather.sys?.country} />
       </div>
       <div className={styles.iconWrapper}>
         <img src={buildIconUrl(city?.icon)} title={city?.main} />
