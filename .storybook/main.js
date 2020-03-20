@@ -11,9 +11,10 @@ const cssEnableModuleOptions = {
 module.exports = {
   stories: ['../src/**/*.stories.jsx'],
   addons: [
-    '@storybook/addon-actions',
     '@storybook/addon-links',
-    '@storybook/addon-viewport/register'
+    '@storybook/addon-viewport/register',
+    '@storybook/addon-knobs/register',
+    '@storybook/addon-actions'
   ],
   webpackFinal: async config => {
     const rules = config.module.rules;
