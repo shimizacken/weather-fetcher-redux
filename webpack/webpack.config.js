@@ -1,13 +1,10 @@
 const path = require('path');
+const alias = require('./aliases');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const extractSASS = new ExtractTextPlugin('portal.css');
 
 const LOGO_PATH = path.resolve(__dirname, '../src/assets/png/sun.png');
-
-const alias = {
-  app: path.resolve(__dirname, '../src')
-};
 
 const htmlPlugin = new HtmlWebPackPlugin({
   template: './src/index.html',

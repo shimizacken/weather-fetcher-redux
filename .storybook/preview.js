@@ -1,4 +1,4 @@
 import { addDecorator } from '@storybook/react';
-import { appStyles } from '../stories/decorators';
+import { appStyles } from 'app/stories/decorators';
 
 addDecorator(appStyles);

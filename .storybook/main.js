@@ -1,4 +1,5 @@
 const path = require('path');
+const alias = require('../webpack/aliases');
 const appFolderPath = path.resolve(__dirname, '../src/');
 const CSSModuleLocalIdent = '[local]--[hash:base64:5]';
 const cssEnableModuleOptions = {
@@ -9,7 +10,7 @@ const cssEnableModuleOptions = {
 };
 
 module.exports = {
-  stories: ['../src/**/*.stories.jsx'],
+  stories: ['../**/*.stories.js', '../**/*.stories.jsx'],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-viewport/register',
@@ -20,6 +21,9 @@ module.exports = {
     const rules = config.module.rules;
     const fileLoaderRule = rules.find(rule => rule.test.test('.svg'));
     fileLoaderRule.exclude = /\.svg$/;
+
+    config.resolve.alias['app'] = alias.app;
+    console.log(config.resolve.alias);
 
     rules.push({
       test: /\.scss$/,
@@ -47,7 +51,7 @@ module.exports = {
           }
         }
       ],
-      include: path.resolve(__dirname, '../src/')
+      include: path.resolve(__dirname, '../')
     });
 
     return config;

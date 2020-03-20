@@ -1,0 +1,10 @@
+.content-main-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .content {
+    text-align: center;
+    min-width: 300;
+  }
+}

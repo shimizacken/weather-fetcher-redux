@@ -1,3 +1,3 @@
-import '../../src/styles/base.scss';
+import 'app/styles/base.scss';
 
 export const appStyles = story => story();
