@@ -15,13 +15,15 @@ This project started as part of interview exam. Later it was expanded and now it
 - [`Storybook`](https://storybook.js.org)
 #### Feature Folder Structure
 ```
-src
-└──features
-  └── searchWeather
-    ├── bll
-    ├── components
-    ├── state
-    └── index.js
+├── src
+│   ├──features
+│   │   └── searchWeather
+│   │       ├── bll
+│   │       ├── components
+│   │       ├── state
+│   │       └── index.js
+│   └── ...                     
+└── ...
 ```
 
 #### Test
