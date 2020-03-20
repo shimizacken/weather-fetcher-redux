@@ -15,7 +15,7 @@ export const Text = () => (
   <div>
     <RadioButton
       text="Red"
-      checked={boolean('checked', true)}
+      checked={true}
       disabled={boolean('disabled', false)}
       onClick={action('clicked')}
       name="rgb"
