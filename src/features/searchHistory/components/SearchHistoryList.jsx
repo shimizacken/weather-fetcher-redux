@@ -14,7 +14,7 @@ export const SearchHistoryList = ({ items }) => {
   };
 
   return (
-    <div className={style.listItemInnerWrapper}>
+    <div className={style.listItemInnerWrapper} data-cy="history-list">
       {items?.map(item => (
         <HistoryItem
           key={item.id}

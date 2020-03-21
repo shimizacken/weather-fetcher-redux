@@ -1,9 +1,3 @@
-export const UnitSymbols = {
-  kelvin: 'K',
-  celsius: '°C',
-  fahrenheit: '°F'
-};
-
 export const Units = {
   kelvin: {
     name: 'kelvin',
@@ -22,12 +16,4 @@ export const Units = {
   }
 };
 
-export const getUnitNameByValue = value => {
-  let result;
-  Object.values(Units).forEach(unit => {
-    if (unit.value === value) {
-      result = unit;
-    }
-  });
-  return result;
-};
+export const getUnitNameByValue = value => Object.values(Units).filter(unit => unit.value === value)?.[0];
