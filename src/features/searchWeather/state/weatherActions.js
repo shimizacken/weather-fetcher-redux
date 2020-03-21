@@ -4,8 +4,14 @@ import {
   FETCH_WEATHER_PENDING,
   FETCH_WEATHER_ERROR,
   FETCH_WEATHER_SUCCESS,
-  SET_FETCH_WEATHER_FLAG
+  SET_FETCH_WEATHER_FLAG,
+  FETCH_WEATHER
 } from './constants';
+
+export const searchWeather = promiseFunc => ({
+  type: FETCH_WEATHER,
+  payload: promiseFunc
+});
 
 export const setWeather = weather => ({
   type: SET_WEATHER,
@@ -34,23 +40,23 @@ export const setWeatherFetchFlag = isPending => ({
   isPending
 });
 
-export const fetchWeather = url => dispatch => {
-  dispatch(fetchWeatherPending);
-  dispatch(setWeatherFetchFlag(true));
+// export const fetchWeather = url => dispatch => {
+//   dispatch(fetchWeatherPending);
+//   dispatch(setWeatherFetchFlag(true));
 
-  return fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      if (data && data.cod !== 200) {
-        throw data.message;
-      }
+//   return fetch(url)
+//     .then(response => response.json())
+//     .then(data => {
+//       if (data && data.cod !== 200) {
+//         throw data.message;
+//       }
 
-      dispatch(setWeather(data));
-      dispatch(setWeatherEnd);
-    })
-    .catch(error => {
-      console.error(error);
-      dispatch(fetchWeatherError);
-    })
-    .finally(() => dispatch(setWeatherFetchFlag(false)));
-};
+//       dispatch(setWeather(data));
+//       dispatch(setWeatherEnd);
+//     })
+//     .catch(error => {
+//       console.error(error);
+//       dispatch(fetchWeatherError);
+//     })
+//     .finally(() => dispatch(setWeatherFetchFlag(false)));
+// };

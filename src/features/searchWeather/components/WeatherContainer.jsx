@@ -7,8 +7,9 @@ import { buildApiUrl } from 'app/services/openWeatherMap/utils';
 import { Units } from 'app/services/openWeatherMap/units';
 import { WeatherDetailsContainer } from './details/WeatherDetailsContainer';
 import { ErrorMessage } from './ErrorMessage';
-import { setWeather, fetchWeather } from '..';
+import { fetchWeather } from '../bll/fetchWeather';
 import { selectMetricType, selectFetchWeatherFlag } from '../state/weatherSelectors';
+import { searchWeather, setWeather } from '../state/weatherActions';
 import styles from './WeatherContainer.scss';
 
 export const WeatherContainer = () => {
@@ -37,7 +38,7 @@ export const WeatherContainer = () => {
 
     const url = searchByCityNameUrl(cityName);
 
-    dispatch(fetchWeather(url));
+    dispatch(searchWeather(() => fetchWeather(url)));
   };
 
   const onChange = e => {
