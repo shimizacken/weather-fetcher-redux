@@ -4,6 +4,7 @@ import { MetricRadioButtons, setTempUnit } from 'app/features/metricType';
 import { Loader, SearchBox } from 'app/components/common';
 import { token } from 'app/services/openWeatherMap/token';
 import { buildApiUrl } from 'app/services/openWeatherMap/utils';
+import { Units } from 'app/services/openWeatherMap/units';
 import { WeatherDetailsContainer } from './details/WeatherDetailsContainer';
 import { ErrorMessage } from './ErrorMessage';
 import { setWeather, fetchWeather } from '..';
@@ -45,7 +46,7 @@ export const WeatherContainer = () => {
 
   const radioChanged = e => {
     resetDetails();
-    dispatch(setTempUnit(e.target.value));
+    dispatch(setTempUnit(Units[e.target.value]));
   };
 
   return (
