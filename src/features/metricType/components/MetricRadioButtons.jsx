@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { RadioButton } from 'app/components/common';
-import { TemperatureUnits } from 'app/services/openWeatherMap/units';
+import { Units } from 'app/services/openWeatherMap/units';
 import styles from './MetricRadioButtons.scss';
 
 export const MetricRadioButtons = ({ radioChanged }) => (
   <div>
     <RadioButton
       text="Celsius"
-      value={TemperatureUnits.celsius}
+      value={Units.celsius.name}
       name="temperatureType"
       className={styles.radioButton}
       checked
@@ -16,14 +16,14 @@ export const MetricRadioButtons = ({ radioChanged }) => (
     />
     <RadioButton
       text="Fahrenheit"
-      value={TemperatureUnits.fahrenheit}
+      value={Units.fahrenheit.name}
       name="temperatureType"
       className={styles.radioButton}
       onChange={radioChanged}
     />
     <RadioButton
       text="Kelvin"
-      value={TemperatureUnits.kelvin}
+      value={Units.kelvin.name}
       name="temperatureType"
       className={styles.radioButton}
       onChange={radioChanged}

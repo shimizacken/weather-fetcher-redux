@@ -1,9 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`metricType test suite default should return celsius type (metric) 1`] = `"metric"`;
+exports[`metricType test suite default should return celsius type (metric) 1`] = `
+Object {
+  "name": "celsius",
+  "symbol": "°C",
+  "value": "metric",
+}
+`;
 
-exports[`metricType test suite default should return celsius type (metric) as initialState, when not match action is passed 1`] = `"metric"`;
+exports[`metricType test suite default should return celsius type (metric) as initialState, when not match action is passed 1`] = `
+Object {
+  "name": "celsius",
+  "symbol": "°C",
+  "value": "metric",
+}
+`;
 
-exports[`metricType test suite default should return fahrenheit type (imperial) 1`] = `"imperial"`;
+exports[`metricType test suite default should return fahrenheit type (imperial) 1`] = `
+Object {
+  "name": "fahrenheit",
+  "symbol": "°F",
+  "value": "imperial",
+}
+`;
 
-exports[`metricType test suite default should return kelvin type (empty string) 1`] = `""`;
+exports[`metricType test suite default should return kelvin type (empty string) 1`] = `
+Object {
+  "name": "kelvin",
+  "symbol": "K",
+  "value": "",
+}
+`;
