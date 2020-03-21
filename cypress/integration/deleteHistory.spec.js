@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-describe('search history test suite', () => {
+describe('delete history test suite', () => {
   const cities = ['drammen', 'oslo', 'jerusalem'];
 
   beforeEach(() => {
@@ -15,6 +15,15 @@ describe('search history test suite', () => {
       cy.get('[data-cy=search-weather-button-input]').clear();
 
       cy.get('[data-cy=search-history-length]').should('contain', index + 1);
+    });
+
+    let counter = cities.length;
+    cities.forEach(() => {
+      cy.get('[data-cy=remove-history-item]')
+        .first()
+        .click({ force: true });
+
+      cy.get('[data-cy=search-history-length]').should('contain', (counter -= 1));
     });
   });
 });
