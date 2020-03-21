@@ -5,13 +5,13 @@ import { RemoveButton } from './RemoveButton';
 import style from './SearchHistory.scss';
 
 export const HistoryItem = React.memo(
-  ({ id, name, country, temperature, unitSymbol, tempType, icon, currentWeather, date, removeItem }) => (
-    <div className={style.listItem} title={`${name} (${country}), Temp: ${temperature}${tempType}`}>
+  ({ id, name, country, temperature, tempType, icon, currentWeather, date, removeItem }) => (
+    <div className={style.listItem} title={`${name} (${country}), Temp: ${temperature} ${tempType.symbol}`}>
       <div>
         <div>
           <img className={style.historyItemIcon} src={buildIconUrl(icon)} title={currentWeather} />
           <b>
-            {temperature} {unitSymbol}
+            {temperature} {tempType.symbol}
           </b>
         </div>
         <div>{name}</div>
@@ -22,12 +22,18 @@ export const HistoryItem = React.memo(
   )
 );
 
+const tempTypeShape = {
+  name: PropTypes.string,
+  value: PropTypes.string,
+  symbol: PropTypes.string
+};
+
 HistoryItem.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
   country: PropTypes.string,
   temperature: PropTypes.number,
-  unitSymbol: PropTypes.string,
+  tempType: PropTypes.shape(tempTypeShape),
   icon: PropTypes.string,
   date: PropTypes.string,
   removeItem: PropTypes.func
