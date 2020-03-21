@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { buildIconUrl } from 'app/services/openWeatherMap/utils';
-import styles from './WeatherDetailsContainer.scss';
+import styles from './MainDetails.scss';
 
 export const MainDetails = React.memo(({ currentWeather, description, temperature, icon }) => (
   <div className={styles.mainDetailsWrapper}>

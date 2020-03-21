@@ -15,33 +15,3 @@
     }
   }
 }
-
-.main-details-wrapper {
-  margin-top: 50px;
-
-  .temperature {
-    font-size: 70px;
-  }
-
-  .icon-wrapper {
-    text-align: center;
-  }
-
-  .current-description {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    left: 40px;
-  }
-
-  .sss {
-    position: relative;
-    top: 29px;
-    left: -40px;
-  }
-
-  h1 {
-    display: inline;
-  }
-}
