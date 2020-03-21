@@ -1,5 +1,5 @@
 {
-  "name": "weather-fetcher",
+  "name": "weather-fetcher-redux",
   "version": "2.0.0",
   "description": "",
   "main": "index.js",
@@ -10,6 +10,7 @@
     "lint": "eslint --fix . && echo 'Lint complete.'",
     "test": "jest",
     "jest-watch": "npm test -- --watch",
+    "jest-ci": "npm test -- --ci",
     "cypress:open": "cypress open",
     "cypress:ci": "cypress run",
     "storybook": "start-storybook -p 6006",
