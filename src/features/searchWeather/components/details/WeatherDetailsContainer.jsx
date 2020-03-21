@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import isEmpty from 'lodash/isEmpty';
-import { selectSearchResult } from '../../state/weatherSelectors';
+import { selectSearchResult, selectCurrentMetricTypeSymbol } from '../../state/weatherSelectors';
 import { Title } from './Title';
 import { MainDetails } from './MainDetails';
 import styles from './WeatherDetailsContainer.scss';
 
 export const WeatherDetailsContainer = () => {
   const { weather } = useSelector(selectSearchResult);
+  const unitSymbol = useSelector(selectCurrentMetricTypeSymbol);
 
   if (isEmpty(weather)) {
     return null;
@@ -27,6 +28,7 @@ export const WeatherDetailsContainer = () => {
         temperature={main.temp}
         description={city?.description}
         icon={city?.icon}
+        unitSymbol={unitSymbol}
       />
     </div>
   );

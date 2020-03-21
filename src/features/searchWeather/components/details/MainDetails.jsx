@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { buildIconUrl } from 'app/services/openWeatherMap/utils';
 import styles from './MainDetails.scss';
 
-export const MainDetails = React.memo(({ currentWeather, description, temperature, icon, unitSymbols }) => (
+export const MainDetails = React.memo(({ currentWeather, description, temperature, icon, unitSymbol }) => (
   <div className={styles.mainDetailsWrapper}>
     <div className={styles.iconWrapper}></div>
     <span>
-      <span className={styles.temperature}>{temperature}</span> {unitSymbols}
+      <span className={styles.temperature}>{temperature}</span> {unitSymbol}
     </span>
     <div className={styles.currentDescription}>
       <img src={buildIconUrl(icon)} title={currentWeather} width={50} height={50} /> <h1>{currentWeather}</h1>{' '}
@@ -21,5 +21,5 @@ MainDetails.propTypes = {
   description: PropTypes.string,
   temperature: PropTypes.number,
   icon: PropTypes.string,
-  unitSymbols: PropTypes.string
+  unitSymbol: PropTypes.string
 };
