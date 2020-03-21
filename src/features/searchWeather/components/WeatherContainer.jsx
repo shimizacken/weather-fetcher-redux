@@ -18,7 +18,7 @@ export const WeatherContainer = () => {
   const [cityName, setCityName] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const fetchWeatherFlag = useSelector(selectFetchWeatherFlag);
+  const isFetchingWeather = useSelector(selectFetchWeatherFlag);
   const metricType = useSelector(selectMetricType);
 
   const searchByCityNameUrl = buildApiUrl(token(), metricType);
@@ -55,14 +55,14 @@ export const WeatherContainer = () => {
     <div className={styles.mainWeatherWrapper}>
       <div className={styles.innerWrapper}>
         <form onSubmit={search}>
-          <SearchBox value={cityName} onChange={onChange} disabled={fetchWeatherFlag} />
+          <SearchBox value={cityName} onChange={onChange} disabled={isFetchingWeather} />
         </form>
         <MetricRadioButtons radioChanged={radioChanged} />
         <div className={styles.resultsWrapper} data-cy="search-results">
           <div className={styles.detailsWrapper}>
             <WeatherDetailsContainer />
           </div>
-          {fetchWeatherFlag && <Loader />}
+          {isFetchingWeather && <Loader />}
           <ErrorMessage errorMessage={errorMessage} />
         </div>
       </div>

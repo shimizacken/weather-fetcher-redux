@@ -1,5 +1,5 @@
 export { WeatherContainer } from './components/WeatherContainer';
 export { WeatherDetailsContainer } from './components/details/WeatherDetailsContainer';
 export { fetchWeather, setWeather } from './state/weatherActions';
-export { searchResult, fetchWeatherFlag } from './state/weatherReducers';
+export { weatherSearch } from './state/reducers';
 export { weatherMiddleware } from './state/weatherMiddleware';
