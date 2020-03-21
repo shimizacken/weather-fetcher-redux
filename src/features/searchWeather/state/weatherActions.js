@@ -4,7 +4,6 @@ import {
   FETCH_WEATHER_PENDING,
   FETCH_WEATHER_ERROR,
   FETCH_WEATHER_SUCCESS,
-  SET_FETCH_WEATHER_FLAG,
   FETCH_WEATHER
 } from './constants';
 
@@ -34,11 +33,6 @@ export const fetchWeatherSuccess = weather => ({
 export const fetchWeatherError = {
   type: FETCH_WEATHER_ERROR
 };
-
-export const setWeatherFetchFlag = isPending => ({
-  type: SET_FETCH_WEATHER_FLAG,
-  isPending
-});
 
 // export const fetchWeather = url => dispatch => {
 //   dispatch(fetchWeatherPending);
