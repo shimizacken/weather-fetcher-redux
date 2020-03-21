@@ -1,75 +1,43 @@
-name: example-chrome
+# .github/workflows/main.yaml
+name: Main
+
 on: [push]
+
 jobs:
-  tests:
+  build:
     runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [8.x]
+        # Set N number of parallel jobs you want to run tests on.
+        # Use higher number if you have slow tests to split them on more parallel jobs.
+        # Remember to update ci_node_index below to 0..N-1
+        ci_node_total: [2]
+        # set N-1 indexes for parallel jobs
+        # When you run 2 parallel jobs then first job will have index 0, the second job will have index 1 etc
+        ci_node_index: [0, 1]
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v1
+      - uses: actions/checkout@v1
 
-      - name: Cypress info
-        uses: ./
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
         with:
-          # just for full picture after installing Cypress
-          # print information about detected browsers, etc
-          # see https://on.cypress.io/command-line#cypress-info
-          build: npx cypress info
-          working-directory: examples/chrome
+          node-version: ${{ matrix.node-version }}
 
-      - name: Electron
-        uses: ./
-        with:
-          working-directory: examples/chrome
-
-      # store screenshot captured during the test
-      - uses: actions/upload-artifact@v1
-        with:
-          name: screenshots-in-electron
-          path: examples/chrome/cypress/screenshots
-
-      - run: npx image-size cypress/screenshots/**/*.png
-        working-directory: examples/chrome
-
-      - name: Chrome
-        uses: ./
-        with:
-          working-directory: examples/chrome
-          browser: chrome
-
-      - uses: actions/upload-artifact@v1
-        with:
-          name: screenshots-in-chrome
-          path: examples/chrome/cypress/screenshots
-
-      - uses: actions/upload-artifact@v1
-        with:
-          name: video-in-chrome
-          path: examples/chrome/cypress/videos
-
-      - run: npx image-size cypress/screenshots/**/*.png
-        working-directory: examples/chrome
-
-      # I wonder if GH Actions VM includes any of the tools that
-      # can tell us the resolution of a video file
-      - run: ffprobe cypress/videos/*.mp4 || true
-      - run: mplayer -really-quiet -ao null -vo null -identify -frames 0 cypress/videos/*.mp4 || true
-
-      - name: Chrome headless
-        uses: ./
-        with:
-          working-directory: examples/chrome
-          browser: chrome
-          headless: true
-
-      - uses: actions/upload-artifact@v1
-        with:
-          name: screenshots-in-headless-chrome
-          path: examples/chrome/cypress/screenshots
-
-      - uses: actions/upload-artifact@v1
-        with:
-          name: video-in-headless-chrome
-          path: examples/chrome/cypress/videos
-
-      - run: npx image-size cypress/screenshots/**/*.png
-        working-directory: examples/chrome
+      - name: npm install and build
+        run: |
+          npm install
+          npm run build --if-present
+      - name: Run http server with the app in the background
+        run: |
+          npm run start:ci &
+      - name: Run tests with Knapsack Pro
+        env:
+          KNAPSACK_PRO_TEST_SUITE_TOKEN_CYPRESS: ${{ secrets.KNAPSACK_PRO_TEST_SUITE_TOKEN_CYPRESS }}
+          KNAPSACK_PRO_CI_NODE_TOTAL: ${{ matrix.ci_node_total }}
+          KNAPSACK_PRO_CI_NODE_INDEX: ${{ matrix.ci_node_index }}
+        run: |
+          $(npm bin)/knapsack-pro-cypress
