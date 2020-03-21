@@ -1,31 +1,47 @@
 .details-wrapper {
+  line-height: 28px;
 
-    line-height: 28px;
+  .city-name {
+    text-align: center;
+    font-style: italic;
+  }
 
-    .city-name {
+  h2 {
+    padding: 0;
+    margin: 0;
 
-        text-align: center;
-        font-style: italic;
+    .country {
+      font-size: 14px;
     }
+  }
+}
 
-    .icon-wrapper {
+.main-details-wrapper {
+  margin-top: 50px;
 
-        text-align: center;
-    }
+  .temperature {
+    font-size: 70px;
+  }
 
-    h1 {
+  .icon-wrapper {
+    text-align: center;
+  }
 
-        display: inline;
-    }
+  .current-description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 40px;
+  }
 
-    h2 {
+  .sss {
+    position: relative;
+    top: 29px;
+    left: -40px;
+  }
 
-        padding: 0;
-        margin: 0;
-
-        .country {
-
-            font-size: 14px;
-        }
-    }
+  h1 {
+    display: inline;
+  }
 }
