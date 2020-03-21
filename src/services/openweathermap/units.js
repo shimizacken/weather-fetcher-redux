@@ -21,3 +21,13 @@ export const Units = {
     symbol: '°F'
   }
 };
+
+export const getUnitNameByValue = value => {
+  let result;
+  Object.values(Units).forEach(unit => {
+    if (unit.value === value) {
+      result = unit;
+    }
+  });
+  return result;
+};

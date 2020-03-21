@@ -2,32 +2,30 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import isEmpty from 'lodash/isEmpty';
-import { selectSearchResult, selectCurrentMetricTypeSymbol } from '../../state/weatherSelectors';
+import { selectCurrentMetricTypeSymbol } from 'app/features/metricType';
+import { selectSearchResult } from '../../state/weatherSelectors';
 import { Title } from './Title';
 import { MainDetails } from './MainDetails';
 import styles from './WeatherDetailsContainer.scss';
 
 export const WeatherDetailsContainer = () => {
-  const { weather } = useSelector(selectSearchResult);
+  const weather = useSelector(selectSearchResult);
   const unitSymbol = useSelector(selectCurrentMetricTypeSymbol);
 
   if (isEmpty(weather)) {
     return null;
   }
 
-  const city = weather.weather?.[0];
-  const { main } = weather;
-
   return (
     <div className={styles.detailsWrapper}>
       <div className={styles.cityName}>
-        <Title name={weather.name} country={weather.sys?.country} />
+        <Title name={weather.name} country={weather.country} />
       </div>
       <MainDetails
-        currentWeather={city?.main}
-        temperature={main.temp}
-        description={city?.description}
-        icon={city?.icon}
+        currentWeather={weather.currentWeather}
+        temperature={weather.temperature}
+        description={weather.description}
+        icon={weather.icon}
         unitSymbol={unitSymbol}
       />
     </div>

@@ -16,16 +16,23 @@ export const SearchHistoryList = ({ items }) => {
   return (
     <div className={style.listItemInnerWrapper}>
       {items?.map(item => (
-        <HistoryItem key={item.id} item={item} removeItem={removeItem} />
+        <HistoryItem
+          key={item.id}
+          id={item.id}
+          name={item.name}
+          country={item.country}
+          temperature={item.temperature}
+          tempType={item.tempType}
+          icon={item.icon}
+          currentWeather={item.currentWeather}
+          date={item.date}
+          removeItem={removeItem}
+        />
       ))}
     </div>
   );
 };
 
-SearchHistoryList.protoTypes = {
-  items: PropTypes.shape()
-};
-
-SearchHistoryList.protoTypes = {
-  items: []
+SearchHistoryList.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.shape())
 };
