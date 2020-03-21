@@ -1,5 +1,5 @@
 import { createStore, compose, applyMiddleware } from 'redux';
-import { getPersistedHistoryList } from 'app/services/localStorage/getPersistedHistoryList';
+import { getPersistedHistoryList } from 'app/features/searchHistory';
 import { reducers } from './reducers';
 import { middlewares } from './middlewares';
 
