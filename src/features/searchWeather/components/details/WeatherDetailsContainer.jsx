@@ -8,26 +8,23 @@ import { MainDetails } from './MainDetails';
 import styles from './WeatherDetailsContainer.scss';
 
 export const WeatherDetailsContainer = () => {
-  const { weather } = useSelector(selectSearchResult);
+  const weather = useSelector(selectSearchResult);
   const unitSymbol = useSelector(selectCurrentMetricTypeSymbol);
 
   if (isEmpty(weather)) {
     return null;
   }
 
-  const city = weather.weather?.[0];
-  const { main } = weather;
-
   return (
     <div className={styles.detailsWrapper}>
       <div className={styles.cityName}>
-        <Title name={weather.name} country={weather.sys?.country} />
+        <Title name={weather.name} country={weather.country} />
       </div>
       <MainDetails
-        currentWeather={city?.main}
-        temperature={main.temp}
-        description={city?.description}
-        icon={city?.icon}
+        currentWeather={weather.currentWeather}
+        temperature={weather.temperature}
+        description={weather.description}
+        icon={weather.icon}
         unitSymbol={unitSymbol}
       />
     </div>

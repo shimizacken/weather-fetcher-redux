@@ -1,40 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { UnitSymbols } from 'app/services/openweathermap/units';
+import { Units } from 'app/services/openweathermap/units';
 import { buildIconUrl } from 'app/services/openweathermap/utils';
 import { RemoveButton } from './RemoveButton';
 import style from './SearchHistory.scss';
 
-export const HistoryItem = ({ item, removeItem }) => (
-  <div
-    className={style.listItem}
-    title={`${item?.history.name} (${item?.history?.sys?.country}), Temp: ${item?.history?.main?.temp}°C`}
-  >
-    <div>
+export const HistoryItem = React.memo(
+  ({ id, name, country, temperature, tempType, icon, currentWeather, date, removeItem }) => (
+    <div className={style.listItem} title={`${name} (${country}), Temp: ${temperature}${tempType}`}>
       <div>
-        <img
-          className={style.historyItemIcon}
-          src={buildIconUrl(item?.history?.weather[0]?.icon)}
-          title={item?.history?.weather[0]?.main}
-        />
-        <b>
-          {item.history.main.temp}
-          {UnitSymbols?.[item.tempType]}
-        </b>
+        <div>
+          <img className={style.historyItemIcon} src={buildIconUrl(icon)} title={currentWeather} />
+          <b>
+            {temperature} {Units[tempType]}
+          </b>
+        </div>
+        <div>{name}</div>
+        <div className={style.dateTime}>{date.toLocaleString()}</div>
       </div>
-      <div>{item.history.name}</div>
-      <div className={style.dateTime}>{item.date.toLocaleString()}</div>
+      <RemoveButton id={id} removeItem={removeItem} />
     </div>
-    <RemoveButton id={item.id} removeItem={removeItem} />
-  </div>
+  )
 );
 
 HistoryItem.propTypes = {
-  item: PropTypes.shape({}),
+  id: PropTypes.string,
+  name: PropTypes.string,
+  country: PropTypes.string,
+  temperature: PropTypes.number,
+  tempType: PropTypes.string,
+  icon: PropTypes.string,
+  date: PropTypes.instanceOf(Date),
   removeItem: PropTypes.func
-};
-
-HistoryItem.defaultProps = {
-  item: undefined,
-  removeItem: undefined
 };

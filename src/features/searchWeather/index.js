@@ -3,3 +3,4 @@ export { WeatherDetailsContainer } from './components/details/WeatherDetailsCont
 export { SET_WEATHER_END } from './state/constants';
 export { fetchWeather, setWeather } from './state/weatherActions';
 export { searchResult, fetchWeatherFlag } from './state/weatherReducers';
+export { weatherMiddleware } from './state/weatherMiddleware';

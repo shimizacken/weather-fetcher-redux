@@ -1,4 +1,4 @@
-export const selectSearchResult = state => state?.searchResult;
+export const selectSearchResult = state => state?.searchResult?.weather;
 
 export const selectMetricType = state => state?.metricType?.value;
 
