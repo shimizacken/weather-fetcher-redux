@@ -5,10 +5,11 @@ import { Loader, SearchBox } from 'app/components/common';
 import { token } from 'app/services/openWeatherMap/token';
 import { buildApiUrl } from 'app/services/openWeatherMap/utils';
 import { Units } from 'app/services/openWeatherMap/units';
+import { selectMetricType } from 'app/features/metricType';
 import { WeatherDetailsContainer } from './details/WeatherDetailsContainer';
 import { ErrorMessage } from './ErrorMessage';
 import { fetchWeather } from '../bll/fetchWeather';
-import { selectMetricType, selectFetchWeatherFlag } from '../state/weatherSelectors';
+import { selectFetchWeatherFlag } from '../state/weatherSelectors';
 import { searchWeather, setWeather } from '../state/weatherActions';
 import styles from './WeatherContainer.scss';
 
