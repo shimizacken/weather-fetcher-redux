@@ -6,7 +6,11 @@ import style from './SearchHistory.scss';
 
 export const HistoryItem = React.memo(
   ({ id, name, country, temperature, tempType, icon, currentWeather, date, removeItem }) => (
-    <div className={style.listItem} title={`${name} (${country}), Temp: ${temperature} ${tempType.symbol}`}>
+    <div
+      className={style.listItem}
+      title={`${name} (${country}), Temp: ${temperature} ${tempType.symbol}`}
+      data-cy="history-item"
+    >
       <div>
         <div>
           <img className={style.historyItemIcon} src={buildIconUrl(icon)} title={currentWeather} />

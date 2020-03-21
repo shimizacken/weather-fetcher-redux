@@ -6,7 +6,7 @@ export const RemoveButton = ({ removeItem, id }) => {
   const remove = () => removeItem(id);
 
   return (
-    <div className={styles.removeButton} onClick={remove} title="Remove from history">
+    <div className={styles.removeButton} onClick={remove} title="Remove from history" data-cy="remove-history-item">
       X
     </div>
   );

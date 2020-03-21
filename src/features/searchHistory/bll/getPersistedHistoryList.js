@@ -1,5 +1,7 @@
+import { historyListLocalStorageKey } from 'app/features/searchHistory/bll/historyListStorageKey';
+
 export const getPersistedHistoryList = () => {
-  const searchHistory = window.localStorage.getItem('_history_list_');
+  const searchHistory = window.localStorage.getItem(historyListLocalStorageKey);
 
   if (searchHistory) {
     const array = JSON.parse(searchHistory);
