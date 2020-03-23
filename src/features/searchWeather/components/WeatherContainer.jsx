@@ -63,7 +63,7 @@ export const WeatherContainer = () => {
   return (
     <div className={styles.mainWeatherWrapper}>
       <div className={styles.innerWrapper}>
-        <div className={classNames(displayResult && styles.searchBoxOnResult)}>
+        <div className={classNames(displayResult && styles.moveDown)}>
           <form onSubmit={search}>
             <SearchBox
               value={cityName}
@@ -75,7 +75,7 @@ export const WeatherContainer = () => {
           <MetricRadioButtons radioChanged={radioChanged} />
         </div>
         <div
-          className={classNames(styles.resultsWrapper, displayResult && styles.result, displayResult && styles.move)}
+          className={classNames(styles.resultsWrapper, displayResult && styles.result, displayResult && styles.moveUp)}
           data-cy="search-results"
         >
           <div>{displayResult && <WeatherDetailsContainer />}</div>

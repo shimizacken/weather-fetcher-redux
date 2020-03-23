@@ -15,9 +15,15 @@
       text-align: center;
     }
 
-    .search-box-on-result {
-      transition: opacity 0.8s;
-      opacity: 0;
+    .move-down {
+      position: relative;
+      transition: transform 0.8s;
+      transform: translateY(300px);
+
+      input[type='text'] {
+        font-size: 12px;
+        width: 150px;
+      }
     }
 
     .results-wrapper {
@@ -29,7 +35,7 @@
         opacity: 1;
       }
 
-      &.move {
+      &.move-up {
         position: relative;
         transition: transform 0.8s;
         transform: translateY(-150px);

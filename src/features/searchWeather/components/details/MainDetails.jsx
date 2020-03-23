@@ -11,7 +11,7 @@ export const MainDetails = React.memo(({ currentWeather, description, temperatur
     </span>
     <div className={styles.currentDescription}>
       <img src={buildIconUrl(icon)} title={currentWeather} width={50} height={50} /> <h1>{currentWeather}</h1>{' '}
-      <span className={styles.sss}>{description}</span>
+      <span className={styles.description}>{description}</span>
     </div>
   </div>
 ));
