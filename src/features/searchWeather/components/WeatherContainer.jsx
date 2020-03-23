@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import classNames from 'classnames';
 import { MetricRadioButtons, setTempUnit } from 'app/features/metricType';
 import { Loader, SearchBox } from 'app/components/common';
 import { token } from 'app/services/openWeatherMap/token';
@@ -9,7 +10,7 @@ import { selectMetricType } from 'app/features/metricType';
 import { WeatherDetailsContainer } from './details/WeatherDetailsContainer';
 import { ErrorMessage } from './ErrorMessage';
 import { fetchWeather } from '../bll/fetchWeather';
-import { selectFetchWeatherFlag } from '../state/weatherSelectors';
+import { selectFetchWeatherFlag, selectSearchResult } from '../state/weatherSelectors';
 import { searchWeather, setWeather } from '../state/weatherActions';
 import styles from './WeatherContainer.scss';
 
@@ -17,9 +18,11 @@ export const WeatherContainer = () => {
   const dispatch = useDispatch();
   const [cityName, setCityName] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [displayResult, setDisplayResult] = useState(false);
 
   const isFetchingWeather = useSelector(selectFetchWeatherFlag);
   const metricType = useSelector(selectMetricType);
+  const weather = useSelector(selectSearchResult);
 
   const searchByCityNameUrl = buildApiUrl(token(), metricType);
 
@@ -28,7 +31,7 @@ export const WeatherContainer = () => {
     dispatch(setWeather({}));
   };
 
-  const search = e => {
+  const search = (e) => {
     e.preventDefault();
 
     if (cityName === '') {
@@ -42,26 +45,40 @@ export const WeatherContainer = () => {
     dispatch(searchWeather(() => fetchWeather(url)));
   };
 
-  const onChange = e => {
+  const onChange = (e) => {
     setCityName(e.target.value);
   };
 
-  const radioChanged = e => {
+  const radioChanged = (e) => {
     resetDetails();
     dispatch(setTempUnit(Units[e.target.value]));
   };
 
+  useEffect(() => {
+    if (weather?.name) {
+      setDisplayResult(true);
+    }
+  }, [weather]);
+
   return (
     <div className={styles.mainWeatherWrapper}>
       <div className={styles.innerWrapper}>
-        <form onSubmit={search}>
-          <SearchBox value={cityName} onChange={onChange} disabled={isFetchingWeather} />
-        </form>
-        <MetricRadioButtons radioChanged={radioChanged} />
-        <div className={styles.resultsWrapper} data-cy="search-results">
-          <div className={styles.detailsWrapper}>
-            <WeatherDetailsContainer />
-          </div>
+        <div className={classNames(displayResult && styles.searchBoxOnResult)}>
+          <form onSubmit={search}>
+            <SearchBox
+              value={cityName}
+              onChange={onChange}
+              disabled={isFetchingWeather}
+              displayResult={displayResult}
+            />
+          </form>
+          <MetricRadioButtons radioChanged={radioChanged} />
+        </div>
+        <div
+          className={classNames(styles.resultsWrapper, displayResult && styles.result, displayResult && styles.move)}
+          data-cy="search-results"
+        >
+          <div>{displayResult && <WeatherDetailsContainer />}</div>
           {isFetchingWeather && <Loader />}
           <ErrorMessage errorMessage={errorMessage} />
         </div>

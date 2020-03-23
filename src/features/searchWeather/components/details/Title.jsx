@@ -5,7 +5,7 @@ import styles from './WeatherDetailsContainer.scss';
 export const Title = React.memo(({ name, country }) => {
   return (
     <h2>
-      {name} <span className={styles.country}>{country}</span> weather now
+      {name} <span className={styles.country}>{country}</span>
     </h2>
   );
 });

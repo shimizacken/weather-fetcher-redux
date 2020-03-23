@@ -3,12 +3,18 @@
 .search-box-wrapper {
   width: 100%;
 
-  input[type='text'] {
+  .search-text-input {
     padding: 10px;
     font-size: 20px;
     border-radius: 15px;
     border: 1px solid $input-border-color;
     width: 70%;
+
+    &.search-result {
+      position: relative;
+      top: 200px;
+      width: 150px;
+    }
   }
 
   .button-wrapper {

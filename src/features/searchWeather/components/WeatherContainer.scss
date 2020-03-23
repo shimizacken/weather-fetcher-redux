@@ -15,8 +15,25 @@
       text-align: center;
     }
 
+    .search-box-on-result {
+      transition: opacity 0.8s;
+      opacity: 0;
+    }
+
     .results-wrapper {
       margin-top: 25px;
+      opacity: 0;
+
+      &.result {
+        transition: opacity 1s;
+        opacity: 1;
+      }
+
+      &.move {
+        position: relative;
+        transition: transform 0.8s;
+        transform: translateY(-150px);
+      }
     }
   }
 }
