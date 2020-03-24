@@ -1,4 +1,4 @@
-export const mapWeatherResponse = weather => {
+export const mapWeatherResponse = (weather) => {
   const city = weather.weather?.[0];
   const { main } = weather;
 
@@ -7,7 +7,7 @@ export const mapWeatherResponse = weather => {
     currentWeather: city?.main,
     description: city?.description,
     country: weather.sys?.country,
-    temperature: main.temp,
+    temperature: main?.temp,
     icon: city?.icon
   };
 };
