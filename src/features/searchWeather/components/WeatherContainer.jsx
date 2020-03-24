@@ -9,7 +9,7 @@ import { selectMetricType } from 'app/features/metricType';
 import { WeatherDetailsContainer } from './details/WeatherDetailsContainer';
 import { ErrorMessage } from './ErrorMessage';
 import { fetchWeather } from '../bll/fetchWeather';
-import { selectIsSearchWeatherFetching, selectIsSearchWeatherFailed } from '../state/weatherSelectors';
+import { selectIsSearchWeatherFetching } from '../state/weatherSelectors';
 import { searchWeather, setWeather } from '../state/weatherActions';
 import styles from './WeatherContainer.scss';
 
@@ -19,8 +19,6 @@ export const WeatherContainer = () => {
   const [errorMessage, setErrorMessage] = useState('');
 
   const isSearchWeatherFetching = useSelector(selectIsSearchWeatherFetching);
-  const isSearchWeatherFailed = useSelector(selectIsSearchWeatherFailed);
-  console.log(isSearchWeatherFailed);
   const metricType = useSelector(selectMetricType);
 
   const searchByCityNameUrl = buildApiUrl(token(), metricType);
