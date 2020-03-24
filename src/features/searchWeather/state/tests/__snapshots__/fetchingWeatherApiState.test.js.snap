@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fetchingWeatherApiState test suite should return default state on success 1`] = `
+Object {
+  "isError": false,
+  "isFetching": false,
+}
+`;
+
+exports[`fetchingWeatherApiState test suite should return default state when action not matches 1`] = `
+Object {
+  "isError": false,
+  "isFetching": false,
+}
+`;
+
+exports[`fetchingWeatherApiState test suite should return state for error 1`] = `
+Object {
+  "isError": true,
+  "isFetching": false,
+}
+`;
+
+exports[`fetchingWeatherApiState test suite should return state for pending 1`] = `
+Object {
+  "isError": false,
+  "isFetching": true,
+}
+`;
