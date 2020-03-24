@@ -13,13 +13,15 @@ export const fetchingWeatherApiState = (state = initialState, action) => {
   if (action.type === FETCH_WEATHER_PENDING) {
     return {
       ...state,
-      isFetching: true
+      isFetching: true,
+      isError: false
     };
   }
 
   if (action.type === FETCH_WEATHER_ERROR) {
     return {
       ...state,
+      isFetching: false,
       isError: true
     };
   }
