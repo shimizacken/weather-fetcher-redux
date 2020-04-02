@@ -19,7 +19,7 @@ export const HistoryItem = React.memo(
           </b>
         </div>
         <div>{name}</div>
-        <div className={style.dateTime}>{date.toLocaleString()}</div>
+        <div className={style.dateTime}>{new Date(date).toLocaleString()}</div>
       </div>
       <RemoveButton id={id} removeItem={removeItem} />
     </div>
@@ -39,6 +39,6 @@ HistoryItem.propTypes = {
   temperature: PropTypes.number,
   tempType: PropTypes.shape(tempTypeShape),
   icon: PropTypes.string,
-  date: PropTypes.string,
+  date: PropTypes.number,
   removeItem: PropTypes.func
 };

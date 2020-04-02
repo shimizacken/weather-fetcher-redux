@@ -5,6 +5,6 @@ export const buildHistoryItem = (weather, tempType) => {
     id: uuid.v4(),
     ...weather,
     tempType,
-    date: new Date().toLocaleDateString()
+    date: Date.now()
   };
 };

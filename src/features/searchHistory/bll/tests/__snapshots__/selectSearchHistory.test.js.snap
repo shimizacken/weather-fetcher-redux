@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`selectSearchHistory test suite should return date descending sorted list 1`] = `
+Array [
+  Object {
+    "date": 12345,
+    "name": "Drammen",
+  },
+  Object {
+    "date": 12344,
+    "name": "Oslo",
+  },
+  Object {
+    "date": 12343,
+    "name": "Lysaker",
+  },
+]
+`;
+
+exports[`selectSearchHistory test suite should return empty array when historyList is empty 1`] = `Array []`;
+
+exports[`selectSearchHistory test suite should return undefined when no argument is passed 1`] = `undefined`;

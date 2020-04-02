@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { SearchHistoryList } from './SearchHistoryList';
+import { selectSortedSearchHistory } from '../state/searchHistorySelectors';
 import style from './SearchHistory.scss';
 
 export const SearchHistoryContainer = () => {
-  const searchHistory = useSelector((state) => state.searchHistory);
+  const searchHistory = useSelector(selectSortedSearchHistory);
 
   if (!searchHistory) {
     return null;
