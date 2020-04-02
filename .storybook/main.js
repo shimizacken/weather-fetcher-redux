@@ -23,7 +23,6 @@ module.exports = {
     fileLoaderRule.exclude = /\.svg$/;
 
     config.resolve.alias['app'] = alias.app;
-    console.log(config.resolve.alias);
 
     rules.push({
       test: /\.scss$/,

@@ -1,3 +1,5 @@
-export const selectSearchResult = state => state?.weatherSearch?.searchResult?.weather;
+export const selectSearchResult = (state) => state?.weatherSearch?.searchResult?.weather;
 
-export const selectFetchWeatherFlag = state => state?.weatherSearch?.isFetchingWeather;
+export const selectIsSearchWeatherFetching = (state) => state?.weatherSearch?.fetchingWeatherApiState?.isFetching;
+
+export const selectIsSearchWeatherFailed = (state) => state?.weatherSearch?.fetchingWeatherApiState?.isError;

@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import { searchResult } from './searchResultReducer';
-import { isFetchingWeather } from './isFetchingWeatherReducer';
+import { fetchingWeatherApiState } from './fetchingWeatherApiStateReducer';
 
 export const weatherSearch = combineReducers({
   searchResult,
-  isFetchingWeather
+  fetchingWeatherApiState
 });

@@ -9,7 +9,7 @@ import { selectMetricType } from 'app/features/metricType';
 import { WeatherDetailsContainer } from './details/WeatherDetailsContainer';
 import { ErrorMessage } from './ErrorMessage';
 import { fetchWeather } from '../bll/fetchWeather';
-import { selectFetchWeatherFlag } from '../state/weatherSelectors';
+import { selectIsSearchWeatherFetching } from '../state/weatherSelectors';
 import { searchWeather, setWeather } from '../state/weatherActions';
 import styles from './WeatherContainer.scss';
 
@@ -18,7 +18,7 @@ export const WeatherContainer = () => {
   const [cityName, setCityName] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const isFetchingWeather = useSelector(selectFetchWeatherFlag);
+  const isSearchWeatherFetching = useSelector(selectIsSearchWeatherFetching);
   const metricType = useSelector(selectMetricType);
 
   const searchByCityNameUrl = buildApiUrl(token(), metricType);
@@ -28,7 +28,7 @@ export const WeatherContainer = () => {
     dispatch(setWeather({}));
   };
 
-  const search = e => {
+  const search = (e) => {
     e.preventDefault();
 
     if (cityName === '') {
@@ -42,11 +42,11 @@ export const WeatherContainer = () => {
     dispatch(searchWeather(() => fetchWeather(url)));
   };
 
-  const onChange = e => {
+  const onChange = (e) => {
     setCityName(e.target.value);
   };
 
-  const radioChanged = e => {
+  const radioChanged = (e) => {
     resetDetails();
     dispatch(setTempUnit(Units[e.target.value]));
   };
@@ -55,14 +55,14 @@ export const WeatherContainer = () => {
     <div className={styles.mainWeatherWrapper}>
       <div className={styles.innerWrapper}>
         <form onSubmit={search}>
-          <SearchBox value={cityName} onChange={onChange} disabled={isFetchingWeather} />
+          <SearchBox value={cityName} onChange={onChange} disabled={isSearchWeatherFetching} />
         </form>
         <MetricRadioButtons radioChanged={radioChanged} />
         <div className={styles.resultsWrapper} data-cy="search-results">
           <div className={styles.detailsWrapper}>
             <WeatherDetailsContainer />
           </div>
-          {isFetchingWeather && <Loader />}
+          {isSearchWeatherFetching && <Loader />}
           <ErrorMessage errorMessage={errorMessage} />
         </div>
       </div>
