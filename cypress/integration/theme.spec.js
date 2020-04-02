@@ -6,16 +6,12 @@ describe('theme test suite', () => {
   });
 
   it('should change default theme to to dark theme', () => {
-    cy.get('body')
-      .should('have.attr', 'class')
-      .and('include', 'root-default-theme');
+    cy.get('body').should('have.attr', 'class').and('include', 'root-default-theme');
 
     cy.get('[data-cy=dark-theme-radio-button]').should('be.not.checked');
 
     cy.get('[data-cy=dark-theme-radio-button]').check();
 
-    cy.get('body')
-      .should('have.attr', 'class')
-      .and('include', 'root-dark-theme');
+    cy.get('body').should('have.attr', 'class').and('include', 'root-dark-theme');
   });
 });

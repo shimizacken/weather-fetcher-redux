@@ -1,1 +1,1 @@
-export const selectSearchHistory = state => state?.searchHistory;
+export const selectSearchHistory = (state) => state?.searchHistory;
