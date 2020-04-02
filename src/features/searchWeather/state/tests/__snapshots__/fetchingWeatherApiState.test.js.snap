@@ -2,6 +2,7 @@
 
 exports[`fetchingWeatherApiState test suite should return default state on success 1`] = `
 Object {
+  "errorMessage": "",
   "isError": false,
   "isFetching": false,
 }
@@ -9,6 +10,7 @@ Object {
 
 exports[`fetchingWeatherApiState test suite should return default state when action not matches 1`] = `
 Object {
+  "errorMessage": "",
   "isError": false,
   "isFetching": false,
 }
@@ -16,6 +18,7 @@ Object {
 
 exports[`fetchingWeatherApiState test suite should return state for error 1`] = `
 Object {
+  "errorMessage": undefined,
   "isError": true,
   "isFetching": false,
 }
@@ -23,6 +26,7 @@ Object {
 
 exports[`fetchingWeatherApiState test suite should return state for pending 1`] = `
 Object {
+  "errorMessage": "",
   "isError": false,
   "isFetching": true,
 }
