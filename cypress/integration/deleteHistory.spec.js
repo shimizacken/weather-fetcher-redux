@@ -19,9 +19,7 @@ describe('delete history test suite', () => {
 
     let counter = cities.length;
     cities.forEach(() => {
-      cy.get('[data-cy=remove-history-item]')
-        .first()
-        .click({ force: true });
+      cy.get('[data-cy=remove-history-item]').first().click({ force: true });
 
       cy.get('[data-cy=search-history-length]').should('contain', (counter -= 1));
     });
