@@ -11,7 +11,7 @@ import { buildHistoryItem } from './buildHistoryItem';
 export const weatherMiddleware = ({ dispatch, getState }) => (next) => (action) => {
   if (action.type === FETCH_WEATHER_SUCCESS) {
     if (action?.payload?.cod === ResponseCode.NOT_FOUND) {
-      dispatch(fetchWeatherError(action.payload));
+      return dispatch(fetchWeatherError(action.payload));
     } else {
       const mappedWeather = mapWeatherResponse(action.payload);
       const metricType = getUnitNameByValue(selectMetricType(getState()));

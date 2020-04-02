@@ -9,22 +9,26 @@ import { selectMetricType } from 'app/features/metricType';
 import { WeatherDetailsContainer } from './details/WeatherDetailsContainer';
 import { ErrorMessage } from './ErrorMessage';
 import { fetchWeather } from '../bll/fetchWeather';
-import { selectIsSearchWeatherFetching } from '../state/weatherSelectors';
+import {
+  selectIsSearchWeatherFetching,
+  selectIsSearchWeatherFailed,
+  selectIsSearchWeatherErrorMessage
+} from '../state/weatherSelectors';
 import { searchWeather, setWeather } from '../state/weatherActions';
 import styles from './WeatherContainer.scss';
 
 export const WeatherContainer = () => {
   const dispatch = useDispatch();
   const [cityName, setCityName] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
 
   const isSearchWeatherFetching = useSelector(selectIsSearchWeatherFetching);
+  const isSearchWeatherFailed = useSelector(selectIsSearchWeatherFailed);
+  const searchWeatherErrorMessage = useSelector(selectIsSearchWeatherErrorMessage);
   const metricType = useSelector(selectMetricType);
 
   const searchByCityNameUrl = buildApiUrl(token(), metricType);
 
   const resetDetails = () => {
-    setErrorMessage('');
     dispatch(setWeather({}));
   };
 
@@ -63,7 +67,7 @@ export const WeatherContainer = () => {
             <WeatherDetailsContainer />
           </div>
           {isSearchWeatherFetching && <Loader />}
-          <ErrorMessage errorMessage={errorMessage} />
+          {isSearchWeatherFailed && <ErrorMessage errorMessage={searchWeatherErrorMessage} />}
         </div>
       </div>
     </div>

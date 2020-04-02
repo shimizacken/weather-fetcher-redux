@@ -2,7 +2,8 @@ import { FETCH_WEATHER_PENDING, FETCH_WEATHER_SUCCESS, FETCH_WEATHER_ERROR } fro
 
 const initialState = {
   isFetching: false,
-  isError: false
+  isError: false,
+  errorMessage: ''
 };
 
 export const fetchingWeatherApiState = (state = initialState, action) => {
@@ -14,7 +15,8 @@ export const fetchingWeatherApiState = (state = initialState, action) => {
     return {
       ...state,
       isFetching: true,
-      isError: false
+      isError: false,
+      errorMessage: ''
     };
   }
 
@@ -22,7 +24,8 @@ export const fetchingWeatherApiState = (state = initialState, action) => {
     return {
       ...state,
       isFetching: false,
-      isError: true
+      isError: true,
+      errorMessage: action?.payload?.message
     };
   }
 
