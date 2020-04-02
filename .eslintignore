@@ -2,3 +2,4 @@ node_modules
 .next
 __mocks__
 *.test.js
+.github
