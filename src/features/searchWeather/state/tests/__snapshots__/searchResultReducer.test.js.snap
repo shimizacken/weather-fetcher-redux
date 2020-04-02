@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`searchResultReducer test suite should return initial state 1`] = `Object {}`;
+
+exports[`searchResultReducer test suite should return new state 1`] = `
+Object {
+  "weather": Object {
+    "payload": Object {
+      "base": "stations",
+      "clouds": Object {
+        "all": 0,
+      },
+      "cod": 200,
+      "coord": Object {
+        "lat": 59.91,
+        "lon": 10.75,
+      },
+      "dt": 1584810947,
+      "id": 3143244,
+      "main": Object {
+        "feels_like": 0.25,
+        "humidity": 30,
+        "pressure": 1036,
+        "temp": 4.14,
+        "temp_max": 6,
+        "temp_min": 1.67,
+      },
+      "name": "Oslo",
+      "sys": Object {
+        "country": "NO",
+        "id": 1624,
+        "sunrise": 1584767677,
+        "sunset": 1584812009,
+        "type": 1,
+      },
+      "timezone": 3600,
+      "visibility": 10000,
+      "weather": Array [
+        Object {
+          "description": "clear sky",
+          "icon": "01d",
+          "id": 800,
+          "main": "Clear",
+        },
+      ],
+      "wind": Object {
+        "speed": 1,
+      },
+    },
+    "type": "weather/fetch_success",
+  },
+}
+`;
