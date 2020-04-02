@@ -8,14 +8,14 @@ import style from './SearchHistory.scss';
 export const SearchHistoryList = ({ items }) => {
   const dispatch = useDispatch();
 
-  const removeItem = id => {
+  const removeItem = (id) => {
     dispatch(removeItemFromHistoryList(id));
     dispatch(removeItemFromHistoryListEnded());
   };
 
   return (
     <div className={style.listItemInnerWrapper} data-cy="history-list">
-      {items?.map(item => (
+      {items?.map((item) => (
         <HistoryItem
           key={item.id}
           id={item.id}
