@@ -19,6 +19,9 @@ This project started as part of interview exam. Later it was expanded and now it
 - Rewrite into `TypeScript` ([on progress](https://github.com/shimizacken/weather-fetcher-redux/tree/type-script))
 - Add more screens and a router
 - Add translations
+- Add history page
+- Add open street map view
+- 
 
 ### Feature Folder Structure
 ```
