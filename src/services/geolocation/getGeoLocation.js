@@ -1,8 +1,4 @@
-export const getGeoLocation = () => {
-  const success = (position) => ({ latitude: position.coords.latitude, longitude: position.coords.longitude });
-
-  const error = () => 'Unable to retrieve your location';
-
+export const getGeoLocation = (success, error) => {
   if (navigator.geolocation) {
     return navigator.geolocation.getCurrentPosition(success, error);
   } else {
