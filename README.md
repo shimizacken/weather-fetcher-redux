@@ -17,11 +17,13 @@ This project started as part of interview exam. Later it was expanded and now it
 
 ## Road map
 - Rewrite into `TypeScript` ([on progress](https://github.com/shimizacken/weather-fetcher-redux/tree/type-script))
-- Add more screens and a router
-- Add translations
-- Add history page
-- Add open street map view
-- 
+- More screens and a router
+- Translations
+- History page
+- Open street map view
+- Graphs
+- Personalization
+- Location detection
 
 ### Feature Folder Structure
 ```
