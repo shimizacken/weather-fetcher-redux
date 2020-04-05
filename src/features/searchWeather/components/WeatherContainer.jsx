@@ -34,7 +34,7 @@ export const WeatherContainer = () => {
   const baseApiUrl = buildFetchWeatherBaseURL(token())(metricType);
   const searchByCityNameUrl = buildFetchWeatherByCityName(token(), metricType);
 
-  const success = (position) => {
+  const success = position => {
     const url = buildFetchWeatherByGeographicCoordinates(token(), metricType)(
       position.coords.latitude,
       position.coords.longitude
@@ -50,7 +50,7 @@ export const WeatherContainer = () => {
     dispatch(setWeather({}));
   };
 
-  const search = (e) => {
+  const search = e => {
     e.preventDefault();
 
     if (cityName === '') {
@@ -64,11 +64,11 @@ export const WeatherContainer = () => {
     dispatch(searchWeather(() => fetchWeather(url)));
   };
 
-  const onChange = (e) => {
+  const onChange = e => {
     setCityName(e.target.value);
   };
 
-  const radioChanged = (e) => {
+  const radioChanged = e => {
     resetDetails();
     dispatch(setTempUnit(Units[e.target.value]));
   };

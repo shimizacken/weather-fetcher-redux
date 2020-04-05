@@ -1,9 +1,12 @@
 const baseUrl = 'https://api.openweathermap.org/data/2.5/weather?appid=';
 
-export const buildFetchWeatherBaseURL = (token) => (unit) => {
-  unit = unit ? `&units=${unit}` : '';
+export const addUnit = (unit) => (unit ? `&units=${unit}` : '');
 
-  const baseTokenUrl = `${baseUrl}${token}${unit}`;
+export const buildBaseTokenUrl = (token, unit) => `${baseUrl}${token}${unit}`;
+
+export const buildFetchWeatherBaseURL = (token) => (unit) => {
+  const metricType = addUnit(unit);
+  const baseTokenUrl = buildBaseTokenUrl(token, metricType);
 
   return (queryStringParams) => {
     let url = '';

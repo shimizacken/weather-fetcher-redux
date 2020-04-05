@@ -8,7 +8,7 @@ import { mapWeatherResponse } from '../bll/mapWeatherResponse';
 import { setWeather, fetchWeatherError } from './weatherActions';
 import { buildHistoryItem } from './buildHistoryItem';
 
-export const weatherMiddleware = ({ dispatch, getState }) => (next) => (action) => {
+export const weatherMiddleware = ({ dispatch, getState }) => next => action => {
   if (action.type === FETCH_WEATHER_SUCCESS) {
     if (action?.payload?.cod === ResponseCode.NOT_FOUND) {
       return dispatch(fetchWeatherError(action.payload));
