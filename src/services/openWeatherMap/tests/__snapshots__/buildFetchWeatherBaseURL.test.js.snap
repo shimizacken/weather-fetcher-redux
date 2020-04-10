@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`buildFetchWeatherBaseURL test suite metric test suite should return function 1`] = `[Function]`;
+
+exports[`buildFetchWeatherBaseURL test suite token test suite should return function 1`] = `[Function]`;
+
+exports[`buildFetchWeatherBaseURL test suite weather by city name test suite should return url based on city name 1`] = `"https://api.openweathermap.org/data/2.5/weather?appid=a1s2d3f4g5h6&units=metric&q=Drammen"`;
+
+exports[`buildFetchWeatherBaseURL test suite weather by lat and lon test suite should return url based on city name 1`] = `"https://api.openweathermap.org/data/2.5/weather?appid=a1s2d3f4g5h6&units=metric&lat=123&log=456"`;

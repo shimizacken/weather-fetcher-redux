@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { MetricRadioButtons, setTempUnit } from 'app/features/metricType';
 import { Loader, SearchBox } from 'app/components/common';
 import { token } from 'app/services/openWeatherMap/token';
-import { buildApiUrl } from 'app/services/openWeatherMap/utils';
+import {
+  buildFetchWeatherBaseURL,
+  buildFetchWeatherByCityName,
+  buildFetchWeatherByGeographicCoordinates
+} from 'app/services/openWeatherMap/utils';
 import { Units } from 'app/services/openWeatherMap/units';
 import { selectMetricType } from 'app/features/metricType';
+import { getGeoLocation } from 'app/services/geolocation/getGeoLocation';
 import { WeatherDetailsContainer } from './details/WeatherDetailsContainer';
 import { ErrorMessage } from './ErrorMessage';
 import { fetchWeather } from '../bll/fetchWeather';
@@ -26,13 +31,26 @@ export const WeatherContainer = () => {
   const searchWeatherErrorMessage = useSelector(selectIsSearchWeatherErrorMessage);
   const metricType = useSelector(selectMetricType);
 
-  const searchByCityNameUrl = buildApiUrl(token(), metricType);
+  const baseApiUrl = buildFetchWeatherBaseURL(token())(metricType);
+  const searchByCityNameUrl = buildFetchWeatherByCityName(token(), metricType);
+
+  const success = position => {
+    const url = buildFetchWeatherByGeographicCoordinates(token(), metricType)(
+      position.coords.latitude,
+      position.coords.longitude
+    );
+
+    console.log(baseApiUrl({ q: 'Oslo' }));
+    dispatch(searchWeather(() => fetchWeather(url)));
+  };
+
+  const error = () => 'Unable to retrieve your location';
 
   const resetDetails = () => {
     dispatch(setWeather({}));
   };
 
-  const search = (e) => {
+  const search = e => {
     e.preventDefault();
 
     if (cityName === '') {
@@ -46,14 +64,19 @@ export const WeatherContainer = () => {
     dispatch(searchWeather(() => fetchWeather(url)));
   };
 
-  const onChange = (e) => {
+  const onChange = e => {
     setCityName(e.target.value);
   };
 
-  const radioChanged = (e) => {
+  const radioChanged = e => {
     resetDetails();
     dispatch(setTempUnit(Units[e.target.value]));
   };
+
+  useEffect(() => {
+    getGeoLocation(success, error);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className={styles.mainWeatherWrapper}>

@@ -8,7 +8,7 @@ export const searchHistory = (state = initialState, action) => {
   }
 
   if (action.type === REMOVE_ITEM_FROM_HISTORY) {
-    return state.filter((item) => item.id !== action.id);
+    return state.filter(item => item.id !== action.id);
   }
 
   return state;
