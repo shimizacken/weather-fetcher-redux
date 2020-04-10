@@ -1,6 +1,9 @@
 # ⛅️ weather-fetcher-redux ☔️
 Simple web app for displaying the weather based on a city name. It's a `React` based and made usage of [`openweathermap.org`](https://www.openweathermap.org/) api. Originally it was written in [MobX](https://github.com/shimizacken/weather-fetcher) and rewritten into `Redux`.
 
+## Live demo
+https://weather-fetcher.netlify.com/
+
 This project started as part of interview exam. Later it was expanded and now it's main purpose is educational.
 
 ## What’s Included?

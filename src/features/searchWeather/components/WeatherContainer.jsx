@@ -31,7 +31,6 @@ export const WeatherContainer = () => {
   const searchWeatherErrorMessage = useSelector(selectIsSearchWeatherErrorMessage);
   const metricType = useSelector(selectMetricType);
 
-  const baseApiUrl = buildFetchWeatherBaseURL(getToken())(metricType);
   const searchByCityNameUrl = buildFetchWeatherByCityName(getToken(), metricType);
 
   const success = position => {
@@ -40,7 +39,6 @@ export const WeatherContainer = () => {
       position.coords.longitude
     );
 
-    console.log(baseApiUrl({ q: 'Oslo' }));
     dispatch(searchWeather(() => fetchWeather(url)));
   };
 
