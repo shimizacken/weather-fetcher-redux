@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import { buildFetchWeatherBaseURL } from '../api';
-import { Units } from 'app/services/openWeatherMap/units';
+import { Units } from 'app/services/openWeatherMap/metricUnits';
 
 describe('buildFetchWeatherBaseURL test suite', () => {
   describe('token test suite', () => {

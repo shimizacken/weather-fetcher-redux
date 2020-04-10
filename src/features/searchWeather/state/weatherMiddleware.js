@@ -2,7 +2,7 @@ import { FETCH_WEATHER_SUCCESS } from './constants';
 import { ResponseCode } from 'app/services/net/responseCode';
 import { setHistory } from 'app/features/searchHistory/state/searchHistoryActions';
 import { selectMetricType } from 'app/features/metricType';
-import { getUnitNameByValue } from 'app/services/openWeatherMap/units';
+import { getUnitNameByValue } from 'app/services/openWeatherMap/metricUnits';
 import { historyListLocalStorageKey } from 'app/features/searchHistory/bll/historyListStorageKey';
 import { mapWeatherResponse } from '../bll/mapWeatherResponse';
 import { setWeather, fetchWeatherError } from './weatherActions';

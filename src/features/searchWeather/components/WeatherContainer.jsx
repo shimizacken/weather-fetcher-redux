@@ -7,7 +7,7 @@ import {
   buildFetchWeatherByCityName,
   buildFetchWeatherByGeographicCoordinates
 } from '../bll/api';
-import { Units } from 'app/services/openWeatherMap/units';
+import { Units } from 'app/services/openWeatherMap/metricUnits';
 import { selectMetricType } from 'app/features/metricType';
 import { getGeoLocation } from 'app/services/geolocation/getGeoLocation';
 import { WeatherDetailsContainer } from './details/WeatherDetailsContainer';
@@ -19,7 +19,7 @@ import {
   selectIsSearchWeatherErrorMessage
 } from '../state/weatherSelectors';
 import { searchWeather, setWeather } from '../state/weatherActions';
-import { getToken } from '../../../services/openWeatherMap/getToken';
+import { getToken } from 'app/services/openWeatherMap/getToken';
 import styles from './WeatherContainer.scss';
 
 export const WeatherContainer = () => {

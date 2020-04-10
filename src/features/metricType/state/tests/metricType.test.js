@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import { randomAction } from 'app/state/common/randomAction';
-import { Units } from 'app/services/openWeatherMap/units';
+import { Units } from 'app/services/openWeatherMap/metricUnits';
 import { metricType } from '../metricTypeReducer';
 import { setTempUnit } from '../metricTypeActions';
 
