@@ -16,4 +16,4 @@ export const Units = {
   }
 };
 
-export const getUnitNameByValue = (value) => Object.values(Units).filter((unit) => unit.value === value)?.[0];
+export const getUnitNameByValue = value => Object.values(Units).filter(unit => unit.value === value)?.[0];

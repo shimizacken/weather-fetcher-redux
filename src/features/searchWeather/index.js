@@ -3,3 +3,4 @@ export { WeatherDetailsContainer } from './components/details/WeatherDetailsCont
 export { fetchWeather, setWeather } from './state/weatherActions';
 export { weatherSearch } from './state/reducers';
 export { weatherMiddleware } from './state/weatherMiddleware';
+export { buildIconUrl } from './bll/api';

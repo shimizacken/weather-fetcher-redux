@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { buildIconUrl } from 'app/services/openWeatherMap/utils';
+import { buildIconUrl } from '../../bll/api';
 import styles from './MainDetails.scss';
 
 export const MainDetails = React.memo(({ currentWeather, description, temperature, icon, unitSymbol }) => (

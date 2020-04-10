@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { buildIconUrl } from 'app/services/openweathermap/utils';
+import { buildIconUrl } from '../../../features/searchWeather';
 import { RemoveButton } from './RemoveButton';
 import style from './SearchHistory.scss';
 

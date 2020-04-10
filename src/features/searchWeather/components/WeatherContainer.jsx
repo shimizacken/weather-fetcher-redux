@@ -7,7 +7,7 @@ import {
   buildFetchWeatherBaseURL,
   buildFetchWeatherByCityName,
   buildFetchWeatherByGeographicCoordinates
-} from 'app/services/openWeatherMap/utils';
+} from '../bll/api';
 import { Units } from 'app/services/openWeatherMap/units';
 import { selectMetricType } from 'app/features/metricType';
 import { getGeoLocation } from 'app/services/geolocation/getGeoLocation';
