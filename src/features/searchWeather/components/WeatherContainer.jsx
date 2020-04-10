@@ -19,8 +19,8 @@ import {
   selectIsSearchWeatherErrorMessage
 } from '../state/weatherSelectors';
 import { searchWeather, setWeather } from '../state/weatherActions';
+import { getToken } from '../../../services/openWeatherMap/getToken';
 import styles from './WeatherContainer.scss';
-import { getToken } from '../../../services/openWeatherMap/token';
 
 export const WeatherContainer = () => {
   const dispatch = useDispatch();
