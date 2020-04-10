@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config=./webpack/webpack.config.js --mode development --open --hot",
+    "deploy": "npm ci && npm run prod",
     "prod": "webpack --config=./webpack/webpack.config.js --mode production",
     "analyze": "source-map-explorer build/static/js/main.*",
     "lint": "eslint --fix . && echo 'Lint complete.'",
