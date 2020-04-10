@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { MetricRadioButtons, setTempUnit } from 'app/features/metricType';
 import { Loader, SearchBox } from 'app/components/common';
-import { token } from '../../../services/openWeatherMap/token';
 import {
   buildFetchWeatherBaseURL,
   buildFetchWeatherByCityName,
@@ -21,6 +20,7 @@ import {
 } from '../state/weatherSelectors';
 import { searchWeather, setWeather } from '../state/weatherActions';
 import styles from './WeatherContainer.scss';
+import { getToken } from '../../../services/openWeatherMap/token';
 
 export const WeatherContainer = () => {
   const dispatch = useDispatch();
@@ -31,11 +31,11 @@ export const WeatherContainer = () => {
   const searchWeatherErrorMessage = useSelector(selectIsSearchWeatherErrorMessage);
   const metricType = useSelector(selectMetricType);
 
-  const baseApiUrl = buildFetchWeatherBaseURL(token())(metricType);
-  const searchByCityNameUrl = buildFetchWeatherByCityName(token(), metricType);
+  const baseApiUrl = buildFetchWeatherBaseURL(getToken())(metricType);
+  const searchByCityNameUrl = buildFetchWeatherByCityName(getToken(), metricType);
 
   const success = position => {
-    const url = buildFetchWeatherByGeographicCoordinates(token(), metricType)(
+    const url = buildFetchWeatherByGeographicCoordinates(getToken(), metricType)(
       position.coords.latitude,
       position.coords.longitude
     );
