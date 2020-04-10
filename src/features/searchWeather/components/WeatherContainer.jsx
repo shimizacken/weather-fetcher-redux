@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { MetricRadioButtons, setTempUnit } from 'app/features/metricType';
 import { Loader, SearchBox } from 'app/components/common';
-import { token } from 'app/services/openWeatherMap/token';
+import { token } from '../../../services/openWeatherMap/token';
 import {
   buildFetchWeatherBaseURL,
   buildFetchWeatherByCityName,
