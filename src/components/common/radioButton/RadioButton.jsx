@@ -5,7 +5,7 @@ import styles from './RadioButton.scss';
 
 export const RadioButton = ({ text, name, checked, className, style, onChange, value, disabled, dataCy }) => (
   <label className={classNames(styles.container, disabled && styles.disabled, className)} style={style}>
-    {text}
+    <span>{text}</span>
     <input
       type="radio"
       defaultChecked={checked}

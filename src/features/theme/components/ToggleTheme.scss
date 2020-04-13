@@ -2,15 +2,13 @@
   position: fixed;
   left: 15px;
   bottom: 15px;
+  width: 115px;
 
-  > label {
-    display: inline-block;
-    width: 50px;
-    height: 25px;
-    margin-left: 10px;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-  > label:nth-child(2) {
-    bottom: 1px;
+  @media only screen and (max-width: 415px) {
+    display: none;
   }
 }

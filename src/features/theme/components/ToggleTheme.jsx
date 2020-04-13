@@ -16,22 +16,26 @@ export const ToggleTheme = () => {
 
   return (
     <div className={styles.rootToggleTheme}>
-      <RadioButton
-        text="☀"
-        value={ThemeTypes.light}
-        name="themeType"
-        checked={defaultThemeType === ThemeTypes.light}
-        onChange={toggle}
-        dataCy="light-theme-radio-button"
-      />
-      <RadioButton
-        text="☽"
-        value={ThemeTypes.dark}
-        name="themeType"
-        checked={defaultThemeType === ThemeTypes.dark}
-        onChange={toggle}
-        dataCy="dark-theme-radio-button"
-      />
+      <div>
+        <RadioButton
+          text="☀"
+          value={ThemeTypes.light}
+          name="themeType"
+          checked={defaultThemeType === ThemeTypes.light}
+          onChange={toggle}
+          dataCy="light-theme-radio-button"
+        />
+      </div>
+      <div>
+        <RadioButton
+          text="☽"
+          value={ThemeTypes.dark}
+          name="themeType"
+          checked={defaultThemeType === ThemeTypes.dark}
+          onChange={toggle}
+          dataCy="dark-theme-radio-button"
+        />
+      </div>
     </div>
   );
 };
