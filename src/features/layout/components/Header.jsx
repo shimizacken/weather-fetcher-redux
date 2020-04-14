@@ -1,5 +1,5 @@
 import React from 'react';
-import sun from 'app/assets/png/logo.png';
+import sun from 'app/assets/png/wf-logo.png';
 import { ToggleTheme } from 'app/features/theme';
 import styles from './Header.scss';
 

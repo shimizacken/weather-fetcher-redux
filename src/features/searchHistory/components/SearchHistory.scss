@@ -8,8 +8,8 @@
 
   overflow-y: scroll;
 
-  height: 95vh;
-  width: 114px;
+  height: 95%;
+  width: 180px;
   border-radius: 15px;
 
   top: 5px;
@@ -18,8 +18,7 @@
   padding: 15px;
 
   .header {
-    text-align: center;
-    margin-left: 2px;
+    text-align: right;
   }
 
   .list-item-inner-wrapper {
