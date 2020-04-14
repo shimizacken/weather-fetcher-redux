@@ -3,7 +3,9 @@ Simple web app for displaying the weather based on a city name. It's a `React` b
 
 This project started as part of interview exam. Later it was expanded and now it's main purpose is educational.
 
-![Default view](src/assets/png/wf-logo.png "")
+<div align="center">
+    <img src="src/assets/png/wf-logo.png" />
+</div>
 
 ## Live demo
 <a href="https://weather-fetcher.netlify.com" target="_blank">https://weather-fetcher.netlify.com</a>
