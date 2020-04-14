@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --config=./webpack/webpack.config.js --mode development --open --hot",
     "deploy": "npm ci && npm run prod",
-    "prod": "webpack --config=./webpack/webpack.config.js --mode production",
+    "prod": "webpack --config=./webpack/webpack.config.js --mode production && npm run build-storybook",
     "analyze": "source-map-explorer build/static/js/main.*",
     "lint": "eslint --fix . && echo 'Lint complete.'",
     "test": "jest",
