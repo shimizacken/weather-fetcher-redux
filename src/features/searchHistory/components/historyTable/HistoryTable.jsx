@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Button, Row } from 'app/components/common';
 import { removeItemFromHistoryList, removeItemFromHistoryListEnded } from '../../state/searchHistoryActions';
 import style from './HistoryTable.module.scss';
-import { Modal } from '../../../../components/common/modal/Modal';
+import { ConfirmationModal } from 'app/components/common';
 
 export const HistoryTable = ({ items }) => {
   const dispatch = useDispatch();
@@ -14,6 +14,8 @@ export const HistoryTable = ({ items }) => {
     setOpen(true);
   };
 
+  const close = () => setOpen(false);
+
   //   const removeItem = id => {
   //     dispatch(removeItemFromHistoryList(id));
   //     dispatch(removeItemFromHistoryListEnded());
@@ -22,7 +24,7 @@ export const HistoryTable = ({ items }) => {
   return (
     <div className={style.historyTableWrapper} data-cy="history-table">
       <Button text="clear all" onClick={clearAll} />
-      <Modal title="Clear all history list" open={open} />
+      <ConfirmationModal title="Clear all history list" open={open} close={close} />
       {items?.map(item => (
         <Row key={item.id}>
           <div className={style.rowContentWrapper}>
