@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { Row } from 'app/components/common';
+import { Button, Row } from 'app/components/common';
 import { removeItemFromHistoryList, removeItemFromHistoryListEnded } from '../../state/searchHistoryActions';
 import style from './HistoryTable.module.scss';
+import { Modal } from '../../../../components/common/modal/Modal';
 
 export const HistoryTable = ({ items }) => {
   const dispatch = useDispatch();
+  const [open, setOpen] = useState(false);
+
+  const clearAll = () => {
+    setOpen(true);
+  };
 
   //   const removeItem = id => {
   //     dispatch(removeItemFromHistoryList(id));
@@ -15,6 +21,8 @@ export const HistoryTable = ({ items }) => {
 
   return (
     <div className={style.historyTableWrapper} data-cy="history-table">
+      <Button text="clear all" onClick={clearAll} />
+      <Modal title="Clear all history list" open={open} />
       {items?.map(item => (
         <Row key={item.id}>
           <div className={style.rowContentWrapper}>
