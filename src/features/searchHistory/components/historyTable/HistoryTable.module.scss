@@ -1,0 +1,12 @@
+.history-table-wrapper {
+  height: 70vh;
+  overflow: scroll;
+}
+
+.row-content-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  padding: 20px;
+}

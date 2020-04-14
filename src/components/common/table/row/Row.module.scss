@@ -1,0 +1,10 @@
+@import '~app/styles/_colors.scss';
+
+.row-wrapper {
+  border-bottom: 1px solid $input-border-color;
+  margin-bottom: 25px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
