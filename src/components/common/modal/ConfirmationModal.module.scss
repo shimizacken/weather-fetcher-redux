@@ -1,0 +1,10 @@
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .cancel-button {
+    margin-right: 10px;
+  }
+}

@@ -1,5 +1,10 @@
 export { searchHistory } from './state/searchHistoryReducer';
-export { setHistory, removeItemFromHistoryList, removeItemFromHistoryListEnded } from './state/searchHistoryActions';
+export {
+  setHistory,
+  removeItemFromHistoryList,
+  removeItemFromHistoryListEnded,
+  clearAllSearchHistory
+} from './state/searchHistoryActions';
 export { SearchHistoryContainer } from './components/SearchHistoryContainer';
 export { SearchHistoryViewContainer } from './components/SearchHistoryViewContainer';
 export { selectSearchHistory } from './state/searchHistorySelectors';
