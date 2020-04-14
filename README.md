@@ -6,6 +6,9 @@ This project started as part of interview exam. Later it was expanded and now it
 ## Live demo
 <a href="https://weather-fetcher.netlify.com" target="_blank">https://weather-fetcher.netlify.com</a>
 
+## Storybook
+<a href="https://weather-fetcher.netlify.com/sb/" target="_blank">https://weather-fetcher.netlify.com/sb/</a>
+
 ## What’s Included?
 - [React](http://reactjs.org)
 - [Redux](https://redux.js.org)
