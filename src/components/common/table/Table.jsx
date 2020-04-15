@@ -6,7 +6,11 @@ import style from './Table.module.scss';
 const Rows = ({ rows, width }) => {
   return (
     <Row>
-      {rows.map(text => {
+      {rows.map((text, index) => {
+        if (index === 0) {
+          return null;
+        }
+
         return (
           <div key={text} style={{ width: `${width}%` }} className={style.column}>
             {text}

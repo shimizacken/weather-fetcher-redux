@@ -10,7 +10,7 @@ export default {
   decorators: [withKnobs, content]
 };
 
-const headerItems = ['id', 'City Name', 'Country', 'Temperature', 't', 'description', 'Date'];
+const headerItems = ['City Name', 'Country', 'Temperature', 't', 'description', 'Date'];
 
 const rowItems = [
   {
@@ -20,7 +20,7 @@ const rowItems = [
     temperature: '16',
     t: '',
     description: 'Clouds',
-    date: 1586928548159
+    date: new Date(1586928548159).toLocaleString()
   },
   {
     id: 2,
@@ -29,7 +29,16 @@ const rowItems = [
     temperature: '4.95',
     t: '',
     description: 'Clouds',
-    date: 1586928544844
+    date: new Date(1586928544844).toLocaleString()
+  },
+  {
+    id: 3,
+    cityName: 'Jerusalem',
+    country: 'IL',
+    temperature: '15.00',
+    t: '',
+    description: 'Sun',
+    date: new Date(1586928544844).toLocaleString()
   }
 ];
 
