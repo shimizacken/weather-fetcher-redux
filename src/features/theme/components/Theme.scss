@@ -7,6 +7,10 @@
   :global .modal-wrapper {
     background-color: $default-background;
   }
+
+  a {
+    color: $default-main-font-color;
+  }
 }
 
 .root-dark-theme {
@@ -15,6 +19,10 @@
 
   :global .modal-wrapper {
     background-color: $dark-background;
+  }
+
+  a {
+    color: $dark-main-font-color;
   }
 }
 
