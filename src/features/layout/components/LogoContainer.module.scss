@@ -1,0 +1,10 @@
+.main-header {
+  vertical-align: middle;
+  width: 150px;
+}
+
+@media only screen and (max-width: 640px) {
+  .main-header {
+    width: 95px;
+  }
+}

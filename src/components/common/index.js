@@ -4,3 +4,4 @@ export { RadioButton } from './radioButton/RadioButton';
 export { Loader } from './loader/Loader';
 export { Row } from './table';
 export { Modal, ConfirmationModal } from './modal';
+export { Logo } from './logo/Logo';
