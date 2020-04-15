@@ -1,3 +1,10 @@
 .search-history-wrapper {
   padding: 35px;
 }
+
+.tool-bar {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
