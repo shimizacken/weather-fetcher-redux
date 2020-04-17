@@ -3,6 +3,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { getSection, Parent, Child } from 'app/stories/sections';
 import { content } from 'app/stories/decorators/content';
 import { Table } from '../Table';
+import { buildIconUrl } from '../../../../features/searchWeather';
 
 export default {
   title: getSection(Parent.tabular, Child.table),
@@ -18,7 +19,7 @@ const rowItems = [
     cityName: 'Haifa',
     country: 'IL',
     temperature: '16',
-    t: '',
+    icon: <img src={buildIconUrl('01n')} />,
     description: 'Clouds',
     date: new Date(1586928548159).toLocaleString()
   },
@@ -27,7 +28,7 @@ const rowItems = [
     cityName: 'Oslo',
     country: 'NO',
     temperature: '4.95',
-    t: '',
+    icon: <img src={buildIconUrl('01n')} />,
     description: 'Clouds',
     date: new Date(1586928544844).toLocaleString()
   },
@@ -36,7 +37,7 @@ const rowItems = [
     cityName: 'Jerusalem',
     country: 'IL',
     temperature: '15.00',
-    t: '',
+    icon: <img src={buildIconUrl('01n')} />,
     description: 'Sun',
     date: new Date(1586928544844).toLocaleString()
   }

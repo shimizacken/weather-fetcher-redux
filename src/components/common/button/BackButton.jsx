@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import styles from './BackButton.module.scss';
 
 export const BackButton = React.memo(({ text, disabled, to, className, dataCy }) => (
-  <Link className={classNames(styles.backButton, className)} disabled={disabled} to={to || '/'} dataCy={dataCy}>
+  <Link className={classNames(styles.backButton, className)} disabled={disabled} to={to || '/'} data-cy={dataCy}>
     {text || '<'}
   </Link>
 ));

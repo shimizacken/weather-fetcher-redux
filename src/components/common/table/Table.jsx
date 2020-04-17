@@ -1,25 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Row } from './row/Row';
+import { Rows } from './Rows';
 import style from './Table.module.scss';
-
-const Rows = ({ rows, width }) => {
-  return (
-    <Row>
-      {rows.map((text, index) => {
-        if (index === 0) {
-          return null;
-        }
-
-        return (
-          <div key={text} style={{ width: `${width}%` }} className={style.column}>
-            {text}
-          </div>
-        );
-      })}
-    </Row>
-  );
-};
+import { Column } from './Column';
 
 export const Table = ({ headerItems, rowItems }) => {
   const width = 100 / headerItems?.length;
@@ -27,18 +10,14 @@ export const Table = ({ headerItems, rowItems }) => {
   return (
     <div className={style.tableWrapper}>
       <div className={style.header}>
-        {headerItems?.map(title => {
-          return (
-            <div key={title} style={{ width: `${width}%` }} className={style.column}>
-              {title}
-            </div>
-          );
-        })}
+        {headerItems?.map(title => (
+          <Column key={title} text={title} width={width} className={style.column} />
+        ))}
       </div>
       <div className={style.rows}>
-        {rowItems?.map(item => {
-          return <Rows rows={Object.values(item)} width={width} />;
-        })}
+        {rowItems?.map(item => (
+          <Rows rows={Object.values(item)} width={width} />
+        ))}
       </div>
     </div>
   );
