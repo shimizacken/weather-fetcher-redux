@@ -1,0 +1,19 @@
+@import '~app/styles/_mixins';
+
+.table-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+  overflow: scroll;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+  }
+
+  .rows {
+    display: flex;
+    flex-direction: column;
+  }
+}

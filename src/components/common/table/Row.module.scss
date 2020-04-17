@@ -1,8 +1,9 @@
 @import '~app/styles/_colors.scss';
 
 .row-wrapper {
+  display: flex;
   border-bottom: 1px solid $input-border-color;
-  margin-bottom: 25px;
+  margin-top: 25px;
 
   &:last-child {
     margin-bottom: 0;

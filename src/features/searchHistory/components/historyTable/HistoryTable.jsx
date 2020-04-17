@@ -1,26 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Row } from 'app/components/common';
+import { Table } from 'app/components/common';
 import { RemoveHistoryModalContainer } from '../RemoveHistoryModalContainer';
 import style from './HistoryTable.module.scss';
+import { buildIconUrl } from '../../../searchWeather';
 
 export const HistoryTable = ({ items }) => {
+  const headerItems = ['City Name', 'Country', 'Temperature', 'Icon', 'description', 'Date'];
+
+  const rowItems = items?.map(item => {
+    return {
+      id: item.id,
+      name: item.name,
+      currentWeather: item.currentWeather,
+      description: item.description,
+      country: item.country,
+      temperature: `${item.temperature}${item.tempType.symbol}`,
+      icon: <img src={buildIconUrl(item.icon)} title={item.description} />,
+      date: new Date(item.date).toLocaleString()
+    };
+  });
+
   return (
     <div className={style.historyTableWrapper} data-cy="history-table">
       <RemoveHistoryModalContainer />
-      {items?.map(item => (
-        <Row key={item.id}>
-          <div className={style.rowContentWrapper}>
-            <div>{item.name}</div>
-            <div>{item.country}</div>
-            <div>{item.temperature}</div>
-            {/* <div>{item.tempType}</div> */}
-            <div>{item.icon}</div>
-            <div>{item.currentWeather}</div>
-            <div>{item.date}</div>
-          </div>
-        </Row>
-      ))}
+      <Table headerItems={headerItems} rowItems={rowItems} />
     </div>
   );
 };
