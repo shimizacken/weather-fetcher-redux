@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Table } from 'app/components/common';
 import { RemoveHistoryModalContainer } from '../RemoveHistoryModalContainer';
-import style from './HistoryTable.module.scss';
 import { buildIconUrl } from '../../../searchWeather';
+import style from './HistoryTable.module.scss';
 
 export const HistoryTable = ({ items }) => {
   const headerItems = ['City Name', 'description', 'Temperature', 'Icon', 'Date'];
@@ -11,10 +11,8 @@ export const HistoryTable = ({ items }) => {
   const rowItems = items?.map(item => {
     return {
       id: item.id,
-      name: item.name,
-      currentWeather: item.currentWeather,
+      name: `${item.name}, ${item.country}`,
       description: item.description,
-      country: item.country,
       temperature: `${item.temperature}${item.tempType.symbol}`,
       icon: <img src={buildIconUrl(item.icon)} title={item.description} />,
       date: new Date(item.date).toLocaleString()
