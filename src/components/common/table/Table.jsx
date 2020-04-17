@@ -11,7 +11,7 @@ export const Table = ({ headerItems, rowItems }) => {
     <div className={style.tableWrapper}>
       <div className={style.header}>
         {headerItems?.map(title => (
-          <Column key={title} text={title} width={width} className={style.column} />
+          <Column key={title} value={title} width={width} className={style.column} />
         ))}
       </div>
       <div className={style.rows}>

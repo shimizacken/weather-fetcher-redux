@@ -16,11 +16,4 @@
     display: flex;
     flex-direction: column;
   }
-
-  .column {
-    @include ellipsis();
-    padding: 10px;
-    border: 1px solid;
-    text-align: left;
-  }
 }
