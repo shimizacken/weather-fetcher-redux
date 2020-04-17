@@ -6,7 +6,7 @@ import style from './HistoryTable.module.scss';
 import { buildIconUrl } from '../../../searchWeather';
 
 export const HistoryTable = ({ items }) => {
-  const headerItems = ['City Name', 'Country', 'Temperature', 'Icon', 'description', 'Date'];
+  const headerItems = ['City Name', 'description', 'Temperature', 'Icon', 'Date'];
 
   const rowItems = items?.map(item => {
     return {
