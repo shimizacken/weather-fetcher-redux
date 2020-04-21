@@ -2,19 +2,17 @@
 
 .row-wrapper {
   display: flex;
-  justify-content: center;
   border-radius: 5px;
+  border-color: $input-border-color;
   transition: all 0.3s ease;
-  width: 90%;
-  border: 1px solid yellowgreen;
+  margin: 3px 0;
 
   // &:last-child {
   //   margin-bottom: 0;
   // }
 
   &:hover {
-    // border: 1px solid $input-border-color;
-    border: 1px solid yellowgreen;
-    width: 100%;
+    border: 1px solid $input-border-color;
+    transform: scale(1.01);
   }
 }
