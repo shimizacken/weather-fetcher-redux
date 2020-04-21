@@ -3,7 +3,8 @@
 .table-wrapper {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  // width: 100%;
+  border: 1px solid red;
   padding: 0 30px;
 
   .header {
@@ -19,5 +20,7 @@
     overflow: scroll;
     padding: 10px 30px;
     max-height: 100vh;
+
+    border: 1px solid green;
   }
 }
