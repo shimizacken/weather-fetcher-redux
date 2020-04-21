@@ -3,9 +3,16 @@
 .row-wrapper {
   display: flex;
   border-bottom: 1px solid $input-border-color;
+  border-radius: 5px;
   margin-top: 25px;
+  transition: all 0.3s ease;
 
   &:last-child {
     margin-bottom: 0;
+  }
+
+  &:hover {
+    background-color: red;
+    transform: scale(1.02);
   }
 }

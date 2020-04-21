@@ -1,14 +1,15 @@
 import React from 'react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { getSection, Parent, Child } from 'app/stories/sections';
-import { content } from 'app/stories/decorators/content';
+import { content2 } from 'app/stories/decorators';
 import { Table } from '../Table';
 import { buildIconUrl } from '../../../../features/searchWeather';
+import styles from './Table.stories.module.scss';
 
 export default {
   title: getSection(Parent.tabular, Child.table),
   component: Table,
-  decorators: [withKnobs, content]
+  decorators: [withKnobs, content2(styles.customWrapper)]
 };
 
 const headerItems = ['City Name', 'Country', 'Temperature', 't', 'description', 'Date'];
