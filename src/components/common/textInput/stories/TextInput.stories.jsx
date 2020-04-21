@@ -8,7 +8,7 @@ import { TextInput } from '../TextInput';
 export default {
   title: getSection(Parent.inputs, Child.textInput),
   component: TextInput,
-  decorators: [withKnobs, content]
+  decorators: [withKnobs, content()]
 };
 
 export const Text = () => (

@@ -8,7 +8,7 @@ import { SearchBox } from '../SearchBox';
 export default {
   title: getSection(Parent.features, Child.textInput),
   component: SearchBox,
-  decorators: [withKnobs, content]
+  decorators: [withKnobs, content()]
 };
 
 export const SearchWeather = () => (

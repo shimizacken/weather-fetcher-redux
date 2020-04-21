@@ -9,7 +9,7 @@ import styles from './RadioStories.scss';
 export default {
   title: getSection(Parent.inputs, Child.radioButton),
   component: RadioButton,
-  decorators: [withKnobs, content]
+  decorators: [withKnobs, content()]
 };
 
 export const Default = () => (

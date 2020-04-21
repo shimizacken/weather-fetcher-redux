@@ -2,9 +2,7 @@
 
 .row-wrapper {
   display: flex;
-  border-bottom: 1px solid $input-border-color;
   border-radius: 5px;
-  margin-top: 25px;
   transition: all 0.3s ease;
 
   &:last-child {
@@ -12,7 +10,7 @@
   }
 
   &:hover {
-    background-color: red;
-    transform: scale(1.02);
+    border: 1px solid $input-border-color;
+    transform: scale(1.05);
   }
 }

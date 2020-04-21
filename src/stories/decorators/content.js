@@ -1,10 +1,11 @@
 import React from 'react';
+import classNames from 'classnames';
 import styles from './content.scss';
 
-export const content = story => {
+export const content = className => story => {
   return (
     <div className={styles.contentMainWrapper}>
-      <div className={styles.content}>{story()}</div>
+      <div className={classNames(styles.content, className)}>{story()}</div>
     </div>
   );
 };

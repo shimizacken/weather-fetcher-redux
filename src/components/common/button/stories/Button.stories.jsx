@@ -9,7 +9,7 @@ import { ButtonTypes } from '../buttonTypes';
 export default {
   title: getSection(Parent.inputs, Child.button),
   component: Button,
-  decorators: [withKnobs, content]
+  decorators: [withKnobs, content()]
 };
 
 export const Default = () => (
