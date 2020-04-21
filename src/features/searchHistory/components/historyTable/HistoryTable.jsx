@@ -22,7 +22,7 @@ export const HistoryTable = ({ items }) => {
   return (
     <div className={style.historyTableWrapper} data-cy="history-table">
       <RemoveHistoryModalContainer />
-      <Table headerItems={headerItems} rowItems={rowItems} />
+      <Table headerItems={headerItems} rowItems={rowItems} columnClassName={style.column} />
     </div>
   );
 };

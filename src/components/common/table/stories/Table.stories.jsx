@@ -44,4 +44,6 @@ const rowItems = [
   }
 ];
 
-export const TableStory = () => <Table headerItems={headerItems} rowItems={rowItems} />;
+export const TableStory = () => (
+  <Table headerItems={headerItems} rowItems={rowItems} columnClassName={styles.someColumn} />
+);

@@ -5,7 +5,7 @@ import style from './Column.module.scss';
 
 export const Column = ({ value, width, className }) => (
   <div style={{ width: `${width}%` }} className={classNames(style.column, className)}>
-    <span className={classNames(style.ellipsis)}>{value}</span>
+    {value}
   </div>
 );
 
