@@ -19,7 +19,6 @@ export const HistoryTable = ({ items }) => {
           headers={headers}
           items={rows}
           tableClassName={style.table}
-          columnClassName={style.column}
           headerRenderer={HistoryTableHeaderRenderer}
           rowRenderer={HistoryTableRowRenderer}
         />

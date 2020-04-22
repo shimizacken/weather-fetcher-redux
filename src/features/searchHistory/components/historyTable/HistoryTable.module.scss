@@ -1,5 +1,3 @@
-@import '~app/styles/_mixins';
-
 .history-table-wrapper {
   height: 50vh;
 }
@@ -10,15 +8,4 @@
   justify-content: space-between;
 
   padding: 20px;
-}
-
-.column {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  padding: 10px;
-  text-align: left;
-
-  @include ellipsis();
 }
