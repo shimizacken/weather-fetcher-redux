@@ -2,11 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { MetricRadioButtons, setTempUnit } from 'app/features/metricType';
 import { Loader, SearchBox } from 'app/components/common';
-import {
-  buildFetchWeatherBaseURL,
-  buildFetchWeatherByCityName,
-  buildFetchWeatherByGeographicCoordinates
-} from '../bll/api';
+import { buildFetchWeatherByCityName, buildFetchWeatherByGeographicCoordinates } from '../bll/api';
 import { Units } from 'app/services/openWeatherMap/metricUnits';
 import { selectMetricType } from 'app/features/metricType';
 import { getGeoLocation } from 'app/services/geolocation/getGeoLocation';
@@ -38,6 +34,8 @@ export const WeatherContainer = () => {
       position.coords.latitude,
       position.coords.longitude
     );
+
+    resetDetails();
 
     dispatch(searchWeather(() => fetchWeather(url)));
   };
