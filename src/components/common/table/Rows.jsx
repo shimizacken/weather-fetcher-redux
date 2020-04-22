@@ -7,10 +7,6 @@ export const Rows = ({ rows, width, columnClassName }) => {
   return (
     <Row>
       {rows.map((text, index) => {
-        if (index === 0) {
-          return null;
-        }
-
         return <Column key={index} width={width} value={text} className={columnClassName} />;
       })}
     </Row>

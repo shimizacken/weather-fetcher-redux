@@ -12,10 +12,6 @@
   padding: 20px;
 }
 
-.table {
-  border: 1px solid red;
-}
-
 .column {
   display: flex;
   justify-content: center;
@@ -24,7 +20,5 @@
   padding: 10px;
   text-align: left;
 
-  .ellipsis {
-    @include ellipsis();
-  }
+  @include ellipsis();
 }

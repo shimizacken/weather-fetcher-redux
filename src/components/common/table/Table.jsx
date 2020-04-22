@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import uuid from 'uuid';
 import classNames from 'classnames';
-import { Rows } from './Rows';
 import { Column } from './Column';
 import style from './Table.module.scss';
 
 export const Table = ({ headerItems, items, tableClassName, columnClassName, rowRenderer }) => {
   const width = 100 / headerItems?.length;
-  const rowItems = rowRenderer(items);
+  const RowRenderer = rowRenderer;
 
   return (
     <div className={classNames(style.table, tableClassName)}>
@@ -17,8 +17,8 @@ export const Table = ({ headerItems, items, tableClassName, columnClassName, row
         ))}
       </div>
       <div className={style.rows}>
-        {rowItems?.map(item => (
-          <Rows rows={Object.values(item)} width={width} columnClassName={columnClassName} />
+        {items?.map(row => (
+          <RowRenderer key={uuid.v4()} row={row} width={width} columnClassName={columnClassName} />
         ))}
       </div>
     </div>
@@ -27,7 +27,7 @@ export const Table = ({ headerItems, items, tableClassName, columnClassName, row
 
 Table.propTypes = {
   headerItems: PropTypes.arrayOf(PropTypes.string),
-  items: PropTypes.arrayOf(PropTypes.shape()),
+  items: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.shape())),
   rowRenderer: PropTypes.func.isRequired,
   tableClassName: PropTypes.string,
   rowClassName: PropTypes.string,
