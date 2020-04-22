@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import { Table } from 'app/components/common';
 import { RemoveHistoryModalContainer } from '../RemoveHistoryModalContainer';
 import { HistoryTableRowRenderer } from './HistoryTableRowRenderer';
-import { historyTableColumnsBuilder } from '../../bll/historyTableColumnsBuilder';
+import { historyTableColumnsBuilder, historyTableHeadersBuilder } from '../../bll/historyTableColumnsBuilder';
+import { HistoryTableHeaderRenderer } from './HistoryTableHeaderRenderer';
 import style from './HistoryTable.module.scss';
 
 export const HistoryTable = ({ items }) => {
-  const headerItems = ['City Name', 'description', 'Temperature', 'Icon', 'Date'];
+  const headers = historyTableHeadersBuilder();
   const rows = historyTableColumnsBuilder(items);
 
   return (
@@ -15,10 +16,11 @@ export const HistoryTable = ({ items }) => {
       <RemoveHistoryModalContainer />
       <div>
         <Table
-          headerItems={headerItems}
+          headers={headers}
           items={rows}
           tableClassName={style.table}
           columnClassName={style.column}
+          headerRenderer={HistoryTableHeaderRenderer}
           rowRenderer={HistoryTableRowRenderer}
         />
       </div>
