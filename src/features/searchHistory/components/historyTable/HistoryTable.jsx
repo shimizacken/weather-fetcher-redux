@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { Table } from 'app/components/common';
 import { RemoveHistoryModalContainer } from '../RemoveHistoryModalContainer';
 import { HistoryTableRowRenderer } from './HistoryTableRowRenderer';
-import { historyTableColumnsBuilder, historyTableHeadersBuilder } from '../../bll/historyTableColumnsBuilder';
+import { historyTableHeadersBuilder } from '../../bll/historyTableHeadersBuilder';
+import { historyTableColumnsBuilder } from '../../bll/historyTableColumnsBuilder';
 import { HistoryTableHeaderRenderer } from './HistoryTableHeaderRenderer';
 import style from './HistoryTable.module.scss';
 
