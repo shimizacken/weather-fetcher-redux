@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Column } from '../../../../components/common/table/Column';
-import { Row } from '../../../../components/common/table/Row';
+import { Column } from 'app/components/common/table/Column';
+import { Row } from 'app/components/common/table/Row';
 
 export const HistoryTableRowRenderer = ({ row, width, columnClassName }) => {
   const columns = row?.map(column => {
