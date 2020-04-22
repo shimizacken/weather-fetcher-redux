@@ -1,23 +1,20 @@
 @import '~app/styles/_mixins';
 
-.table-wrapper {
+.table {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  padding: 0 30px;
 
   .header {
     display: flex;
     flex-direction: row;
     font-weight: bold;
-    padding: 10px 30px;
   }
 
   .rows {
     display: flex;
     flex-direction: column;
-    overflow: scroll;
-    padding: 10px 30px;
-    max-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 50vh;
   }
 }

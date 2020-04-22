@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import style from './Row.module.scss';
 
 export const Row = ({ children, className }) => {
-  return <div className={classNames(style.rowWrapper, className)}>{children}</div>;
+  return <div className={classNames(style.row, className)}>{children}</div>;
 };
 
 Row.propTypes = {

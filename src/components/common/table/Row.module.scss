@@ -1,16 +1,13 @@
 @import '~app/styles/_colors.scss';
 
-.row-wrapper {
+.row {
   display: flex;
   border-radius: 5px;
+  border-color: $input-border-color;
   transition: all 0.3s ease;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
+  margin: 3px 0;
 
   &:hover {
     border: 1px solid $input-border-color;
-    transform: scale(1.05);
   }
 }

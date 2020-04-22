@@ -2,27 +2,28 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Table } from 'app/components/common';
 import { RemoveHistoryModalContainer } from '../RemoveHistoryModalContainer';
-import { buildIconUrl } from '../../../searchWeather';
+import { HistoryTableRowRenderer } from './HistoryTableRowRenderer';
+import { historyTableHeadersBuilder } from '../../bll/historyTableHeadersBuilder';
+import { historyTableColumnsBuilder } from '../../bll/historyTableColumnsBuilder';
+import { HistoryTableHeaderRenderer } from './HistoryTableHeaderRenderer';
 import style from './HistoryTable.module.scss';
 
 export const HistoryTable = ({ items }) => {
-  const headerItems = ['City Name', 'description', 'Temperature', 'Icon', 'Date'];
-
-  const rowItems = items?.map(item => {
-    return {
-      id: item.id,
-      name: `${item.name}, ${item.country}`,
-      description: item.description,
-      temperature: `${item.temperature}${item.tempType.symbol}`,
-      icon: <img src={buildIconUrl(item.icon)} title={item.description} />,
-      date: new Date(item.date).toLocaleString()
-    };
-  });
+  const headers = historyTableHeadersBuilder();
+  const rows = historyTableColumnsBuilder(items);
 
   return (
     <div className={style.historyTableWrapper} data-cy="history-table">
       <RemoveHistoryModalContainer />
-      <Table headerItems={headerItems} rowItems={rowItems} />
+      <div>
+        <Table
+          headers={headers}
+          items={rows}
+          tableClassName={style.table}
+          headerRenderer={HistoryTableHeaderRenderer}
+          rowRenderer={HistoryTableRowRenderer}
+        />
+      </div>
     </div>
   );
 };

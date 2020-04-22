@@ -1,17 +1,12 @@
 @import '~app/styles/_mixins';
 
-.custom-wrapper {
-  width: 90%;
-}
-
-.some-column {
+.column {
   display: flex;
   justify-content: center;
   align-items: center;
-
   padding: 10px;
 
-  .ellipsis {
+  .text {
     @include ellipsis();
   }
 }

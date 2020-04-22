@@ -1,22 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Rows } from './Rows';
+import uuid from 'uuid';
+import classNames from 'classnames';
 import style from './Table.module.scss';
-import { Column } from './Column';
 
-export const Table = ({ headerItems, rowItems }) => {
-  const width = 100 / headerItems?.length;
+export const Table = ({
+  headers,
+  items,
+  tableClassName,
+  rowClassName,
+  columnClassName,
+  headerRenderer,
+  rowRenderer
+}) => {
+  const width = 100 / headers?.length;
+  const HeaderRenderer = headerRenderer;
+  const RowRenderer = rowRenderer;
 
   return (
-    <div className={style.tableWrapper}>
+    <div className={classNames(style.table, tableClassName)}>
       <div className={style.header}>
-        {headerItems?.map(title => (
-          <Column key={title} value={title} width={width} className={style.column} />
-        ))}
+        <HeaderRenderer headers={headers} width={width} columnClassName={columnClassName} />
       </div>
       <div className={style.rows}>
-        {rowItems?.map(item => (
-          <Rows rows={Object.values(item)} width={width} />
+        {items?.map(row => (
+          <RowRenderer
+            key={uuid.v4()}
+            row={row}
+            width={width}
+            rowClassName={rowClassName}
+            columnClassName={columnClassName}
+          />
         ))}
       </div>
     </div>
@@ -24,6 +38,17 @@ export const Table = ({ headerItems, rowItems }) => {
 };
 
 Table.propTypes = {
-  headerItems: PropTypes.arrayOf(PropTypes.string),
-  rowItems: PropTypes.arrayOf(PropTypes.shape())
+  items: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.shape())),
+  headerRenderer: PropTypes.elementType.isRequired,
+  rowRenderer: PropTypes.elementType.isRequired,
+  tableClassName: PropTypes.string,
+  rowClassName: PropTypes.string,
+  columnClassName: PropTypes.string
+};
+
+Table.defaultProps = {
+  items: undefined,
+  tableClassName: undefined,
+  rowClassName: undefined,
+  columnClassName: undefined
 };
