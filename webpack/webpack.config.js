@@ -19,7 +19,7 @@ module.exports = {
     filename: 'main.js'
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.webpack.js', '.web.js', '.json', '.png'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.webpack.js', '.web.js', '.json', '.png'],
     modules: ['node_modules'],
     alias
   },
@@ -27,7 +27,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(ts|tsx|js|jsx)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader'
