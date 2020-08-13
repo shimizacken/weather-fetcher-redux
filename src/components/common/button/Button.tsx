@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { ButtonType } from './buttonTypes';
+import { ButtonType } from './buttonType';
 import styles from './Button.scss';
 
 export const Button: React.FC<React.ComponentProps<'button'> & {
