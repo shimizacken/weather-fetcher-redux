@@ -10,7 +10,8 @@ module.exports = {
     {
       files: ['*.scss.d.ts'],
       options: {
-        tabWidth: 2
+        quoteProps: 'preserve',
+        tabWidth: 4
       }
     }
   ]
