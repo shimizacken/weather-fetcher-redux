@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "moduleResolution": "node",
+    "noEmit": true,
+    "target": "ES2019",
+    "module": "ESNext",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react",
+    "strict": true,
+    "incremental": false
+  },
+  "include": ["./src/**/*"],
+  "exclude": ["**/node_modules/*", "**/dist/*", "**/cypress/*", "**/.eslintrc.js"]
+}
