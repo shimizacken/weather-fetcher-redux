@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config=./webpack/webpack.config.js --mode development --open --hot",
+    "start": "concurrently --raw --kill-others \"dev-server\" \"yarn typed-scss-modules\"",
+    "dev-server": "webpack-dev-server --config=./webpack/webpack.config.js --mode development --open --hot",
     "deploy": "npm ci && npm run prod",
     "prod": "webpack --config=./webpack/webpack.config.js --mode production && npm run build-storybook",
     "analyze": "source-map-explorer build/static/js/main.*",
@@ -15,7 +16,8 @@
     "cypress:open": "cypress open",
     "cypress:ci": "cypress run",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook -o ./dist/sb"
+    "build-storybook": "build-storybook -o ./dist/sb",
+    "typed-scss-modules": "tsm ../components/src --watch --exportType default --exportTypeName ClassesType --logLevel silent"
   },
   "repository": "git+https://github.com/shimizacken/weather-fetcher.git",
   "keywords": [],
@@ -47,6 +49,7 @@
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
     "babel-loader": "^7.1.5",
+    "concurrently": "^5.3.0",
     "css-loader": "^0.28.11",
     "cypress": "^4.1.0",
     "eslint": "^6.8.0",
@@ -65,6 +68,7 @@
     "stylelint": "^13.3.0",
     "stylelint-config-prettier": "^8.0.0",
     "stylelint-prettier": "^1.1.2",
+    "typed-scss-modules": "^2.0.1",
     "typescript": "^3.9.7",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.0.8",
