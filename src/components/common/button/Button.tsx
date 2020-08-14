@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+
 import {ButtonType} from './buttonType';
 import styles from './Button.scss';
 
