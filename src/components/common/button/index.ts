@@ -1,3 +1,3 @@
 export { Button } from './Button';
-export { ButtonTypes } from './buttonTypes';
+export { ButtonType } from './buttonType';
 export { BackButton } from './BackButton';

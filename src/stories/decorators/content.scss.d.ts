@@ -1,7 +1,7 @@
 export type Styles = {
   'contentMainWrapper': string;
   'content': string;
-};
+}
 
 export type ClassesType = keyof Styles;
 

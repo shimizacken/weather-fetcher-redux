@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TextInput } from 'app/components/common/textInput/TextInput';
-import { Button, ButtonTypes } from 'app/components/common/button';
+import { Button, ButtonType } from 'app/components/common/button';
 import styles from './SearchBox.scss';
 
 export const SearchBox = ({ value, onChange, disabled }) => {
@@ -15,7 +15,7 @@ export const SearchBox = ({ value, onChange, disabled }) => {
         dataCy="search-weather-button-input"
       />
       <div className={styles.buttonWrapper}>
-        <Button text="Search" disabled={disabled} buttonType={ButtonTypes.SUBMIT} dataCy="search-weather-button" />
+        <Button text="Search" disabled={disabled} buttonType={ButtonType.SUBMIT} dataCy="search-weather-button" />
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 export type Styles = {
-  historyTableWrapper: string;
-  rowContentWrapper: string;
-};
+  'historyTableWrapper': string;
+  'rowContentWrapper': string;
+}
 
 export type ClassesType = keyof Styles;
 
