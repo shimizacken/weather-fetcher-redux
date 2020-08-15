@@ -20,19 +20,19 @@ it's main purpose is educational.
     -   [Storybook](#storybook)
 -   [What’s Included?](#whats-included?)
     -   [Test](#test)
--   [Road map](#road-map)
 -   [Feature Folder Structure](#feature-folder-structure)
 -   [Naming conventions](#naming-conventions)
 -   [Usage](#usage)
 -   [Alias paths](#alias-paths)
+-   [Road map](#road-map)
 
 ## Demo
 
-### Weather fetcher
+#### Weather fetcher
 
 <a href="https://weather-fetcher.netlify.com" target="_blank">https://weather-fetcher.netlify.com</a>
 
-### Storybook
+#### Storybook
 
 <a href="https://weather-fetcher.netlify.com/sb/" target="_blank">https://weather-fetcher.netlify.com/sb/</a>
 
@@ -49,18 +49,6 @@ it's main purpose is educational.
 
 -   Unit tests with [`Jest`](https://jestjs.io/)
 -   E2E tests with [`Cypress.io`](https://www.cypress.io/)
-
-## Road map
-
--   Rewrite into `TypeScript`
-    ([on progress](https://github.com/shimizacken/weather-fetcher/tree/type-script))
--   More screens and a router
--   Translations
--   History page
--   Open street map view
--   Graphs
--   Personalization
--   Location detection
 
 ## Feature Folder Structure
 
@@ -219,7 +207,17 @@ settings: {
     },
 ```
 
-<!-- ![Default view](src/assets/screenshots/wf-2.gif 'Default view') -->
+## Road map
+
+-   [ ] Rewrite into `TypeScript`
+        ([on progress](https://github.com/shimizacken/weather-fetcher/tree/type-script))
+-   [ ] More screens and a router
+-   [ ] Translations
+-   [ ] History page
+-   [ ] Open street map view
+-   [ ] Graphs
+-   [ ] Personalization
+-   [ ] Location detection
 
 ### License
 
