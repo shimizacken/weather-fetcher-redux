@@ -21,12 +21,9 @@ module.exports = {
         project: ['./tsconfig.json'],
     },
     settings: {
-        'import/resolver': {
-            alias: {
-                map: [['app/components', './src/components']],
-                extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
-            },
-        },
+        // 'import/resolver': {
+        //     alias: [['app/components', './src/components']],
+        // },
         react: {
             version: 'detect',
         },

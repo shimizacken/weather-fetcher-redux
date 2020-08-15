@@ -1,9 +1,8 @@
 import React from 'react';
 import {Units} from 'app/services/openWeatherMap/metricUnits';
+import {RadioButton} from 'app/components/common';
 
 import styles from './MetricRadioButtons.scss';
-
-import {RadioButton} from 'app/components/common';
 
 export const MetricRadioButtons: React.FC<React.ComponentProps<'div'> & {
     radioChanged: () => void;
