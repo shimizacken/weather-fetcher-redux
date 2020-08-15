@@ -10,8 +10,9 @@ It's a `React` based and made usage of
 written with [MobX](https://github.com/shimizacken/weather-fetcher-mobx) as
 state manager, but replaced with `Redux`.
 
-The project puts on top best practices, clean code and tests. It fave functional
-programming paradigm.
+This project aims to be be modern production ready and push the FED technologies
+edge. It strives to put on top clean code, best practices and testability. It
+fave functional programming paradigm over OOP.
 
 <div align="center">
     <img src="src/assets/png/wf-logo.png" />
