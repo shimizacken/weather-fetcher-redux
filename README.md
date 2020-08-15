@@ -1,4 +1,4 @@
-# ⛅️ weather-fetcher-redux ☔️
+# ⛅️ weather-fetcher ☔️
 
 Simple web app for displaying the weather based on a city name. It's a `React`
 based and made usage of [`openweathermap.org`](https://www.openweathermap.org/)
@@ -38,7 +38,7 @@ it's main purpose is educational.
 ## Road map
 
 -   Rewrite into `TypeScript`
-    ([on progress](https://github.com/shimizacken/weather-fetcher-redux/tree/type-script))
+    ([on progress](https://github.com/shimizacken/weather-fetcher/tree/type-script))
 -   More screens and a router
 -   Translations
 -   History page
@@ -112,7 +112,7 @@ npm run cypress:ci
 ### Method 1 (recommended)
 
 Download the artifact from the
-[`bin`](https://github.com/shimizacken/weather-fetcher-redux/blob/master/bin/weather-fetcher-latest.zip)
+[`bin`](https://github.com/shimizacken/weather-fetcher/blob/master/bin/weather-fetcher-latest.zip)
 folder, extract it, and open the `index.html` file in the browser. It does not
 requires a web server
 
@@ -121,7 +121,7 @@ requires a web server
 Clone the repo
 
 ```bash
-git clone https://github.com/shimizacken/weather-fetcher-redux.git
+git clone https://github.com/shimizacken/weather-fetcher.git
 ```
 
 then run the following command in the root folder:
