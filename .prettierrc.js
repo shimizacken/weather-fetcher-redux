@@ -1,18 +1,22 @@
 module.exports = {
-  trailingComma: 'none',
-  printWidth: 120,
-  tabWidth: 2,
-  singleQuote: true,
-  useTabs: false,
-  bracketSpacing: true,
+    arrowParens: 'avoid',
+    bracketSpacing: false,
+    jsxBracketSameLine: false,
+    printWidth: 80,
+    proseWrap: 'always',
+    semi: true,
+    singleQuote: true,
+    tabWidth: 4,
+    trailingComma: 'es5',
+    useTabs: false,
 
-  overrides: [
-    {
-      files: ['*.scss.d.ts'],
-      options: {
-        quoteProps: 'preserve',
-        tabWidth: 4
-      }
-    }
-  ]
+    overrides: [
+        {
+            files: ['*.scss.d.ts'],
+            options: {
+                quoteProps: 'preserve',
+                tabWidth: 4
+            }
+        }
+    ]
 };

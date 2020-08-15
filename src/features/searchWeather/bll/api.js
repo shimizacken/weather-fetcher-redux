@@ -5,30 +5,32 @@ export const addUnit = unit => (unit ? `&units=${unit}` : '');
 export const buildBaseTokenUrl = (token, unit) => `${baseUrl}${token}${unit}`;
 
 export const buildFetchWeatherBaseURL = token => unit => {
-  const metricType = addUnit(unit);
-  const baseTokenUrl = buildBaseTokenUrl(token, metricType);
+    const metricType = addUnit(unit);
+    const baseTokenUrl = buildBaseTokenUrl(token, metricType);
 
-  return queryStringParams => {
-    let url = '';
+    return queryStringParams => {
+        let url = '';
 
-    Object.keys(queryStringParams).forEach(key => {
-      url += `&${key}=${encodeURIComponent(queryStringParams[key])}`;
-    });
+        Object.keys(queryStringParams).forEach(key => {
+            url += `&${key}=${encodeURIComponent(queryStringParams[key])}`;
+        });
 
-    return `${baseTokenUrl}${url}`;
-  };
+        return `${baseTokenUrl}${url}`;
+    };
 };
 
 export const buildFetchWeatherByCityName = (token, unit) => {
-  unit = unit ? `&units=${unit}` : '';
+    unit = unit ? `&units=${unit}` : '';
 
-  return cityName => `${baseUrl}${token}${unit}&q=${encodeURIComponent(cityName)}`;
+    return cityName =>
+        `${baseUrl}${token}${unit}&q=${encodeURIComponent(cityName)}`;
 };
 
 export const buildFetchWeatherByGeographicCoordinates = (token, unit) => {
-  unit = unit ? `&units=${unit}` : '';
+    unit = unit ? `&units=${unit}` : '';
 
-  return (lat, lon) => `${baseUrl}${token}${unit}&lat=${lat}&lon=${lon}`;
+    return (lat, lon) => `${baseUrl}${token}${unit}&lat=${lat}&lon=${lon}`;
 };
 
-export const buildIconUrl = icon => `http://openweathermap.org/img/w/${icon}.png`;
+export const buildIconUrl = icon =>
+    `http://openweathermap.org/img/w/${icon}.png`;

@@ -1,18 +1,34 @@
 {
-  "compilerOptions": {
-    "allowJs": true,
-    "moduleResolution": "node",
-    "noEmit": true,
-    "target": "ES2019",
-    "module": "ESNext",
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "allowSyntheticDefaultImports": true,
-    "jsx": "react",
-    "strict": true,
-    "incremental": false
-  },
-  "include": ["./src/**/*"],
-  "exclude": ["**/node_modules/*", "**/dist/*", "**/cypress/*", "**/.eslintrc.js"]
+    "compilerOptions": {
+        "allowJs": true,
+        "moduleResolution": "node",
+        "noEmit": true,
+        "target": "ES2019",
+        "module": "ESNext",
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "skipLibCheck": true,
+        "allowSyntheticDefaultImports": true,
+        "jsx": "react",
+        "strict": true,
+        "incremental": false,
+        "baseUrl": ".", // This must be specified if "paths" is.
+        "paths": {
+            "app/components/common": ["./src/components/common"], // This mapping is relative to "baseUrl"
+            "app/features/metricType": ["./src/features/metricType"],
+            "app/features/searchHistory": ["./src/features/searchHistory"],
+            "app/features/searchWeather": ["./src/features/searchWeather"],
+            "app/features/layout": ["./src/features/layout"],
+            "app/features/theme": ["./src/features/theme"],
+            "app/services": ["./src/services"],
+            "app/services/openWeatherMap": ["./src/services/openWeatherMap"]
+        }
+    },
+    "include": ["./src/**/*"],
+    "exclude": [
+        "**/node_modules/*",
+        "**/dist/*",
+        "**/cypress/*",
+        "**/.eslintrc.js"
+    ]
 }
