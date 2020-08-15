@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Table} from 'app/components/common';
 import {RemoveHistoryModalContainer} from '../RemoveHistoryModalContainer';
 import {historyTableHeadersBuilder} from '../../bll/historyTableHeadersBuilder';
 import {historyTableColumnsBuilder} from '../../bll/historyTableColumnsBuilder';
 import {HistoryTableRowRenderer} from './HistoryTableRowRenderer';
 import {HistoryTableHeaderRenderer} from './HistoryTableHeaderRenderer';
+import {Table} from 'app/components/common';
 import style from './HistoryTable.module.scss';
 
 export const HistoryTable = ({items}) => {

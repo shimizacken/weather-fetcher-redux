@@ -1,11 +1,11 @@
-import {setHistory} from 'app/features/searchHistory/state/searchHistoryActions';
-import {selectMetricType} from 'app/features/metricType';
-import {historyListLocalStorageKey} from 'app/features/searchHistory/bll/historyListStorageKey';
 import {mapWeatherResponse} from '../bll/mapWeatherResponse';
 import {ResponseCode} from '../../../services/net/responseCode';
 import {FETCH_WEATHER_SUCCESS} from './constants';
 import {setWeather, fetchWeatherError} from './weatherActions';
 import {buildHistoryItem} from './buildHistoryItem';
+import {historyListLocalStorageKey} from 'app/features/searchHistory/bll/historyListStorageKey';
+import {selectMetricType} from 'app/features/metricType';
+import {setHistory} from 'app/features/searchHistory/state/searchHistoryActions';
 import {getUnitNameByValue} from 'app/services/openWeatherMap';
 
 export const weatherMiddleware = ({dispatch, getState}) => next => action => {
