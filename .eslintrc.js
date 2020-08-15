@@ -21,9 +21,12 @@ module.exports = {
         project: ['./tsconfig.json'],
     },
     settings: {
-        // 'import/resolver': {
-        //     alias: [['app/components', './src/components']],
-        // },
+        'import/resolver': {
+            alias: [
+                ['app', './src'],
+                ['app/services', './src/services'],
+            ],
+        },
         react: {
             version: 'detect',
         },
@@ -44,7 +47,7 @@ module.exports = {
                         position: 'after',
                     },
                     {
-                        pattern: '{**,.}/*.module.scss',
+                        pattern: '{**,.}/*.scss',
                         group: 'internal',
                         position: 'after',
                     },

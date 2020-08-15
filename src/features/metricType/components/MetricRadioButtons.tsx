@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {Units} from 'app/services/openWeatherMap/metricUnits';
 import {RadioButton} from 'app/components/common';
 
