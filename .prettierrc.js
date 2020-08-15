@@ -7,7 +7,7 @@ module.exports = {
     semi: true,
     singleQuote: true,
     tabWidth: 4,
-    trailingComma: 'all',
+    trailingComma: 'es5',
     useTabs: false,
 
     overrides: [
@@ -15,8 +15,8 @@ module.exports = {
             files: ['*.scss.d.ts'],
             options: {
                 quoteProps: 'preserve',
-                tabWidth: 4,
-            },
-        },
-    ],
+                tabWidth: 4
+            }
+        }
+    ]
 };
