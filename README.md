@@ -1,13 +1,17 @@
 # ⛅️ weather-fetcher ☔️
 
-Simple web app for displaying the weather based on a city name. It's a `React`
-based and made usage of [`openweathermap.org`](https://www.openweathermap.org/)
-api. Originally it was written in
-[MobX](https://github.com/shimizacken/weather-fetcher-mobx) and rewritten into
-`Redux`.
+Weather Fetcher is a simple web application for displaying the weather based on
+a city name. It started as an home assessment as part of a Front-end position
+interview. Later it was expanded and became my playground, mainly for research
+and educational purposes.
 
-This project started as part of interview exam. Later it was expanded and now
-it's main purpose is educational.
+It's a `React` based and made usage of
+[`openweathermap.org`](https://www.openweathermap.org/) api. Originally it was
+written with [MobX](https://github.com/shimizacken/weather-fetcher-mobx) as
+state manager, but replaced with `Redux`.
+
+The project puts on top best practices, clean code and tests. It fave functional
+programming paradigm.
 
 <div align="center">
     <img src="src/assets/png/wf-logo.png" />
