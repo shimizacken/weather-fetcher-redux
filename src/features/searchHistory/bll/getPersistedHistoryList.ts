@@ -1,6 +1,7 @@
+import {HistoryItem} from './historyListType';
 import {historyListLocalStorageKey} from 'app/features/searchHistory';
 
-export const sortHistoryList = historyList => {
+export const sortHistoryList = (historyList: HistoryItem[]) => {
     return historyList?.sort((a, b) => b.date - a.date);
 };
 
