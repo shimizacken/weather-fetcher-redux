@@ -37,6 +37,17 @@ module.exports = {
                         './src/services/openWeatherMap',
                     ],
                     ['app/components/common', './src/components/common'],
+                    ['app/features/metricType', './src/features/metricType'],
+                    [
+                        'app/features/searchHistory',
+                        './src/features/searchHistory',
+                    ],
+                    [
+                        'app/features/searchWeather',
+                        './src/features/searchWeather',
+                    ],
+                    ['app/features/layout', './src/features/layout'],
+                    ['app/features/theme', './src/features/theme'],
                 ],
                 extensions: ['.js', '.jsx', '.ts', '.tsx', '.css', '.scss'],
             },
