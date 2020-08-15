@@ -159,8 +159,9 @@ Read more about Webpack
 
 ### TypeScript configuration
 
-TypeScript configuration purpose is to make alias paths recognizable and to
-allow autocomplete for the auto import.
+TypeScript configuration purpose is to make alias paths to be autocompleted in
+`TypeScript` project. without it the autocomplete will auto generate the actual
+path.
 
 Read more about TypeScript's
 [`path-mapping`](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping)
