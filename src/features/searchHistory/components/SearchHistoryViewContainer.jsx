@@ -1,13 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {useSelector} from 'react-redux';
-
 import {selectSortedSearchHistory} from '../state/searchHistorySelectors';
-
 import {HistoryTable} from './historyTable/HistoryTable';
-
 import {BackButton} from 'app/components/common';
-
 import style from './SearchHistoryViewContainer.module.scss';
 
 export const SearchHistoryViewContainer = () => {

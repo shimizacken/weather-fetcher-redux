@@ -5,7 +5,6 @@ module.exports = {
         es6: true,
         node: true,
     },
-    plugins: ['react', 'react-hooks', '@typescript-eslint'],
     extends: [
         'eslint:recommended',
         'plugin:react/recommended',
@@ -20,12 +19,27 @@ module.exports = {
         tsconfigRootDir: __dirname,
         project: ['./tsconfig.json'],
     },
+    plugins: ['react', 'react-hooks', '@typescript-eslint'],
     settings: {
+        'import/parsers': {
+            '@typescript-eslint/parser': ['.js', '.jsx', '.ts', '.tsx'],
+        },
         'import/resolver': {
-            alias: [
-                ['app', './src'],
-                ['app/services', './src/services'],
-            ],
+            alias: {
+                map: [
+                    [
+                        'metricUnits',
+                        './src/services/openWeatherMap/metricUnits',
+                    ],
+                    ['app/services', './src/services'],
+                    [
+                        'app/services/openWeatherMap',
+                        './src/services/openWeatherMap',
+                    ],
+                    ['app/components/common', './src/components/common'],
+                ],
+                extensions: ['.js', '.jsx', '.ts', '.tsx', '.css', '.scss'],
+            },
         },
         react: {
             version: 'detect',
@@ -52,7 +66,7 @@ module.exports = {
                         position: 'after',
                     },
                 ],
-                'newlines-between': 'always',
+                'newlines-between': 'never',
             },
         ],
     },

@@ -11,11 +11,14 @@
         "allowSyntheticDefaultImports": true,
         "jsx": "react",
         "strict": true,
-        "incremental": false
-        // "baseUrl": ".",
-        // "paths": {
-        //     "app": ["./src"]
-        // }
+        "incremental": false,
+        "baseUrl": ".", // This must be specified if "paths" is.
+        "paths": {
+            "app/components/common": ["./src/components/common"], // This mapping is relative to "baseUrl"
+            "app/services": ["./src/services"],
+            "app/services/openWeatherMap": ["./src/services/openWeatherMap"],
+            "metricUnits": ["./src/services/openWeatherMap/metricUnits"]
+        }
     },
     "include": ["./src/**/*"],
     "exclude": [
