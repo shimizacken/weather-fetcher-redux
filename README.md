@@ -13,11 +13,26 @@ it's main purpose is educational.
     <img src="src/assets/png/wf-logo.png" />
 </div>
 
-## Live demo
+## Table of Content
+
+-   [Demo](#demo)
+    -   [Weather fetcher](#weather-fetcher)
+    -   [Storybook](#storybook)
+-   [What’s Included?](#whats-included?)
+    -   [Test](#test)
+-   [Road map](#road-map)
+-   [Feature Folder Structure](#feature-folder-structure)
+-   [Naming conventions](#naming-conventions)
+-   [Usage](#usage)
+-   [Alias paths](#alias-paths)
+
+## Demo
+
+### Weather fetcher
 
 <a href="https://weather-fetcher.netlify.com" target="_blank">https://weather-fetcher.netlify.com</a>
 
-## Storybook
+### Storybook
 
 <a href="https://weather-fetcher.netlify.com/sb/" target="_blank">https://weather-fetcher.netlify.com/sb/</a>
 
@@ -47,7 +62,7 @@ it's main purpose is educational.
 -   Personalization
 -   Location detection
 
-### Feature Folder Structure
+## Feature Folder Structure
 
 ```
 ├── src
@@ -61,7 +76,7 @@ it's main purpose is educational.
 └── ...
 ```
 
-## File naming conventions
+## Naming conventions
 
 | type                | filename                      | suffix  | examples              |
 | ------------------- | ----------------------------- | ------- | --------------------- |
@@ -75,7 +90,7 @@ it's main purpose is educational.
 | image               | dash-separated                | \*.png  | logo-icon.png         |
 | svg                 | dash-separated                | \*.svg  | logo-icon.svg         |
 
-## Building and Running the application
+## Usage
 
 For run the unit-tests of the application, run: and then:
 
@@ -105,35 +120,6 @@ or in CI mode
 
 ```bash
 npm run cypress:ci
-```
-
-## How to run?
-
-### Method 1 (recommended)
-
-Download the artifact from the
-[`bin`](https://github.com/shimizacken/weather-fetcher/blob/master/bin/weather-fetcher-latest.zip)
-folder, extract it, and open the `index.html` file in the browser. It does not
-requires a web server
-
-### Method 2
-
-Clone the repo
-
-```bash
-git clone https://github.com/shimizacken/weather-fetcher.git
-```
-
-then run the following command in the root folder:
-
-```bash
-npm install
-```
-
-and then run:
-
-```bash
-npm start
 ```
 
 # Alias paths
