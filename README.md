@@ -210,9 +210,10 @@ Example:
 
 ## .eslintrc.js
 
-`eslint` is also need to resolve alias paths. In order to do so in `TypeScript`
-project, we can use `eslint-import-resolver-alias` and add it to the
-`.eslintrc.js` `setting` section, example:
+`eslint` is not resolving alias paths out of the box, therefore a 3rd parties
+are needed. The best choses I found was
+[`eslint-plugin-import`](https://www.npmjs.com/package/eslint-plugin-import) and
+[`eslint-import-resolver-alias`](eslint-import-resolver-alias). Example:
 
 ```js
 settings: {
