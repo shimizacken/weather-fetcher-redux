@@ -22,8 +22,8 @@ it's main purpose is educational.
     -   [Test](#test)
 -   [Feature Folder Structure](#feature-folder-structure)
 -   [Naming conventions](#naming-conventions)
--   [Usage](#usage)
 -   [Alias paths](#alias-paths)
+-   [Usage](#usage)
 -   [Road map](#road-map)
 
 ## Demo
@@ -77,38 +77,6 @@ it's main purpose is educational.
 | partial scss        | low dash prefix and camelCase | \*.scss | \_variables.scss      |
 | image               | dash-separated                | \*.png  | logo-icon.png         |
 | svg                 | dash-separated                | \*.svg  | logo-icon.svg         |
-
-## Usage
-
-For run the unit-tests of the application, run: and then:
-
-```bash
-npm test
-```
-
-or for running `jest` in watch mode
-
-```bash
-npm run jest-watch
-```
-
-For running `storybook`
-
-```bash
-npm run storybook
-```
-
-For running `cypress.io` in development mode
-
-```bash
-npm run cypress:open
-```
-
-or in CI mode
-
-```bash
-npm run cypress:ci
-```
 
 # Alias paths
 
@@ -205,6 +173,38 @@ settings: {
             },
         },
     },
+```
+
+## Usage
+
+For run the unit-tests of the application, run: and then:
+
+```bash
+npm test
+```
+
+or for running `jest` in watch mode
+
+```bash
+npm run jest-watch
+```
+
+For running `storybook`
+
+```bash
+npm run storybook
+```
+
+For running `cypress.io` in development mode
+
+```bash
+npm run cypress:open
+```
+
+or in CI mode
+
+```bash
+npm run cypress:ci
 ```
 
 ## Road map
