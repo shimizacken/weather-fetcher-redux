@@ -211,13 +211,14 @@ settings: {
 
 -   [ ] Rewrite into `TypeScript`
         ([on progress](https://github.com/shimizacken/weather-fetcher/tree/type-script))
--   [ ] More screens and a router
+-   [ ] More screens/routing
 -   [ ] Translations
 -   [ ] History page
+-   [ ] Forecast
 -   [ ] Open street map view
 -   [ ] Graphs
 -   [ ] Personalization
--   [ ] Location detection
+-   [x] Location detection
 
 ### License
 
