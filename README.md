@@ -3,7 +3,7 @@
 Simple web app for displaying the weather based on a city name. It's a `React`
 based and made usage of [`openweathermap.org`](https://www.openweathermap.org/)
 api. Originally it was written in
-[MobX](https://github.com/shimizacken/weather-fetcher) and rewritten into
+[MobX](https://github.com/shimizacken/weather-fetcher-mobx) and rewritten into
 `Redux`.
 
 This project started as part of interview exam. Later it was expanded and now
