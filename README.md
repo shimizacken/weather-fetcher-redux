@@ -138,9 +138,38 @@ npm start
 
 # Alias paths
 
--   `webpack.config.js`
--   `tsconfig.json`
--   `.eslintrc.js`
+In order to make alias paths works on `TypeScript` project, there's 3 actions
+that should be taken. Those actions is involves with packages installation and
+some configure. It's recommended to do it in the following order:
+
+1.  Configure `webpack.config.js`
+2.  Configure `tsconfig.json`
+3.  Configure `.eslintrc.js`
+
+Each configuration have different meaning and purposes.
+
+### Webpack alias
+
+The webpack alias configuration purpose is resolving the alias path into the
+actual path. So when the application is builded, both in development and
+production modes, the paths are resolved to the actual paths.
+
+Read more about Webpack
+[`resolve.alias`](https://webpack.js.org/configuration/resolve/#resolvealias)
+
+### TypeScript configuration
+
+TypeScript configuration purpose is to make alias paths recognizable and to
+allow autocomplete for the auto import.
+
+Read more about TypeScript's
+[`path-mapping`](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping)
+
+### eslint configuration
+
+eslint configuration purpose is to make alias paths recognizable for the linting
+process. If that not configured, the alias paths still working, but `eslint`
+will show resolve error.
 
 ## Webpack alias
 
