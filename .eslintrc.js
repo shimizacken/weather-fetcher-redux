@@ -48,6 +48,10 @@ module.exports = {
                     ],
                     ['app/features/layout', './src/features/layout'],
                     ['app/features/theme', './src/features/theme'],
+                    [
+                        'app/assets/png/wf-logo.png',
+                        './src/assets/png/wf-logo.png',
+                    ],
                 ],
                 extensions: ['.js', '.jsx', '.ts', '.tsx', '.css', '.scss'],
             },

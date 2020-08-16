@@ -12,6 +12,7 @@
         "jsx": "react",
         "strict": true,
         "incremental": false,
+        "traceResolution": true,
         "baseUrl": ".", // This must be specified if "paths" is. ".", means: the directory of tsconfig.json
         "paths": {
             "app/components/common": ["./src/components/common"], // This mapping is relative to "baseUrl"
