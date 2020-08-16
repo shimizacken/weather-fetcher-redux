@@ -24,7 +24,7 @@
             "app/services/openWeatherMap": ["./src/services/openWeatherMap"]
         }
     },
-    "include": ["./src/**/*"],
+    "include": ["./src/**/*", "./@types/global.d.ts"],
     "exclude": [
         "**/node_modules/*",
         "**/dist/*",
