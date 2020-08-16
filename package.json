@@ -26,7 +26,6 @@
         "url": "https://github.com/shimizacken/weather-fetcher/issues"
     },
     "homepage": "https://github.com/shimizacken/weather-fetcher#readme",
-    "types": "./@types/globals.d.ts",
     "devDependencies": {
         "@babel/cli": "^7.7.5",
         "@babel/core": "^7.7.5",
