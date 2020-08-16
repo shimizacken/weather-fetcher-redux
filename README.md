@@ -224,6 +224,8 @@ npm run cypress:ci
 -   [ ] Graphs
 -   [ ] Personalization
 -   [x] Location detection
+-   [ ] Display images from [Unsplash](https://unsplash.com/) via location
+        hashtag
 
 ### License
 
